@@ -44,19 +44,19 @@ public class OculusSpatializerUserParamsEditor : Editor
         Undo.RecordObject(m_Component, "OculusSpatializerUserParams");
 
         {
-            #if CUSTOM_LAYOUT
+#if CUSTOM_LAYOUT
             m_Component.EnableSpatialization = EditorGUILayout.Toggle("Spatialization Enabled", m_Component.EnableSpatialization);
-            m_Component.EnableRfl  = EditorGUILayout.Toggle("Reflections Enabled", m_Component.EnableRfl);
-            m_Component.Gain  = EditorGUILayout.FloatField("Gain", m_Component.Gain);
+            m_Component.EnableRfl = EditorGUILayout.Toggle("Reflections Enabled", m_Component.EnableRfl);
+            m_Component.Gain = EditorGUILayout.FloatField("Gain", m_Component.Gain);
 
             Separator();
 
-            Label ("OCULUS ATTENUATION");
+            Label("OCULUS ATTENUATION");
             m_Component.UseInvSqr = EditorGUILayout.Toggle("Enabled", m_Component.UseInvSqr);
-            Label ("");
+            Label("");
             Label("RANGE (0.0 - 1000000.0 meters)");
-            m_Component.Near  = EditorGUILayout.FloatField("Minimum", m_Component.Near);
-            m_Component.Far   = EditorGUILayout.FloatField("Maximum", m_Component.Far);
+            m_Component.Near = EditorGUILayout.FloatField("Minimum", m_Component.Near);
+            m_Component.Far = EditorGUILayout.FloatField("Maximum", m_Component.Far);
 
             Label("");
             Label("VOLUMETRIC RADIUS (0.0 - 1000.0 meters)");
@@ -65,13 +65,13 @@ public class OculusSpatializerUserParamsEditor : Editor
             Separator();
 
             Label("REVERB SEND LEVEL (-60.0 - 20.0 decibels)");
-            m_Component.ReverbSend  = EditorGUILayout.FloatField(" ", m_Component.ReverbSend);
+            m_Component.ReverbSend = EditorGUILayout.FloatField(" ", m_Component.ReverbSend);
 
             Separator();
 
-            #else
+#else
             DrawDefaultInspector ();
-            #endif
+#endif
         }
 
         if (GUI.changed)
@@ -93,8 +93,7 @@ public class OculusSpatializerUserParamsEditor : Editor
     // Label
     void Label(string label)
     {
-        EditorGUILayout.LabelField (label);
+        EditorGUILayout.LabelField(label);
     }
 
 }
-

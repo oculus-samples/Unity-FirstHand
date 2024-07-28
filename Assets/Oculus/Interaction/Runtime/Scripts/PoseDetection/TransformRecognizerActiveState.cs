@@ -105,7 +105,7 @@ namespace Oculus.Interaction.PoseDetection
 
         private void InitStateProvider()
         {
-            foreach(var featureConfig in FeatureConfigs)
+            foreach (var featureConfig in FeatureConfigs)
             {
                 FeatureStateProvider.GetCurrentState(_transformConfig, featureConfig.Feature, out _);
             }
@@ -126,7 +126,7 @@ namespace Oculus.Interaction.PoseDetection
                 {
                     return false;
                 }
-                foreach(var featureConfig in FeatureConfigs)
+                foreach (var featureConfig in FeatureConfigs)
                 {
                     if (!FeatureStateProvider.IsStateActive(
                         _transformConfig,

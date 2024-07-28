@@ -58,10 +58,10 @@ public class LocomotionController : MonoBehaviour
         */
         //if (PlayerController == null)
         //{
-            //PlayerController = GetComponentInParent<OVRPlayerController>();
+        //PlayerController = GetComponentInParent<OVRPlayerController>();
         //}
         //Assert.IsNotNull(PlayerController);
-        if(CameraRig == null)
+        if (CameraRig == null)
         {
             CameraRig = FindObjectOfType<OVRCameraRig>();
         }

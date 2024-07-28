@@ -69,12 +69,12 @@ namespace Oculus.Platform.Samples.VrBoardGame
             {
                 for (int y = 0; y < LENGTH_Y; y++)
                 {
-                    if (m_pieces[x,y].piece != null)
+                    if (m_pieces[x, y].piece != null)
                     {
-                        Destroy(m_pieces[x,y].piece);
-                        m_pieces[x,y].piece = null;
-                        m_pieces[x,y].pieceOwner = -1;
-                        m_pieces[x,y].powerPieceOwner = -1;
+                        Destroy(m_pieces[x, y].piece);
+                        m_pieces[x, y].piece = null;
+                        m_pieces[x, y].pieceOwner = -1;
+                        m_pieces[x, y].powerPieceOwner = -1;
                     }
                 }
             }
@@ -89,7 +89,7 @@ namespace Oculus.Platform.Samples.VrBoardGame
             {
                 for (int y = 0; y < LENGTH_Y; y++)
                 {
-                    if (m_pieces[x,y].piece == null)
+                    if (m_pieces[x, y].piece == null)
                     {
                         return false;
                     }
@@ -100,12 +100,12 @@ namespace Oculus.Platform.Samples.VrBoardGame
 
         public bool CanPlayerMoveToPostion(int x, int y)
         {
-            return m_pieces[x,y].piece == null;
+            return m_pieces[x, y].piece == null;
         }
 
         public bool CanPlayerPowerUpPosition(int x, int y)
         {
-            return m_pieces[x,y].piece != null;
+            return m_pieces[x, y].piece != null;
         }
 
         #endregion
@@ -117,9 +117,9 @@ namespace Oculus.Platform.Samples.VrBoardGame
             var pos = m_positions[x * LENGTH_Y + y];
             var piece = Create(prefab, pos.gameObject, pos, Vector3.zero);
             piece.GetComponent<Renderer>().material.color = m_playerColors[player];
-            m_pieces[x,y].piece = piece.gameObject;
-            m_pieces[x,y].pieceOwner = player;
-            m_pieces[x,y].powerPieceOwner = -1;
+            m_pieces[x, y].piece = piece.gameObject;
+            m_pieces[x, y].pieceOwner = player;
+            m_pieces[x, y].powerPieceOwner = -1;
 
             UpdateScores();
         }
@@ -133,16 +133,16 @@ namespace Oculus.Platform.Samples.VrBoardGame
 
         public void AddPowerPiece(int player, GameObject prefab, int x, int y)
         {
-            var piece = Create(prefab, m_pieces[x,y].piece, m_positions[x*LENGTH_Y+y], .2f*Vector3.up);
+            var piece = Create(prefab, m_pieces[x, y].piece, m_positions[x * LENGTH_Y + y], .2f * Vector3.up);
             piece.GetComponent<Renderer>().material.color = m_playerColors[player];
-            m_pieces[x,y].powerPieceOwner = player;
+            m_pieces[x, y].powerPieceOwner = player;
 
             UpdateScores();
         }
 
         public GamePiece AddProposedPowerPiece(GameObject prefab, BoardPosition pos)
         {
-            var piece = Create(prefab, m_pieces[pos.x, pos.y].piece, pos, .2f*Vector3.up);
+            var piece = Create(prefab, m_pieces[pos.x, pos.y].piece, pos, .2f * Vector3.up);
             piece.GetComponent<Renderer>().material.color = m_proposedMoveColor;
             return piece;
         }
@@ -175,23 +175,23 @@ namespace Oculus.Platform.Samples.VrBoardGame
             {
                 for (int y = 0; y < LENGTH_Y; y++)
                 {
-                    if (m_pieces[x,y].piece != null)
+                    if (m_pieces[x, y].piece != null)
                     {
                         // for each piece on the board, the player gets 10 points
-                        m_scores[m_pieces[x,y].pieceOwner] += 10;
+                        m_scores[m_pieces[x, y].pieceOwner] += 10;
 
                         // for each power piece, the player gains or loses 10 points
                         // based on the ownership of nearby pieces
-                        if (m_pieces[x,y].powerPieceOwner >= 0)
+                        if (m_pieces[x, y].powerPieceOwner >= 0)
                         {
-                            for (int px = x-1; px <= x+1; px++)
+                            for (int px = x - 1; px <= x + 1; px++)
                             {
-                                for (int py = y-1; py <= y+1; py++)
+                                for (int py = y - 1; py <= y + 1; py++)
                                 {
                                     if (px >= 0 && py >= 0 && px < LENGTH_X && py < LENGTH_Y)
                                     {
                                         var powerup =
-                                            m_pieces[x,y].pieceOwner == m_pieces[x,y].powerPieceOwner ?
+                                            m_pieces[x, y].pieceOwner == m_pieces[x, y].powerPieceOwner ?
                                             +10 : -10;
                                         m_scores[m_pieces[x, y].powerPieceOwner] += powerup;
                                     }

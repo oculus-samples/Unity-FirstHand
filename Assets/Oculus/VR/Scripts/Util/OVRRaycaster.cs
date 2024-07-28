@@ -75,7 +75,7 @@ public class OVRRaycaster : GraphicRaycaster, IPointerEnterHandler
 
     protected override void Start()
     {
-        if(!canvas.worldCamera)
+        if (!canvas.worldCamera)
         {
             Debug.Log("Canvas does not have an event camera attached. Attaching OVRCameraRig.centerEyeAnchor as default.");
             OVRCameraRig rig = FindObjectOfType<OVRCameraRig>();
@@ -322,7 +322,7 @@ public class OVRRaycaster : GraphicRaycaster, IPointerEnterHandler
         {
             // Gaze has entered this canvas. We'll make it the active one so that canvas-mouse pointer can be used.
             OVRInputModule inputModule = EventSystem.current.currentInputModule as OVRInputModule;
-            if(inputModule != null)
+            if (inputModule != null)
             {
                 inputModule.activeGraphicRaycaster = this;
             }

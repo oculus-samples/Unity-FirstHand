@@ -111,7 +111,7 @@ public class FurnitureSpawner : MonoBehaviour
 
         foreach (var spawnable in SpawnablePrefabs)
         {
-            if(_classification.Contains(spawnable.ClassificationLabel))
+            if (_classification.Contains(spawnable.ClassificationLabel))
             {
                 currentSpawnable = spawnable;
                 return true;

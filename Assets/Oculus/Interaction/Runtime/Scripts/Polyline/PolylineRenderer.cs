@@ -100,7 +100,7 @@ namespace Oculus.Interaction
             _material.SetBuffer(_positionBufferShaderID, _positionBuffer);
             _material.SetBuffer(_colorBufferShaderID, _colorBuffer);
 
-            _argsData = new uint[5] {0, 0, 0, 0, 0};
+            _argsData = new uint[5] { 0, 0, 0, 0, 0 };
             _argsData[0] = (uint)_baseMesh.GetIndexCount(0);
             _argsData[1] = (uint)(_maxLineCount * Copies);
 
@@ -210,7 +210,7 @@ namespace Oculus.Interaction
                     for (int k = 0; k < Copies; k++)
                     {
                         Vector4 color = colors[i + j];
-                        _colors[(i + k)*Copies + j] = color;
+                        _colors[(i + k) * Copies + j] = color;
                     }
                 }
             }

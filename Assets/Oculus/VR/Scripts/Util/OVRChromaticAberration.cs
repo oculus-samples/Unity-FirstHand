@@ -28,11 +28,11 @@ public class OVRChromaticAberration : MonoBehaviour
     /// <summary>
     /// The button that will toggle chromatic aberration correction.
     /// </summary>
-    public OVRInput.RawButton           toggleButton = OVRInput.RawButton.X;
+    public OVRInput.RawButton toggleButton = OVRInput.RawButton.X;
 
-    private bool                                chromatic = false;
+    private bool chromatic = false;
 
-    void Start ()
+    void Start()
     {
         // Enable/Disable Chromatic Aberration Correction.
         // NOTE: Enabling Chromatic Aberration for mobile has a large performance cost.

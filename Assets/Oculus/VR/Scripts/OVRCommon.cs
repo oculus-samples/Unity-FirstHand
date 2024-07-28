@@ -536,7 +536,8 @@ public struct OVRPose
     /// </summary>
     public static OVRPose identity
     {
-        get {
+        get
+        {
             return new OVRPose()
             {
                 position = Vector3.zero,
@@ -578,7 +579,7 @@ public struct OVRPose
     /// <summary>
     /// Multiplies two poses.
     /// </summary>
-    public static OVRPose operator*(OVRPose lhs, OVRPose rhs)
+    public static OVRPose operator *(OVRPose lhs, OVRPose rhs)
     {
         var ret = new OVRPose();
         ret.position = lhs.position + lhs.orientation * rhs.position;

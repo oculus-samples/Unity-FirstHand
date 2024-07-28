@@ -251,7 +251,7 @@ namespace Oculus.Platform.Samples.VrBoardGame
             }
 
             int numUsers = (msg.Data.UsersOptional != null) ? msg.Data.UsersOptional.Count : 0;
-            Debug.Log ("Match room joined: " + m_matchRoom + " count: " + numUsers);
+            Debug.Log("Match room joined: " + m_matchRoom + " count: " + numUsers);
 
             TransitionToState(MatchRoomState.Configuring);
 
@@ -361,8 +361,8 @@ namespace Oculus.Platform.Samples.VrBoardGame
             int y = Int32.Parse(tokens[2]);
 
             // swap the coordinates since each player assumes they are player 0
-            x = GameBoard.LENGTH_X-1 - x;
-            y = GameBoard.LENGTH_Y-1 - y;
+            x = GameBoard.LENGTH_X - 1 - x;
+            y = GameBoard.LENGTH_Y - 1 - y;
 
             m_gameController.MakeRemoteMove(piece, x, y);
         }

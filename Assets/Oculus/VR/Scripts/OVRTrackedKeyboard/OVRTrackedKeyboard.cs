@@ -205,10 +205,11 @@ public class OVRTrackedKeyboard : MonoBehaviour
         }
         set
         {
-            if(value == true)
+            if (value == true)
             {
                 KeyboardQueryFlags = OVRPlugin.TrackedKeyboardQueryFlags.Remote;
-            } else
+            }
+            else
             {
                 KeyboardQueryFlags = OVRPlugin.TrackedKeyboardQueryFlags.Local;
             }
@@ -231,7 +232,7 @@ public class OVRTrackedKeyboard : MonoBehaviour
         }
     }
 
-#region User settings
+    #region User settings
     // These properties can be modified by the user of the prefab
     [Header("Settings")]
     [SerializeField]
@@ -273,7 +274,7 @@ public class OVRTrackedKeyboard : MonoBehaviour
     /// </summary>
     [Tooltip("The shader used for rendering transparent parts of the keyboard model")]
     public Shader keyboardModelAlphaBlendShader;
-#endregion
+    #endregion
 
     private OVRPlugin.TrackedKeyboardPresentationStyles currentKeyboardPresentationStyles = 0;
     private OVROverlay projectedPassthroughOpaque_;
@@ -297,10 +298,10 @@ public class OVRTrackedKeyboard : MonoBehaviour
     /// </summary>
     public Shader PassthroughShader;
 
-#region MR Service Setup
+    #region MR Service Setup
     [SerializeField] private Transform projectedPassthroughRoot;
     [SerializeField] private MeshFilter projectedPassthroughMesh;
-#endregion
+    #endregion
 
     /// <summary>
     /// Internal only. The passthrough layer used to render the passthrough rectangle in key label mode.
@@ -312,7 +313,7 @@ public class OVRTrackedKeyboard : MonoBehaviour
     public OVROverlay PassthroughOverlay
     {
         get { return projectedPassthroughOpaque_; }
-        private set {}
+        private set { }
     }
 
     /// <summary>
@@ -408,7 +409,7 @@ public class OVRTrackedKeyboard : MonoBehaviour
         ProjectedPassthroughKeyLabel.AddSurfaceGeometry(projectedPassthroughMesh.gameObject, true);
     }
 
-#region Public API
+    #region Public API
 
     /// <summary>
     /// Returns the distance from the given point to the keyboard
@@ -452,9 +453,9 @@ public class OVRTrackedKeyboard : MonoBehaviour
         LaunchOverlayIntent("systemux://dialog/set-remote-physical-tracked-keyboard");
     }
 
-#endregion
+    #endregion
 
-#region Private Helpers
+    #region Private Helpers
     private bool KeyboardTrackerIsRunning()
     {
         return (TrackingState != TrackedKeyboardState.NoTrackableKeyboard
@@ -463,69 +464,73 @@ public class OVRTrackedKeyboard : MonoBehaviour
 
     private IEnumerator UpdateTrackingStateCoroutine()
     {
-        for (;;)
+        for (; ; )
         {
             // On Link this is called before initialization.
             //We don't want this on our normal flow because it breaks our tests.
 #if !UNITY_ANDROID && !UNITY_EDITOR
-            if(OVRPlugin.initialized) {
-#endif
-            OVRKeyboard.TrackedKeyboardInfo keyboardInfo;
-            if (OVRKeyboard.GetSystemKeyboardInfo(KeyboardQueryFlags, out keyboardInfo))
+            if (OVRPlugin.initialized)
             {
-                bool systemKeyboardSwitched = false;
-                if (SystemKeyboardInfo.Identifier != keyboardInfo.Identifier || SystemKeyboardInfo.KeyboardFlags != keyboardInfo.KeyboardFlags)
+#endif
+                OVRKeyboard.TrackedKeyboardInfo keyboardInfo;
+                if (OVRKeyboard.GetSystemKeyboardInfo(KeyboardQueryFlags, out keyboardInfo))
                 {
-                    Debug.Log(String.Format("New System keyboard info: [{0}] {1} (Flags {2}) ({3} {4})",
-                        keyboardInfo.Identifier, keyboardInfo.Name,
-                        keyboardInfo.KeyboardFlags,
-                        (keyboardInfo.SupportedPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) != 0 ? "Supports Opaque" : "",
-                        (keyboardInfo.SupportedPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) != 0 ? "Supports Key Label" : ""));
-                    if (TrackingState == TrackedKeyboardState.NoTrackableKeyboard){
-                        SetKeyboardState(TrackedKeyboardState.Offline);
-                    }
-                    SystemKeyboardInfo = keyboardInfo;
-                    systemKeyboardSwitched = true;
-                }
-
-                bool keyboardExists = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Exists) != 0;
-                if ((keyboardExists && trackingEnabled) || showUntracked)
-                {
-                    bool localKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Local) != 0;
-                    bool remoteKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Remote) != 0;
-                    bool connectedKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Connected) != 0;
-                    bool shouldBeRunning = remoteKeyboard || (localKeyboard && (!connectionRequired || connectedKeyboard)) || showUntracked;
-
-                    if(KeyboardTrackerIsRunning() && (systemKeyboardSwitched || !shouldBeRunning))
+                    bool systemKeyboardSwitched = false;
+                    if (SystemKeyboardInfo.Identifier != keyboardInfo.Identifier || SystemKeyboardInfo.KeyboardFlags != keyboardInfo.KeyboardFlags)
                     {
-                        StopKeyboardTrackingInternal();
+                        Debug.Log(String.Format("New System keyboard info: [{0}] {1} (Flags {2}) ({3} {4})",
+                            keyboardInfo.Identifier, keyboardInfo.Name,
+                            keyboardInfo.KeyboardFlags,
+                            (keyboardInfo.SupportedPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) != 0 ? "Supports Opaque" : "",
+                            (keyboardInfo.SupportedPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) != 0 ? "Supports Key Label" : ""));
+                        if (TrackingState == TrackedKeyboardState.NoTrackableKeyboard)
+                        {
+                            SetKeyboardState(TrackedKeyboardState.Offline);
+                        }
+                        SystemKeyboardInfo = keyboardInfo;
+                        systemKeyboardSwitched = true;
                     }
 
-                    if(!KeyboardTrackerIsRunning() && shouldBeRunning)
+                    bool keyboardExists = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Exists) != 0;
+                    if ((keyboardExists && trackingEnabled) || showUntracked)
                     {
-                        yield return StartKeyboardTrackingCoroutine();
+                        bool localKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Local) != 0;
+                        bool remoteKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Remote) != 0;
+                        bool connectedKeyboard = (keyboardInfo.KeyboardFlags & OVRPlugin.TrackedKeyboardFlags.Connected) != 0;
+                        bool shouldBeRunning = remoteKeyboard || (localKeyboard && (!connectionRequired || connectedKeyboard)) || showUntracked;
+
+                        if (KeyboardTrackerIsRunning() && (systemKeyboardSwitched || !shouldBeRunning))
+                        {
+                            StopKeyboardTrackingInternal();
+                        }
+
+                        if (!KeyboardTrackerIsRunning() && shouldBeRunning)
+                        {
+                            yield return StartKeyboardTrackingCoroutine();
+                        }
+                    }
+                    else
+                    {
+                        if (KeyboardTrackerIsRunning())
+                        {
+                            StopKeyboardTrackingInternal();
+                        }
+
+                        if (!keyboardExists)
+                        {
+                            SetKeyboardState(TrackedKeyboardState.NoTrackableKeyboard);
+                        }
                     }
                 }
                 else
                 {
-                    if (KeyboardTrackerIsRunning()){
+                    if (KeyboardTrackerIsRunning())
+                    {
                         StopKeyboardTrackingInternal();
                     }
-
-                    if (!keyboardExists)
-                    {
-                        SetKeyboardState(TrackedKeyboardState.NoTrackableKeyboard);
-                    }
+                    SetKeyboardState(TrackedKeyboardState.ErrorExtensionFailed);
                 }
-            }
-            else
-            {
-                if (KeyboardTrackerIsRunning()){
-                    StopKeyboardTrackingInternal();
-                }
-                SetKeyboardState(TrackedKeyboardState.ErrorExtensionFailed);
-            }
-            SystemKeyboardInfo = keyboardInfo;
+                SystemKeyboardInfo = keyboardInfo;
 #if !UNITY_ANDROID && !UNITY_EDITOR
             }
 #endif
@@ -711,7 +716,8 @@ public class OVRTrackedKeyboard : MonoBehaviour
     {
         Debug.Log("LoadKeyboardMesh");
         activeKeyboardMesh_ = LoadRuntimeKeyboardMesh();
-        if(activeKeyboardMesh_ == null) {
+        if (activeKeyboardMesh_ == null)
+        {
             Debug.LogError("Failed to load keyboard mesh.");
             SetKeyboardState(TrackedKeyboardState.Error);
             return;
@@ -771,37 +777,47 @@ public class OVRTrackedKeyboard : MonoBehaviour
     void UpdatePresentation(bool isVisible)
     {
         KeyboardPresentation presentationToUse = Presentation;
-        if(currentKeyboardPresentationStyles != 0) {
-            if (Presentation == KeyboardPresentation.PreferOpaque && (currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) == 0) {
-                if((currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) != 0) {
+        if (currentKeyboardPresentationStyles != 0)
+        {
+            if (Presentation == KeyboardPresentation.PreferOpaque && (currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) == 0)
+            {
+                if ((currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) != 0)
+                {
                     presentationToUse = KeyboardPresentation.PreferKeyLabels;
                 }
             }
-            else if (Presentation == KeyboardPresentation.PreferKeyLabels && (currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) == 0) {
-                if((currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) != 0) {
+            else if (Presentation == KeyboardPresentation.PreferKeyLabels && (currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.KeyLabel) == 0)
+            {
+                if ((currentKeyboardPresentationStyles & OVRPlugin.TrackedKeyboardPresentationStyles.Opaque) != 0)
+                {
                     presentationToUse = KeyboardPresentation.PreferOpaque;
                 }
             }
         }
 
-        if (!isVisible) {
+        if (!isVisible)
+        {
             projectedPassthroughOpaque_.hidden = true;
             ProjectedPassthroughKeyLabel.hidden = true;
-        } else if (presentationToUse == KeyboardPresentation.PreferOpaque) {
+        }
+        else if (presentationToUse == KeyboardPresentation.PreferOpaque)
+        {
             activeKeyboardMeshRenderer_.material.shader = opaqueShader_;
             passthroughQuad_.SetActive(false);
             projectedPassthroughOpaque_.hidden = !GetKeyboardVisibility() || !HandsOverKeyboard;
             ProjectedPassthroughKeyLabel.hidden = true;
-            for (int i=1; i < keyboardMeshNodes_.Length; i++)
+            for (int i = 1; i < keyboardMeshNodes_.Length; i++)
             {
                 keyboardMeshNodes_[i].SetActive(true);
             }
-        } else {
+        }
+        else
+        {
             activeKeyboardMeshRenderer_.material.shader = KeyLabelModeShader;
             passthroughQuad_.SetActive(true);
             projectedPassthroughOpaque_.hidden = true;
             ProjectedPassthroughKeyLabel.hidden = false; // Always shown
-            for (int i=1; i < keyboardMeshNodes_.Length; i++)
+            for (int i = 1; i < keyboardMeshNodes_.Length; i++)
             {
                 keyboardMeshNodes_[i].SetActive(false);
             }
@@ -878,7 +894,8 @@ public class OVRTrackedKeyboard : MonoBehaviour
                     staleTimeoutCounter_ += Time.deltaTime;
                     timedOut = staleTimeoutCounter_ - STALE_TIMEOUT > 0f;
 
-                    if (timedOut) {
+                    if (timedOut)
+                    {
                         reacquisitionTimer_ += Time.deltaTime;
                         EWAPosition = null;
                         EWARotation = null;
@@ -960,7 +977,7 @@ public class OVRTrackedKeyboard : MonoBehaviour
         // Broadcast instead of starting activity, so that it goes to overlay
         currentActivity.Call("sendBroadcast", intent);
     }
-#endregion
+    #endregion
 
     /// <summary>
     /// Stops keyboard tracking and cleans up associated resources.

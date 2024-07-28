@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 
 public class ONSPVersion : MonoBehaviour
 {
-       // Import functions
+    // Import functions
     public const string strONSPS = "AudioPluginOculusSpatializer";
 
     [DllImport(strONSPS)]

@@ -116,7 +116,7 @@ public class OVRADBTool
         List<string> deviceList = new List<string>(devices);
         deviceList.RemoveAt(0);
 
-        for(int i = 0; i < deviceList.Count; i++)
+        for (int i = 0; i < deviceList.Count; i++)
         {
             string deviceName = deviceList[i];
             int index = deviceName.IndexOf('\t');

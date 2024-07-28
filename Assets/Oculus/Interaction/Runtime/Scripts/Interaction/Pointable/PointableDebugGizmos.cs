@@ -109,7 +109,7 @@ namespace Oculus.Interaction
             {
                 case PointerEvent.Hover:
                     _points.Add(args.Identifier,
-                        new PointData() {Pose = args.Pose, Selecting = false});
+                        new PointData() { Pose = args.Pose, Selecting = false });
                     break;
                 case PointerEvent.Select:
                     _points[args.Identifier].Selecting = true;

@@ -34,17 +34,18 @@ class OVRScreenshotWizard : ScriptableWizard
         PNG,    // 5.3mb
     }
 
-    public enum SaveMode {
+    public enum SaveMode
+    {
         SaveCubemapScreenshot,
         SaveUnityCubemap,
         SaveBoth,
     }
 
-    public GameObject       renderFrom = null;
-    public int              size = 2048;
-    public SaveMode         saveMode = SaveMode.SaveUnityCubemap;
-    public string           cubeMapFolder = "Assets/Textures/Cubemaps";
-    public TexFormat        textureFormat = TexFormat.PNG;
+    public GameObject renderFrom = null;
+    public int size = 2048;
+    public SaveMode saveMode = SaveMode.SaveUnityCubemap;
+    public string cubeMapFolder = "Assets/Textures/Cubemaps";
+    public TexFormat textureFormat = TexFormat.PNG;
 
     /// <summary>
     /// Validates the user's input
@@ -59,17 +60,17 @@ class OVRScreenshotWizard : ScriptableWizard
     /// Create the asset path if it is not available.
     /// Assuming the newFolderPath is stated with "Assets", which is a requirement.
     /// </summary>
-    static bool CreateAssetPath( string newFolderPath )
+    static bool CreateAssetPath(string newFolderPath)
     {
-        const  int maxFoldersCount = 32;
+        const int maxFoldersCount = 32;
         string currentPath;
         string[] pathFolders;
 
-        pathFolders = newFolderPath.Split (new char[]{ '/' }, maxFoldersCount);
+        pathFolders = newFolderPath.Split(new char[] { '/' }, maxFoldersCount);
 
-        if (!string.Equals ("Assets", pathFolders [0], System.StringComparison.OrdinalIgnoreCase))
+        if (!string.Equals("Assets", pathFolders[0], System.StringComparison.OrdinalIgnoreCase))
         {
-            Debug.LogError( "Folder path has to be started with \" Assets \" " );
+            Debug.LogError("Folder path has to be started with \" Assets \" ");
             return false;
         }
 
@@ -85,7 +86,7 @@ class OVRScreenshotWizard : ScriptableWizard
             }
         }
 
-        Debug.Log( "Created path: " + currentPath );
+        Debug.Log("Created path: " + currentPath);
         return true;
     }
 
@@ -94,11 +95,11 @@ class OVRScreenshotWizard : ScriptableWizard
     /// </summary>
     void OnWizardCreate()
     {
-        if ( !AssetDatabase.IsValidFolder( cubeMapFolder ) )
+        if (!AssetDatabase.IsValidFolder(cubeMapFolder))
         {
             if (!CreateAssetPath(cubeMapFolder))
             {
-                Debug.LogError( "Created path failed: " + cubeMapFolder );
+                Debug.LogError("Created path failed: " + cubeMapFolder);
                 return;
             }
         }
@@ -118,13 +119,13 @@ class OVRScreenshotWizard : ScriptableWizard
             camera.enabled = true;
         }
         // find the last screenshot saved
-        if (cubeMapFolder[cubeMapFolder.Length-1] != '/')
+        if (cubeMapFolder[cubeMapFolder.Length - 1] != '/')
         {
             cubeMapFolder += "/";
         }
         int idx = 0;
         string[] fileNames = Directory.GetFiles(cubeMapFolder);
-        foreach(string fileName in fileNames)
+        foreach (string fileName in fileNames)
         {
             if (!fileName.ToLower().EndsWith(".cubemap"))
             {
@@ -133,7 +134,7 @@ class OVRScreenshotWizard : ScriptableWizard
             string temp = fileName.Replace(cubeMapFolder + "vr_screenshot_", string.Empty);
             temp = temp.Replace(".cubemap", string.Empty);
             int tempIdx = 0;
-            if (int.TryParse( temp, out tempIdx ))
+            if (int.TryParse(temp, out tempIdx))
             {
                 if (tempIdx > idx)
                 {
@@ -158,20 +159,20 @@ class OVRScreenshotWizard : ScriptableWizard
                 DestroyImmediate(camera);
             }
             // generate a regular texture as well?
-            if ( ( saveMode == SaveMode.SaveCubemapScreenshot ) || ( saveMode == SaveMode.SaveBoth ) )
+            if ((saveMode == SaveMode.SaveCubemapScreenshot) || (saveMode == SaveMode.SaveBoth))
             {
                 GenerateTexture(cubemap, pathName);
             }
 
-            if ( ( saveMode == SaveMode.SaveUnityCubemap ) || ( saveMode == SaveMode.SaveBoth ) )
+            if ((saveMode == SaveMode.SaveUnityCubemap) || (saveMode == SaveMode.SaveBoth))
             {
-                Debug.Log( "Saving: " + pathName );
+                Debug.Log("Saving: " + pathName);
                 // by default the unity cubemap isn't saved
-                AssetDatabase.CreateAsset( cubemap, pathName );
+                AssetDatabase.CreateAsset(cubemap, pathName);
                 // reimport as necessary
                 AssetDatabase.SaveAssets();
                 // select it in the project tree so developers can find it
-                EditorGUIUtility.PingObject( cubemap );
+                EditorGUIUtility.PingObject(cubemap);
                 Selection.activeObject = cubemap;
             }
             AssetDatabase.Refresh();
@@ -184,13 +185,13 @@ class OVRScreenshotWizard : ScriptableWizard
     void GenerateTexture(Cubemap cubemap, string pathName)
     {
         // Encode the texture and save it to disk
-        pathName = pathName.Replace(".cubemap", (textureFormat == TexFormat.PNG) ? ".png" : ".jpg" ).ToLower();
-        pathName = pathName.Replace( cubeMapFolder.ToLower(), "" );
+        pathName = pathName.Replace(".cubemap", (textureFormat == TexFormat.PNG) ? ".png" : ".jpg").ToLower();
+        pathName = pathName.Replace(cubeMapFolder.ToLower(), "");
         string format = textureFormat.ToString();
-        string fullPath = EditorUtility.SaveFilePanel( string.Format( "Save Cubemap Screenshot as {0}", format ), "", pathName, format.ToLower() );
-        if ( !string.IsNullOrEmpty( fullPath ) )
+        string fullPath = EditorUtility.SaveFilePanel(string.Format("Save Cubemap Screenshot as {0}", format), "", pathName, format.ToLower());
+        if (!string.IsNullOrEmpty(fullPath))
         {
-            Debug.Log( "Saving: " + fullPath );
+            Debug.Log("Saving: " + fullPath);
             OVRCubemapCapture.SaveCubemapCapture(cubemap, fullPath);
         }
     }
@@ -205,9 +206,9 @@ class OVRScreenshotWizard : ScriptableWizard
         if (wizard != null)
         {
             if (Selection.activeGameObject != null)
-            wizard.renderFrom = Selection.activeGameObject;
+                wizard.renderFrom = Selection.activeGameObject;
             else
-            wizard.renderFrom = Camera.main.gameObject;
+                wizard.renderFrom = Camera.main.gameObject;
 
             wizard.isValid = (wizard.renderFrom != null);
         }

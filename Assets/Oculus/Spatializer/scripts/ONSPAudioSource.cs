@@ -51,7 +51,7 @@ public class ONSPAudioSource : MonoBehaviour
 
     [SerializeField]
     private bool enableSpatialization = true;
-    public  bool EnableSpatialization
+    public bool EnableSpatialization
     {
         get
         {
@@ -65,7 +65,7 @@ public class ONSPAudioSource : MonoBehaviour
 
     [SerializeField]
     private float gain = 0.0f;
-    public  float Gain
+    public float Gain
     {
         get
         {
@@ -79,7 +79,7 @@ public class ONSPAudioSource : MonoBehaviour
 
     [SerializeField]
     private bool useInvSqr = false;
-    public  bool UseInvSqr
+    public bool UseInvSqr
     {
         get
         {
@@ -150,7 +150,7 @@ public class ONSPAudioSource : MonoBehaviour
 
     [SerializeField]
     private bool enableRfl = false;
-    public  bool EnableRfl
+    public bool EnableRfl
     {
         get
         {
@@ -241,7 +241,7 @@ public class ONSPAudioSource : MonoBehaviour
 
         source.SetSpatializerFloat((int)Parameters.P_GAIN, gain);
         // All inputs are floats; convert bool to 0.0 and 1.0
-        if(useInvSqr == true)
+        if (useInvSqr == true)
             source.SetSpatializerFloat((int)Parameters.P_USEINVSQR, 1.0f);
         else
             source.SetSpatializerFloat((int)Parameters.P_USEINVSQR, 0.0f);
@@ -251,7 +251,7 @@ public class ONSPAudioSource : MonoBehaviour
 
         source.SetSpatializerFloat((int)Parameters.P_RADIUS, volumetricRadius);
 
-        if(enableRfl == true)
+        if (enableRfl == true)
             source.SetSpatializerFloat((int)Parameters.P_DISABLE_RFL, 0.0f);
         else
             source.SetSpatializerFloat((int)Parameters.P_DISABLE_RFL, 1.0f);
@@ -268,7 +268,7 @@ public class ONSPAudioSource : MonoBehaviour
     {
         // Are we the first one created? make sure to set our static ONSPAudioSource
         // for drawing out room parameters once
-        if(RoomReflectionGizmoAS == null)
+        if (RoomReflectionGizmoAS == null)
         {
             RoomReflectionGizmoAS = this;
         }
@@ -315,20 +315,20 @@ public class ONSPAudioSource : MonoBehaviour
         if (RoomReflectionGizmoAS == this)
         {
             // Get global room parameters (write new C api to get reflection values)
-            bool reflOn    = false;
-            bool reverbOn  = false;
-            float width    = 1.0f;
-            float height   = 1.0f;
-            float length   = 1.0f;
+            bool reflOn = false;
+            bool reverbOn = false;
+            float width = 1.0f;
+            float height = 1.0f;
+            float length = 1.0f;
 
             ONSP_GetGlobalRoomReflectionValues(ref reflOn, ref reverbOn, ref width, ref height, ref length);
 
             // TO DO: Get the room reflection values and render those out as well (like we do in the VST)
 
-            if((Camera.main != null) && (reflOn == true))
+            if ((Camera.main != null) && (reflOn == true))
             {
                 // Set color of cube (cyan is early reflections only, white is with reverb on)
-                if(reverbOn == true)
+                if (reverbOn == true)
                     c = Color.white;
                 else
                     c = Color.cyan;
@@ -351,7 +351,7 @@ public class ONSPAudioSource : MonoBehaviour
         // of the room reflection gizmo since we are being destroyed.
         // Any ONSPAS that is alive or born will re-set this pointer
         // so that we only draw it once
-        if(RoomReflectionGizmoAS == this)
+        if (RoomReflectionGizmoAS == this)
         {
             RoomReflectionGizmoAS = null;
         }

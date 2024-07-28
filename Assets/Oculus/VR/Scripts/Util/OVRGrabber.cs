@@ -106,13 +106,13 @@ public class OVRGrabber : MonoBehaviour
         m_anchorOffsetPosition = transform.localPosition;
         m_anchorOffsetRotation = transform.localRotation;
 
-        if(!m_moveHandPosition)
+        if (!m_moveHandPosition)
         {
             // If we are being used with an OVRCameraRig, let it drive input updates, which may come from Update or FixedUpdate.
             OVRCameraRig rig = transform.GetComponentInParent<OVRCameraRig>();
             if (rig != null)
             {
-                rig.UpdatedAnchors += (r) => {OnUpdatedAnchors();};
+                rig.UpdatedAnchors += (r) => { OnUpdatedAnchors(); };
                 m_operatingWithoutOVRCameraRig = false;
             }
         }
@@ -122,7 +122,7 @@ public class OVRGrabber : MonoBehaviour
     {
         m_lastPos = transform.position;
         m_lastRot = transform.rotation;
-        if(m_parentTransform == null)
+        if (m_parentTransform == null)
         {
             m_parentTransform = gameObject.transform;
         }
@@ -278,10 +278,10 @@ public class OVRGrabber : MonoBehaviour
             m_lastRot = transform.rotation;
 
             // Set up offsets for grabbed object desired position relative to hand.
-            if(m_grabbedObj.snapPosition)
+            if (m_grabbedObj.snapPosition)
             {
                 m_grabbedObjectPosOff = m_gripTransform.localPosition;
-                if(m_grabbedObj.snapOffset)
+                if (m_grabbedObj.snapOffset)
                 {
                     Vector3 snapOffset = m_grabbedObj.snapOffset.position;
                     if (m_controller == OVRInput.Controller.LTouch) snapOffset.x = -snapOffset.x;
@@ -298,7 +298,7 @@ public class OVRGrabber : MonoBehaviour
             if (m_grabbedObj.snapOrientation)
             {
                 m_grabbedObjectRotOff = m_gripTransform.localRotation;
-                if(m_grabbedObj.snapOffset)
+                if (m_grabbedObj.snapOffset)
                 {
                     m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
                 }
@@ -370,7 +370,7 @@ public class OVRGrabber : MonoBehaviour
     protected void GrabbableRelease(Vector3 linearVelocity, Vector3 angularVelocity)
     {
         m_grabbedObj.GrabEnd(linearVelocity, angularVelocity);
-        if(m_parentHeldObject) m_grabbedObj.transform.parent = null;
+        if (m_parentHeldObject) m_grabbedObj.transform.parent = null;
         m_grabbedObj = null;
     }
 
@@ -412,11 +412,10 @@ public class OVRGrabber : MonoBehaviour
                 Collider[] colliders = grabbable.GetComponentsInChildren<Collider>();
                 foreach (Collider c in colliders)
                 {
-                    if(!c.isTrigger && !pc.isTrigger)
+                    if (!c.isTrigger && !pc.isTrigger)
                         Physics.IgnoreCollision(c, pc, ignore);
                 }
             }
         }
     }
 }
-

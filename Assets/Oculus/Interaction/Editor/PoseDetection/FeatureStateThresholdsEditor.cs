@@ -30,7 +30,7 @@ namespace Oculus.Interaction.PoseDetection.Editor
     public abstract class FeatureStateThresholdsEditor<TFeature> : UnityEditor.Editor
         where TFeature : unmanaged, Enum
     {
-#region static helpers
+        #region static helpers
         public static readonly TFeature[] FeatureEnumValues = (TFeature[])Enum.GetValues(typeof(TFeature));
         public static TFeature IntToFeature(int value)
         {
@@ -50,9 +50,9 @@ namespace Oculus.Interaction.PoseDetection.Editor
 
             throw new ArgumentOutOfRangeException();
         }
-#endregion
+        #endregion
 
-#region Model Classes
+        #region Model Classes
         public class FeatureStateThresholdsModel
         {
             private readonly SerializedProperty _thresholdsProp;
@@ -93,19 +93,23 @@ namespace Oculus.Interaction.PoseDetection.Editor
                 Assert.IsNotNull(_secondStateProp);
             }
 
-            public float ThresholdMidpoint{
+            public float ThresholdMidpoint
+            {
                 get => _thresholdMidpointProp.floatValue;
                 set { _thresholdMidpointProp.floatValue = value; }
             }
-            public float ThresholdWidth {
+            public float ThresholdWidth
+            {
                 get => _thresholdWidthProp.floatValue;
                 set { _thresholdWidthProp.floatValue = value; }
             }
-            public string FirstStateId {
+            public string FirstStateId
+            {
                 get => _firstStateProp.stringValue;
                 set => _firstStateProp.stringValue = value;
             }
-            public string SecondStateId {
+            public string SecondStateId
+            {
                 get => _secondStateProp.stringValue;
                 set => _secondStateProp.stringValue = value;
             }
@@ -113,18 +117,18 @@ namespace Oculus.Interaction.PoseDetection.Editor
             public float ToFirstWhenBelow => ThresholdMidpoint - ThresholdWidth * 0.5f;
             public float ToSecondWhenAbove => ThresholdMidpoint + ThresholdWidth * 0.5f;
         }
-#endregion
+        #endregion
 
         SerializedProperty _rootProperty;
         SerializedProperty _minTimeInStateProp;
 
-        private readonly bool[] _featureVisible = new bool [FeatureEnumValues.Length];
+        private readonly bool[] _featureVisible = new bool[FeatureEnumValues.Length];
 
         private readonly Color _visStateColorPro = new Color32(194, 194, 194, 255);
         private readonly Color _visStateColorLight = new Color32(56, 56, 56, 255);
         private readonly Color _visTransitionColorPro = new Color32(80, 80, 80, 255);
         private readonly Color _visTransitionColorLight = new Color32(160, 160, 160, 255);
-        private readonly Color _visBorderColor = new Color32(0,0,0,255);
+        private readonly Color _visBorderColor = new Color32(0, 0, 0, 255);
         private const float _visHeight = 20.0f;
         private const float _visMargin = 10.0f;
 

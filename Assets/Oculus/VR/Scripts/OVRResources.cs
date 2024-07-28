@@ -30,7 +30,7 @@ public class OVRResources : MonoBehaviour
     {
         if (Debug.isDebugBuild)
         {
-            if(resourceBundle == null)
+            if (resourceBundle == null)
             {
                 Debug.Log("[OVRResources] Resource bundle was not loaded successfully");
                 return null;

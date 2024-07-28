@@ -49,7 +49,7 @@ namespace Oculus.Platform.Samples.VrHoops
             m_goal = gameObject.GetComponent<GoalMover>();
         }
 
-        void FixedUpdate ()
+        void FixedUpdate()
         {
             // since the backboard's movement is deterministic, we don't need to send position
             // updates constantly, just when the move direction changes

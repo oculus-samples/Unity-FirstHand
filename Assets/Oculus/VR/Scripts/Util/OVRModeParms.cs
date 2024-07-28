@@ -25,14 +25,14 @@ using UnityEngine;
 /// </summary>
 public class OVRModeParms : MonoBehaviour
 {
-#region Member Variables
+    #region Member Variables
 
     /// <summary>
     /// The gamepad button that will switch the application to CPU level 0 and GPU level 1.
     /// </summary>
-    public OVRInput.RawButton   resetButton = OVRInput.RawButton.X;
+    public OVRInput.RawButton resetButton = OVRInput.RawButton.X;
 
-#endregion
+    #endregion
 
     /// <summary>
     /// Invoke power state mode test.
@@ -47,7 +47,7 @@ public class OVRModeParms : MonoBehaviour
 
         // Call TestPowerLevelState after 10 seconds
         // and repeats every 10 seconds.
-        InvokeRepeating ( "TestPowerStateMode", 10, 10.0f );
+        InvokeRepeating("TestPowerStateMode", 10, 10.0f);
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public class OVRModeParms : MonoBehaviour
     void Update()
     {
         // NOTE: some of the buttons defined in OVRInput.RawButton are not available on the Android game pad controller
-        if ( OVRInput.GetDown(resetButton))
+        if (OVRInput.GetDown(resetButton))
         {
             //*************************
             // Dynamically change VrModeParms cpu and gpu level.

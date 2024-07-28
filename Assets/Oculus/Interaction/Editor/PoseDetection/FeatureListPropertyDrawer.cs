@@ -228,7 +228,8 @@ namespace Oculus.Interaction.PoseDetection.Editor
             EditorGUI.EndProperty();
         }
 
-        private void RenderExpanded(Rect drawerPos, FeatureConfigList model) {
+        private void RenderExpanded(Rect drawerPos, FeatureConfigList model)
+        {
             Rect controlPos = new Rect(drawerPos.x, drawerPos.y, drawerPos.width,
                 EditorGUIUtility.singleLineHeight);
 
@@ -282,7 +283,8 @@ namespace Oculus.Interaction.PoseDetection.Editor
                 string[] options = featureStates.Select(fs => fs.Name).ToArray();
                 int selectedIndex = Array.FindIndex(featureStates, fs => fs.Id == configModel.FeatureState);
                 int newSelectedIndex = EditorGUI.Popup(statePos, selectedIndex, options);
-                if (newSelectedIndex != selectedIndex) {
+                if (newSelectedIndex != selectedIndex)
+                {
                     configModel.FeatureState = featureStates[newSelectedIndex].Id;
                 }
             }

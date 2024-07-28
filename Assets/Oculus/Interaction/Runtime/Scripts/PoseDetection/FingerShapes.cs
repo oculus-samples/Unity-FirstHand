@@ -144,7 +144,7 @@ namespace Oculus.Interaction.PoseDetection
             float angleSum = 0;
             for (int i = 0; i < poses.Length - 2; i++)
             {
-                angleSum += PosesCurlValue(poses[i], poses[i+1], poses[i+2]);
+                angleSum += PosesCurlValue(poses[i], poses[i + 1], poses[i + 2]);
             }
             return angleSum;
         }

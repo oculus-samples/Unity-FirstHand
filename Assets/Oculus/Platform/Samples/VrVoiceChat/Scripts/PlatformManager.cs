@@ -78,7 +78,8 @@ namespace Oculus.Platform.Samples.VrVoiceChat
         void Awake()
         {
             // make sure only one instance of this manager ever exists
-            if (s_instance != null) {
+            if (s_instance != null)
+            {
                 Destroy(gameObject);
                 return;
             }
@@ -95,7 +96,7 @@ namespace Oculus.Platform.Samples.VrVoiceChat
             m_voipManager = new VoipManager(m_remoteHead);
         }
 
-        void Start ()
+        void Start()
         {
             // First thing we should do is perform an entitlement check to make sure
             // we successfully connected to the Oculus Platform Service.

@@ -178,7 +178,7 @@ namespace Oculus.Platform.Samples.VrHoops
                 // results might be paged for large requests
                 if (msg.Data.HasNextPage)
                 {
-                    Leaderboards.GetNextEntries(msg.Data).OnComplete(HighestScoreGetEntriesCallback);;
+                    Leaderboards.GetNextEntries(msg.Data).OnComplete(HighestScoreGetEntriesCallback); ;
                     return;
                 }
 

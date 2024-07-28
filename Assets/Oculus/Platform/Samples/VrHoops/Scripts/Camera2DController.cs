@@ -26,7 +26,7 @@ namespace Oculus.Platform.Samples.VrHoops
     // in 2D mode on a PC.
     public class Camera2DController : MonoBehaviour
     {
-        void Update ()
+        void Update()
         {
             if (Input.GetButton("Fire2"))
             {

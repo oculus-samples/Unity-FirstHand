@@ -182,7 +182,7 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
 
     public Material HandsMaterial;
 
-#region MATERIAL PROPERTIES
+    #region MATERIAL PROPERTIES
 
     private const float XSCALE = 0.73f;
     private const float YSCALE = 0.8f;
@@ -192,15 +192,16 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
     private int keyboardRotationID_;
     private int keyboardScaleID_;
 
-#endregion
+    #endregion
 
-    private void Awake() {
+    private void Awake()
+    {
         KeyboardTracker.TrackedKeyboardActiveChanged += TrackedKeyboardActiveUpdated;
         KeyboardTracker.TrackedKeyboardVisibilityChanged += TrackedKeyboardVisibilityChanged;
 
         keyboardPositionID_ = Shader.PropertyToID("_KeyboardPosition");
         keyboardRotationID_ = Shader.PropertyToID("_KeyboardRotation");
-        keyboardScaleID_    = Shader.PropertyToID("_KeyboardScale");
+        keyboardScaleID_ = Shader.PropertyToID("_KeyboardScale");
     }
 
     private void Start()
@@ -370,9 +371,9 @@ public class OVRTrackedKeyboardHands : MonoBehaviour
     private float GetHandDistanceToKeyboard(OVRSkeleton handSkeleton)
     {
         // TODO: Switch back to PointerPose once it's working in OpenXR
-        var pinchPosition = handSkeleton.Bones[(int) OVRSkeleton.BoneId.Hand_Index3].Transform.position;
-        var handPosition = handSkeleton.Bones[(int) OVRSkeleton.BoneId.Hand_Middle1].Transform.position;
-        var pinkyPosition = handSkeleton.Bones[(int) OVRSkeleton.BoneId.Hand_Pinky3].Transform.position;
+        var pinchPosition = handSkeleton.Bones[(int)OVRSkeleton.BoneId.Hand_Index3].Transform.position;
+        var handPosition = handSkeleton.Bones[(int)OVRSkeleton.BoneId.Hand_Middle1].Transform.position;
+        var pinkyPosition = handSkeleton.Bones[(int)OVRSkeleton.BoneId.Hand_Pinky3].Transform.position;
 
         return Mathf.Min(KeyboardTracker.GetDistanceToKeyboard(pinchPosition),
             KeyboardTracker.GetDistanceToKeyboard(handPosition),

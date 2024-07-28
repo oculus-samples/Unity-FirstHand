@@ -44,7 +44,8 @@ namespace Oculus.Platform.Samples.VrBoardGame
         [SerializeField] private Text m_player0Text = null;
         [SerializeField] private Text m_player1Text = null;
 
-        private enum GameState {
+        private enum GameState
+        {
             None,
             PracticingMyTurn, PracticingAiTurn,
             OnlineMatchMyTurn, OnlineMatchRemoteTurn
@@ -217,7 +218,7 @@ namespace Oculus.Platform.Samples.VrBoardGame
         #region Playing Online Match
 
         // called from the MatchmakingManager was a successly online match is made
-        public void StartOnlineMatch (string opponentName, bool localUserGoesFirst)
+        public void StartOnlineMatch(string opponentName, bool localUserGoesFirst)
         {
             m_board.Reset();
             m_opponentName = opponentName;
@@ -341,7 +342,7 @@ namespace Oculus.Platform.Samples.VrBoardGame
                 return;
 
             var position = m_proposedPiece.Position;
-            switch(m_proposedPiece.Type)
+            switch (m_proposedPiece.Type)
             {
                 case GamePiece.Piece.A:
                 case GamePiece.Piece.B:

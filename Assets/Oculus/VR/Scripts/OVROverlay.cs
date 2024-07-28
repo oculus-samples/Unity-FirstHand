@@ -53,7 +53,7 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class OVROverlay : MonoBehaviour
 {
-#region Interface
+    #region Interface
 
     /// <summary>
     /// Determines the on-screen appearance of a layer.
@@ -114,7 +114,7 @@ public class OVROverlay : MonoBehaviour
 
     public bool overridePerLayerColorScaleAndOffset = false;
 
-    public  Vector4 colorScale = Vector4.one;
+    public Vector4 colorScale = Vector4.one;
 
     public Vector4 colorOffset = Vector4.zero;
 
@@ -194,12 +194,16 @@ public class OVROverlay : MonoBehaviour
     /// <summary>
     /// Preview the overlay in the editor using a mesh renderer.
     /// </summary>
-    public bool previewInEditor {
-        get {
+    public bool previewInEditor
+    {
+        get
+        {
             return _previewInEditor;
         }
-        set {
-            if (_previewInEditor != value) {
+        set
+        {
+            if (_previewInEditor != value)
+            {
                 _previewInEditor = value;
                 SetupEditorPreview();
             }
@@ -250,13 +254,15 @@ public class OVROverlay : MonoBehaviour
 
     public int layerId { get; private set; } = 0; // The layer's internal handle in the compositor.
 
-#endregion
+    #endregion
 
     private static Material tex2DMaterial;
     private static Material cubeMaterial;
 
-    private OVRPlugin.LayerLayout layout {
-        get {
+    private OVRPlugin.LayerLayout layout
+    {
+        get
+        {
 #if UNITY_ANDROID && !UNITY_EDITOR
             if (textures.Length == 2 && textures[1] != null && textures[1] != textures[0])
                 return OVRPlugin.LayerLayout.Stereo;
@@ -265,7 +271,8 @@ public class OVROverlay : MonoBehaviour
         }
     }
 
-    private struct LayerTexture {
+    private struct LayerTexture
+    {
         public Texture appTexture;
         public IntPtr appTexturePtr;
         public Texture[] swapChain;
@@ -582,7 +589,8 @@ public class OVROverlay : MonoBehaviour
             textureSize.h = textures[0] ? textures[0].height : 0;
         }
 
-        OVRPlugin.LayerDesc newDesc = new OVRPlugin.LayerDesc() {
+        OVRPlugin.LayerDesc newDesc = new OVRPlugin.LayerDesc()
+        {
             Format = layerTextureFormat,
             LayerFlags = isExternalSurface ? 0 : (int)OVRPlugin.LayerFlags.TextureOriginAtBottomLeft,
             Layout = layout,
@@ -854,7 +862,7 @@ public class OVROverlay : MonoBehaviour
             || shape == OverlayShape.SurfaceProjectedPassthrough;
     }
 
-#region Unity Messages
+    #region Unity Messages
 
     void Awake()
     {
@@ -902,11 +910,11 @@ public class OVROverlay : MonoBehaviour
         if (!OVRPlugin.UnityOpenXR.Enabled)
         {
 #endif
-            if (!OVRManager.isHmdPresent)
-            {
-                enabled = false;
-                return;
-            }
+        if (!OVRManager.isHmdPresent)
+        {
+            enabled = false;
+            return;
+        }
 #if USING_XR_SDK_OPENXR
         }
 #endif
@@ -1034,7 +1042,7 @@ public class OVROverlay : MonoBehaviour
             float arcAngle = scale.x / scale.z / (float)Math.PI * 180.0f;
             if (arcAngle > 180.0f)
             {
-                Debug.LogWarning("Cylinder overlay's arc angle has to be below 180 degree, current arc angle is " + arcAngle + " degree." );
+                Debug.LogWarning("Cylinder overlay's arc angle has to be below 180 degree, current arc angle is " + arcAngle + " degree.");
                 return false;
             }
         }
@@ -1198,5 +1206,5 @@ public class OVROverlay : MonoBehaviour
             rend.enabled = !isOverlayVisible;
     }
 
-#endregion
+    #endregion
 }

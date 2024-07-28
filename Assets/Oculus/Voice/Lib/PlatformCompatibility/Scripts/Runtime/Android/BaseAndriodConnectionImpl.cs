@@ -48,7 +48,7 @@ namespace Oculus.Voice.Core.Bindings.Android
                 throw new Exception("Unable to get service connection from " + fragmentClassName);
             }
 
-            service = (T) Activator.CreateInstance(typeof(T), serviceInstance);
+            service = (T)Activator.CreateInstance(typeof(T), serviceInstance);
         }
 
         public virtual void Disconnect()

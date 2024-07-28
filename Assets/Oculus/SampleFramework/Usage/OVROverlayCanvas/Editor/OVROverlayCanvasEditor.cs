@@ -22,7 +22,8 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(OVROverlayCanvas))]
-public class OVROverlayCanvasEditor : Editor {
+public class OVROverlayCanvasEditor : Editor
+{
 
     public override void OnInspectorGUI()
     {
@@ -59,7 +60,7 @@ public class OVROverlayCanvasEditor : Editor {
         {
             var graphics = canvas.GetComponentsInChildren<UnityEngine.UI.Graphic>();
             bool usingDefaultMaterial = false;
-            foreach(var graphic in graphics)
+            foreach (var graphic in graphics)
             {
                 if (graphic.material == null || graphic.material == graphic.defaultMaterial)
                 {
@@ -83,7 +84,7 @@ public class OVROverlayCanvasEditor : Editor {
                     {
                         var mat = AssetDatabase.LoadAssetAtPath<Material>(AssetDatabase.GUIDToAssetPath(matList[0]));
 
-                        foreach(var graphic in graphics)
+                        foreach (var graphic in graphics)
                         {
                             if (graphic.material == null || graphic.material == graphic.defaultMaterial)
                             {
@@ -115,7 +116,7 @@ public class OVROverlayCanvasEditor : Editor {
             {
                 var prevColor = GUI.contentColor;
                 GUI.contentColor = Color.red;
-                EditorGUILayout.LabelField("Main Camera does not cull " + LayerMask.LayerToName(canvas.gameObject.layer)+". Make sure the layer of this object is not drawn by the main camera");
+                EditorGUILayout.LabelField("Main Camera does not cull " + LayerMask.LayerToName(canvas.gameObject.layer) + ". Make sure the layer of this object is not drawn by the main camera");
                 GUI.contentColor = prevColor;
             }
             if ((Camera.main.cullingMask & (1 << canvas.Layer)) == 0)
@@ -130,7 +131,7 @@ public class OVROverlayCanvasEditor : Editor {
         {
             var prevColor = GUI.contentColor;
             GUI.contentColor = Color.yellow;
-            EditorGUILayout.LabelField("No Main Camera found. Make sure you camera does not draw layer "+LayerMask.LayerToName(canvas.gameObject.layer));
+            EditorGUILayout.LabelField("No Main Camera found. Make sure you camera does not draw layer " + LayerMask.LayerToName(canvas.gameObject.layer));
             GUI.contentColor = prevColor;
         }
 

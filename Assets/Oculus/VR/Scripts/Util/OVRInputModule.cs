@@ -87,13 +87,13 @@ namespace UnityEngine.EventSystems
         // ProcessMouseEvent
         // UseMouse
         #region StandaloneInputModule code
-         private float m_NextAction;
+        private float m_NextAction;
 
         private Vector2 m_LastMousePosition;
         private Vector2 m_MousePosition;
 
         protected OVRInputModule()
-        {}
+        { }
 
 #if UNITY_EDITOR
         protected override void Reset()
@@ -439,8 +439,8 @@ namespace UnityEngine.EventSystems
                 }
             }
         }
-#endregion
-#region Modified StandaloneInputModule methods
+        #endregion
+        #region Modified StandaloneInputModule methods
 
         /// <summary>
         /// Process all mouse events. This is the same as the StandaloneInputModule version except that
@@ -501,14 +501,14 @@ namespace UnityEngine.EventSystems
         /// Decide if mouse events need to be processed this frame. Same as StandloneInputModule except
         /// that the IsPointerMoving method from this class is used, instead of the method on PointerEventData
         /// </summary>
-       private static bool UseMouse(bool pressed, bool released, PointerEventData pointerData)
+        private static bool UseMouse(bool pressed, bool released, PointerEventData pointerData)
         {
             if (pressed || released || IsPointerMoving(pointerData) || pointerData.IsScrolling())
                 return true;
 
             return false;
         }
-#endregion
+        #endregion
 
 
         /// <summary>
@@ -543,7 +543,7 @@ namespace UnityEngine.EventSystems
         // In the following region we extend the PointerEventData system implemented in PointerInputModule
         // We define an additional dictionary for ray(e.g. gaze) based pointers. Mouse pointers still use the dictionary
         // in PointerInputModule
-#region PointerEventData pool
+        #region PointerEventData pool
 
         // Pool for OVRRayPointerEventData for ray based pointers
         protected Dictionary<int, OVRPointerEventData> m_VRRayPointerData = new Dictionary<int, OVRPointerEventData>();
@@ -585,7 +585,7 @@ namespace UnityEngine.EventSystems
             m_PointerData.Clear();
             eventSystem.SetSelectedGameObject(null, baseEventData);
         }
-#endregion
+        #endregion
 
         /// <summary>
         /// For RectTransform, calculate it's normal in world space
@@ -614,7 +614,7 @@ namespace UnityEngine.EventSystems
         {
             // Get the OVRRayPointerEventData reference
             OVRPointerEventData leftData;
-            GetPointerData(kMouseLeftId, out leftData, true );
+            GetPointerData(kMouseLeftId, out leftData, true);
             leftData.Reset();
 
             //Now set the world space ray. This ray is what the user uses to point at UI elements
@@ -656,7 +656,7 @@ namespace UnityEngine.EventSystems
             OVRPhysicsRaycaster physicsRaycaster = raycast.module as OVRPhysicsRaycaster;
             if (physicsRaycaster)
             {
-                Vector3 position =  raycast.worldPosition;
+                Vector3 position = raycast.worldPosition;
 
                 if (performSphereCastForGazepointer)
                 {
@@ -679,12 +679,12 @@ namespace UnityEngine.EventSystems
 
             // copy the apropriate data into right and middle slots
             OVRPointerEventData rightData;
-            GetPointerData(kMouseRightId, out rightData, true );
+            GetPointerData(kMouseRightId, out rightData, true);
             CopyFromTo(leftData, rightData);
             rightData.button = PointerEventData.InputButton.Right;
 
             OVRPointerEventData middleData;
-            GetPointerData(kMouseMiddleId, out middleData, true );
+            GetPointerData(kMouseMiddleId, out middleData, true);
             CopyFromTo(leftData, middleData);
             middleData.button = PointerEventData.InputButton.Middle;
 
@@ -703,7 +703,7 @@ namespace UnityEngine.EventSystems
         {
             // Get the OVRRayPointerEventData reference
             PointerEventData leftData;
-            GetPointerData(kMouseLeftId, out leftData, true );
+            GetPointerData(kMouseLeftId, out leftData, true);
             leftData.Reset();
 
             // Setup default values here. Set position to zero because we don't actually know the pointer
@@ -737,12 +737,12 @@ namespace UnityEngine.EventSystems
 
             // copy the apropriate data into right and middle slots
             PointerEventData rightData;
-            GetPointerData(kMouseRightId, out rightData, true );
+            GetPointerData(kMouseRightId, out rightData, true);
             CopyFromTo(leftData, rightData);
             rightData.button = PointerEventData.InputButton.Right;
 
             PointerEventData middleData;
-            GetPointerData(kMouseMiddleId, out middleData, true );
+            GetPointerData(kMouseMiddleId, out middleData, true);
             CopyFromTo(leftData, middleData);
             middleData.button = PointerEventData.InputButton.Middle;
 
@@ -768,7 +768,7 @@ namespace UnityEngine.EventSystems
 
             if (!pointerEvent.IsVRPointer())
             {
-                 // Same as original behaviour for canvas based pointers
+                // Same as original behaviour for canvas based pointers
                 return (pointerEvent.pressPosition - pointerEvent.position).sqrMagnitude >= eventSystem.pixelDragThreshold * eventSystem.pixelDragThreshold;
             }
             else
@@ -844,7 +844,7 @@ namespace UnityEngine.EventSystems
                 {
                     //adjust the position used based on swiping action. Allowing the user to
                     //drag items by swiping on the touchpad
-                    pointerEvent.position = SwipeAdjustedPosition (originalPosition, pointerEvent);
+                    pointerEvent.position = SwipeAdjustedPosition(originalPosition, pointerEvent);
                 }
                 ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.beginDragHandler);
                 pointerEvent.dragging = true;

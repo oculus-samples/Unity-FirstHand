@@ -26,7 +26,8 @@ using UnityEditor;
 using System.Text;
 using System.IO;
 
-public class OVRSystemProfilerPanel : EditorWindow {
+public class OVRSystemProfilerPanel : EditorWindow
+{
     [MenuItem("Oculus/Tools/(Deprecated) Oculus Profiler Panel", false, 200000)]
     public static void ShowWindow()
     {
@@ -429,7 +430,7 @@ public class OVRSystemProfilerPanel : EditorWindow {
             return null;
         }
 
-        for (; metricsIndex >=0; -- metricsIndex)
+        for (; metricsIndex >= 0; --metricsIndex)
         {
             var metrics = receivedMetricsList[metricsIndex];
             if (metrics.frameTime < lastMetrics.frameTime - metricsHistoryDuration)
@@ -565,7 +566,7 @@ public class OVRSystemProfilerPanel : EditorWindow {
         Rect r = EditorGUILayout.BeginVertical();
 
         float barWidth = (r.width - panelInnerRightPad - progressBarPad * 2) / 3.0f;
-        EditorGUI.ProgressBar(new Rect(r.x, r.y, barWidth, r.height), lastValue.Value/maxScale, string.Format("{0:F1} ms", lastValue.Value * 1000.0f));
+        EditorGUI.ProgressBar(new Rect(r.x, r.y, barWidth, r.height), lastValue.Value / maxScale, string.Format("{0:F1} ms", lastValue.Value * 1000.0f));
 
         if (displayAverage)
         {
@@ -617,7 +618,7 @@ public class OVRSystemProfilerPanel : EditorWindow {
         EditorGUILayout.LabelField("", GUILayout.Width(labelWidth));
 
         float windowWidth = position.width;
-        float barWidth = (windowWidth - labelWidth - panelInnerRightPad * 3 ) / 3.0f;
+        float barWidth = (windowWidth - labelWidth - panelInnerRightPad * 3) / 3.0f;
         EditorGUILayout.LabelField(title0, GUILayout.Width(barWidth));
         EditorGUILayout.LabelField(title1, GUILayout.Width(barWidth));
         EditorGUILayout.LabelField(title2, GUILayout.Width(barWidth));
@@ -695,7 +696,7 @@ public class OVRSystemProfilerPanel : EditorWindow {
             Debug.LogWarning("Cannot analyze metrics: " + message);
             return;
         }
-        lock(receivedMetricsList)
+        lock (receivedMetricsList)
         {
             if (receivedMetricsList.Count >= maxMetricsFrames)
             {

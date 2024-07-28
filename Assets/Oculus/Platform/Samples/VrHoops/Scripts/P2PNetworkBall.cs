@@ -90,7 +90,7 @@ namespace Oculus.Platform.Samples.VrHoops
         // Estimates the new velocity assuming ballistic motion and drag.
         private Vector3 estimateVelocity(Vector3 startVelocity, float time)
         {
-            return startVelocity + Physics.gravity * time * Mathf.Clamp01 (1 - rigidBody.drag * time);
+            return startVelocity + Physics.gravity * time * Mathf.Clamp01(1 - rigidBody.drag * time);
         }
 
         void OnCollisionEnter(Collision collision)

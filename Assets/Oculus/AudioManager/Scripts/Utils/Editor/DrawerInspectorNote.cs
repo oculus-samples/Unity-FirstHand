@@ -26,7 +26,7 @@ using System.Collections.Generic;
 [CustomPropertyDrawer(typeof(InspectorNoteAttribute))]
 public class DrawerInspectorNote : DecoratorDrawer
 {
-    public override void OnGUI( Rect position )
+    public override void OnGUI(Rect position)
     {
         InspectorNoteAttribute note = attribute as InspectorNoteAttribute;
 
@@ -57,15 +57,18 @@ public class DrawerInspectorNote : DecoratorDrawer
         GUI.Box(posLine, "");
     }
 
-    public override float GetHeight() {
+    public override float GetHeight()
+    {
         InspectorNoteAttribute note = attribute as InspectorNoteAttribute;
-        return string.IsNullOrEmpty( note.message ) ? 38 : 50;
+        return string.IsNullOrEmpty(note.message) ? 38 : 50;
     }
 }
 
-[CustomPropertyDrawer( typeof( InspectorCommentAttribute ) )]
-public class DrawerInspectorComment : DecoratorDrawer {
-    public override void OnGUI( Rect position ) {
+[CustomPropertyDrawer(typeof(InspectorCommentAttribute))]
+public class DrawerInspectorComment : DecoratorDrawer
+{
+    public override void OnGUI(Rect position)
+    {
         InspectorCommentAttribute comment = attribute as InspectorCommentAttribute;
 
         // our header is always present
@@ -76,7 +79,8 @@ public class DrawerInspectorComment : DecoratorDrawer {
         //EditorGUI.LabelField( posLabel, comment.header, EditorStyles.whiteLargeLabel );
 
         // do we have a message too?
-        if ( !string.IsNullOrEmpty( comment.message ) ) {
+        if (!string.IsNullOrEmpty(comment.message))
+        {
             Color color = GUI.color;
             Color faded = color;
             faded.a = 0.6f;
@@ -84,14 +88,15 @@ public class DrawerInspectorComment : DecoratorDrawer {
             Rect posExplain = posLabel;
             posExplain.y += 15;
             GUI.color = faded;
-            EditorGUI.LabelField( posExplain, comment.message, EditorStyles.whiteMiniLabel );
+            EditorGUI.LabelField(posExplain, comment.message, EditorStyles.whiteMiniLabel);
             GUI.color = color;
         }
 
     }
 
-    public override float GetHeight() {
+    public override float GetHeight()
+    {
         InspectorNoteAttribute note = attribute as InspectorNoteAttribute;
-        return string.IsNullOrEmpty( note.message ) ? 38 : 50;
+        return string.IsNullOrEmpty(note.message) ? 38 : 50;
     }
 }

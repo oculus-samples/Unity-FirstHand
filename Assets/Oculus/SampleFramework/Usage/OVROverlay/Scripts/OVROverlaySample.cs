@@ -303,7 +303,7 @@ namespace OculusSampleFramework
 #if UNITY_5_5_OR_NEWER
             overlayRT.autoGenerateMips = true;
 #else
-        overlayRT.generateMips = true;
+            overlayRT.generateMips = true;
 #endif
             uiCamera.GetComponent<Camera>().targetTexture = overlayRT;
 

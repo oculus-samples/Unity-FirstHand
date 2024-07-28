@@ -44,9 +44,9 @@ public class OVRBoundary
     /// </summary>
     public enum Node
     {
-        HandLeft           = OVRPlugin.Node.HandLeft,  ///< Tracks the left hand node.
-        HandRight          = OVRPlugin.Node.HandRight, ///< Tracks the right hand node.
-        Head               = OVRPlugin.Node.Head,      ///< Tracks the head node.
+        HandLeft = OVRPlugin.Node.HandLeft,  ///< Tracks the left hand node.
+        HandRight = OVRPlugin.Node.HandRight, ///< Tracks the right hand node.
+        Head = OVRPlugin.Node.Head,      ///< Tracks the head node.
     }
 
     /// <summary>
@@ -55,8 +55,8 @@ public class OVRBoundary
     public enum BoundaryType
     {
         [System.Obsolete("Deprecated. This enum value will not be supported in OpenXR", false)]
-        OuterBoundary      = OVRPlugin.BoundaryType.OuterBoundary, ///< Outer boundary that closely matches the user's configured walls.
-        PlayArea           = OVRPlugin.BoundaryType.PlayArea,      ///< Smaller convex area inset within the outer boundary.
+        OuterBoundary = OVRPlugin.BoundaryType.OuterBoundary, ///< Outer boundary that closely matches the user's configured walls.
+        PlayArea = OVRPlugin.BoundaryType.PlayArea,      ///< Smaller convex area inset within the outer boundary.
     }
 
     /// <summary>

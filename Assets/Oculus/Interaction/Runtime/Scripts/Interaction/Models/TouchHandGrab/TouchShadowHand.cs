@@ -521,8 +521,8 @@ namespace Oculus.Interaction
         {
             for (int i = 0; i < jointIds.Length; i++)
             {
-                outJoints[i] = local?
-                    _shadowHand.GetLocalPose(jointIds[i]):
+                outJoints[i] = local ?
+                    _shadowHand.GetLocalPose(jointIds[i]) :
                     _shadowHand.GetWorldPose(jointIds[i]);
             }
         }

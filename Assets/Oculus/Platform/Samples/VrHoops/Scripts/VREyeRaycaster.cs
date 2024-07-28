@@ -31,7 +31,7 @@ namespace Oculus.Platform.Samples.VrHoops
 
         private Button m_currentButton;
 
-        void Update ()
+        void Update()
         {
             RaycastHit hit;
             Button button = null;

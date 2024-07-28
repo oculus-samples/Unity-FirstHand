@@ -21,9 +21,9 @@
 namespace Oculus.Platform
 {
 
-  // This only exists for the Unity Editor
-  public sealed class StandalonePlatformSettings
-  {
+    // This only exists for the Unity Editor
+    public sealed class StandalonePlatformSettings
+    {
 
 #if UNITY_EDITOR
     private static string _OculusPlatformTestUserPassword = "";
@@ -39,59 +39,59 @@ namespace Oculus.Platform
     }
 #endif
 
-    public static string OculusPlatformTestUserEmail
-    {
-      get
-      {
+        public static string OculusPlatformTestUserEmail
+        {
+            get
+            {
 #if UNITY_EDITOR
         return UnityEditor.EditorPrefs.GetString("OculusStandaloneUserEmail");
 #else
-        return string.Empty;
+                return string.Empty;
 #endif
-      }
-      set
-      {
+            }
+            set
+            {
 #if UNITY_EDITOR
         UnityEditor.EditorPrefs.SetString("OculusStandaloneUserEmail", value);
 #endif
-      }
-    }
+            }
+        }
 
-    public static string OculusPlatformTestUserPassword
-    {
-      get
-      {
+        public static string OculusPlatformTestUserPassword
+        {
+            get
+            {
 #if UNITY_EDITOR
         ClearOldStoredPassword();
         return _OculusPlatformTestUserPassword;
 #else
-        return string.Empty;
+                return string.Empty;
 #endif
-      }
-      set
-      {
+            }
+            set
+            {
 #if UNITY_EDITOR
         ClearOldStoredPassword();
         _OculusPlatformTestUserPassword = value;
 #endif
-      }
-    }
-    public static string OculusPlatformTestUserAccessToken
-    {
-      get
-      {
+            }
+        }
+        public static string OculusPlatformTestUserAccessToken
+        {
+            get
+            {
 #if UNITY_EDITOR
         return UnityEditor.EditorPrefs.GetString("OculusStandaloneUserAccessToken");
 #else
-        return string.Empty;
+                return string.Empty;
 #endif
-      }
-      set
-      {
+            }
+            set
+            {
 #if UNITY_EDITOR
         UnityEditor.EditorPrefs.SetString("OculusStandaloneUserAccessToken", value);
 #endif
-      }
+            }
+        }
     }
-  }
 }

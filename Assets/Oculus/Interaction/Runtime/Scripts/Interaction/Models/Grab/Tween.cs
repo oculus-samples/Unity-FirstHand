@@ -137,7 +137,7 @@ namespace Oculus.Interaction
             {
                 TweenCurve nextCurve = _tweenCurves[i + 1];
                 float timeProgress = nextCurve.Curve.ProgressTime();
-                if(nextCurve.Curve.AnimationLength == 0f)
+                if (nextCurve.Curve.AnimationLength == 0f)
                 {
                     overlap = 1.0f;
                 }

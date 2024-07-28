@@ -49,8 +49,8 @@ public class SimpleResizable : MonoBehaviour
         None
     }
 
-    public Vector3 NewSize {get; set; }
-    public Vector3 DefaultSize {get; private set; }
+    public Vector3 NewSize { get; set; }
+    public Vector3 DefaultSize { get; private set; }
     public Mesh Mesh { get; private set; }
 
     private Bounds _bounds;
@@ -61,7 +61,7 @@ public class SimpleResizable : MonoBehaviour
     {
         Mesh = GetComponent<MeshFilter>().sharedMesh;
         DefaultSize = Mesh.bounds.size;
-        if(!_pivotTransform)
+        if (!_pivotTransform)
             _pivotTransform = transform.Find("Pivot");
     }
 

@@ -76,7 +76,7 @@ namespace Oculus.Interaction.DistanceReticles
             {
                 InteractableUnset();
             }
-            else if(args.NewState == InteractorState.Select)
+            else if (args.NewState == InteractorState.Select)
             {
                 if (!_showOnSelect)
                 {

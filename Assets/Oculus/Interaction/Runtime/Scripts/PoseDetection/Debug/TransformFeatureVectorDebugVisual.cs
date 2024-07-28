@@ -95,7 +95,7 @@ namespace Oculus.Interaction.PoseDetection.Debug
                 _lineRenderer.endWidth = _lineWidth;
             }
             _lineRenderer.SetPosition(0, wristPos.Value);
-            _lineRenderer.SetPosition(1, wristPos.Value + _lineScale*featureVec.Value);
+            _lineRenderer.SetPosition(1, wristPos.Value + _lineScale * featureVec.Value);
         }
     }
 }

@@ -156,11 +156,11 @@ public class OVRHapticsClip
             {
                 WriteSample((byte)(Mathf.Clamp01(Mathf.Abs(sourceData[i])) * System.Byte.MaxValue)); // TODO support multi-byte samples
             }
-            i+= stepSize * sourceChannelCount;
+            i += stepSize * sourceChannelCount;
             accumulatedStepSizeError += stepSizeError;
             if ((int)accumulatedStepSizeError > 0)
             {
-                i+= (int)accumulatedStepSizeError * sourceChannelCount;
+                i += (int)accumulatedStepSizeError * sourceChannelCount;
                 accumulatedStepSizeError = accumulatedStepSizeError - (int)accumulatedStepSizeError;
             }
         }

@@ -58,7 +58,7 @@ namespace Oculus.Voice.Demo.UIShapesDemo
 
         private Step currentStep = Step.Ready;
         internal Step CurrentStep => currentStep;
-        internal string CurrentStepText => steps[(int) currentStep];
+        internal string CurrentStepText => steps[(int)currentStep];
 
         private void OnValidate()
         {

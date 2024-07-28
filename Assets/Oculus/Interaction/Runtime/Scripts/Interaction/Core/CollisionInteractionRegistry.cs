@@ -108,6 +108,6 @@ namespace Oculus.Interaction
             return _empty;
         }
 
-        private  static readonly List<TInteractable> _empty = new List<TInteractable>();
+        private static readonly List<TInteractable> _empty = new List<TInteractable>();
     }
 }

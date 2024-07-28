@@ -203,7 +203,7 @@ namespace Oculus.Interaction
         protected override void DoSelectUpdate()
         {
             GrabInteractable interactable = _selectedInteractable;
-            if(interactable == null)
+            if (interactable == null)
             {
                 return;
             }
@@ -232,7 +232,8 @@ namespace Oculus.Interaction
             }
         }
 
-        public override bool ShouldUnselect {
+        public override bool ShouldUnselect
+        {
             get
             {
                 if (State != InteractorState.Select)

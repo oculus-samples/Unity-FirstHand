@@ -52,7 +52,7 @@ namespace Oculus.Platform.Samples.VrHoops
         {
             m_playerHead = gameObject.transform.Find("Player Head").gameObject;
             m_nameText = gameObject.GetComponentsInChildren<Text>()[1];
-            m_p2pGoal = gameObject.GetComponentInChildren<P2PNetworkGoal> ();
+            m_p2pGoal = gameObject.GetComponentInChildren<P2PNetworkGoal>();
         }
 
         public T SetupForPlayer<T>(string name) where T : Player

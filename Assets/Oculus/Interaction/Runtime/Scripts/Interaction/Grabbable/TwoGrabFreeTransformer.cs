@@ -132,18 +132,18 @@ namespace Oculus.Interaction
 
             // Scale logic
             float activeDistance = targetVector.magnitude;
-            if(Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
+            if (Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
 
             float scalePercentage = activeDistance / _initialDistance;
 
             float previousScale = _activeScale;
             _activeScale = _initialScale * scalePercentage;
 
-            if(_constraints.MinScale.Constrain)
+            if (_constraints.MinScale.Constrain)
             {
                 _activeScale = Mathf.Max(_constraints.MinScale.Value, _activeScale);
             }
-            if(_constraints.MaxScale.Constrain)
+            if (_constraints.MaxScale.Constrain)
             {
                 _activeScale = Mathf.Min(_constraints.MaxScale.Value, _activeScale);
             }

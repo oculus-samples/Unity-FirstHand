@@ -32,11 +32,11 @@ public class ONSPPropagationGeometryEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
-        bool newIncludeChildMeshes = EditorGUILayout.Toggle( new GUIContent("Include Child Meshes","Include all child meshes into single geometry instance"), mesh.includeChildMeshes );
+        bool newIncludeChildMeshes = EditorGUILayout.Toggle(new GUIContent("Include Child Meshes", "Include all child meshes into single geometry instance"), mesh.includeChildMeshes);
 
         Separator();
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         string newFilePath = mesh.filePath;
         bool editedPath = false;
         bool writeMesh = false;
@@ -88,25 +88,25 @@ public class ONSPPropagationGeometryEditor : Editor
 
         EditorGUI.EndDisabledGroup();
 
-        #endif
+#endif
 
-        if ( EditorGUI.EndChangeCheck() )
+        if (EditorGUI.EndChangeCheck())
         {
-            Undo.RecordObject( mesh, "Edited OVRAudioMesh" );
+            Undo.RecordObject(mesh, "Edited OVRAudioMesh");
 
             mesh.includeChildMeshes = newIncludeChildMeshes;
             mesh.fileEnabled = newFileEnabled;
 
             newFilePath = newFilePath.Replace(Application.streamingAssetsPath + "/", "");
 
-            if ( editedPath )
+            if (editedPath)
                 mesh.filePathRelative = newFilePath;
 
-            if ( editedPath || writeMesh )
+            if (editedPath || writeMesh)
                 mesh.WriteFile();
         }
 
-        if ( Application.isPlaying && GUILayout.Button("Upload Mesh") )
+        if (Application.isPlaying && GUILayout.Button("Upload Mesh"))
             mesh.UploadGeometry();
     }
     void Separator()
@@ -117,4 +117,3 @@ public class ONSPPropagationGeometryEditor : Editor
     }
 
 }
-

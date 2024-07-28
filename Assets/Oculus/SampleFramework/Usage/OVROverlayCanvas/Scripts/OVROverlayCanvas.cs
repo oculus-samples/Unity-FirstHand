@@ -126,7 +126,7 @@ public class OVROverlayCanvas : MonoBehaviour
         _quad.bounds = new Bounds(Vector3.zero, Vector3.one);
         _quad.UploadMeshData(true);
 
-        switch(Opacity)
+        switch (Opacity)
         {
             case DrawMode.Opaque:
                 _defaultMat = new Material(_opaqueShader);

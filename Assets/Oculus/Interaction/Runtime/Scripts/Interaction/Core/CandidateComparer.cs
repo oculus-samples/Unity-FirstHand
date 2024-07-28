@@ -22,7 +22,7 @@ using UnityEngine;
 
 namespace Oculus.Interaction
 {
-    public abstract class CandidateComparer<T> : MonoBehaviour, ICandidateComparer where T:class
+    public abstract class CandidateComparer<T> : MonoBehaviour, ICandidateComparer where T : class
     {
         public int Compare(object a, object b)
         {

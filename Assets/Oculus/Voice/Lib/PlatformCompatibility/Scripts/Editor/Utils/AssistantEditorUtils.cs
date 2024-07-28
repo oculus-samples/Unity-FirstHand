@@ -29,7 +29,7 @@ namespace Oculus.Voice.Core.Utilities
             // Set the flags so that private and public fields from instances will be found
             var bindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
             var field = obj.GetType().GetField(name, bindingFlags);
-            return (T) field?.GetValue(obj);
+            return (T)field?.GetValue(obj);
         }
 
         public static void SetFieldValue<T>(object obj, string name, T value)

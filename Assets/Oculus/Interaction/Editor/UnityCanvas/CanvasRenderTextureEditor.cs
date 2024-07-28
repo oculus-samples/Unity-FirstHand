@@ -361,6 +361,6 @@ namespace Oculus.Interaction.UnityCanvas.Editor
             }
             return maskedLayers;
         }
-#endregion
+        #endregion
     }
 }

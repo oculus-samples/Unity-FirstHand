@@ -62,7 +62,7 @@ public class TeleportOrientationHandlerHMD : TeleportOrientationHandler
 
     protected override void InitializeTeleportDestination()
     {
-      _initialRotation = Quaternion.identity;
+        _initialRotation = Quaternion.identity;
     }
 
     protected override void UpdateTeleportDestination()

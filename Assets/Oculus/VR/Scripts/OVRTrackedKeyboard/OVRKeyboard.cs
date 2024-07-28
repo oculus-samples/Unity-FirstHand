@@ -58,9 +58,9 @@ public static class OVRKeyboard
         keyboardState.position = nodePose.position;
         keyboardState.rotation = nodePose.orientation;
 
-        keyboardState.isPositionValid      = (keyboardStatePlugin.PositionValid      == OVRPlugin.Bool.True);
-        keyboardState.isPositionTracked    = (keyboardStatePlugin.PositionTracked    == OVRPlugin.Bool.True);
-        keyboardState.isOrientationValid   = (keyboardStatePlugin.OrientationValid   == OVRPlugin.Bool.True);
+        keyboardState.isPositionValid = (keyboardStatePlugin.PositionValid == OVRPlugin.Bool.True);
+        keyboardState.isPositionTracked = (keyboardStatePlugin.PositionTracked == OVRPlugin.Bool.True);
+        keyboardState.isOrientationValid = (keyboardStatePlugin.OrientationValid == OVRPlugin.Bool.True);
         keyboardState.isOrientationTracked = (keyboardStatePlugin.OrientationTracked == OVRPlugin.Bool.True);
 
         return keyboardState;
@@ -72,7 +72,7 @@ public static class OVRKeyboard
         keyboardInfo = default(TrackedKeyboardInfo);
 
         OVRPlugin.KeyboardDescription keyboardDescription;
-        if(OVRPlugin.GetSystemKeyboardDescription(keyboardQueryFlags, out keyboardDescription))
+        if (OVRPlugin.GetSystemKeyboardDescription(keyboardQueryFlags, out keyboardDescription))
         {
             keyboardInfo.Name = Encoding.UTF8.GetString(keyboardDescription.Name).TrimEnd('\0');
             keyboardInfo.Identifier = keyboardDescription.TrackedKeyboardId;

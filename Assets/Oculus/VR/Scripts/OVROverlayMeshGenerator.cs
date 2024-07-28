@@ -29,7 +29,8 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 [ExecuteInEditMode]
-public class OVROverlayMeshGenerator : MonoBehaviour {
+public class OVROverlayMeshGenerator : MonoBehaviour
+{
 
     private Mesh _Mesh;
     private List<Vector3> _Verts = new List<Vector3>();
@@ -68,7 +69,8 @@ public class OVROverlayMeshGenerator : MonoBehaviour {
         _Awake = true;
     }
 
-    public void SetOverlay(OVROverlay overlay) {
+    public void SetOverlay(OVROverlay overlay)
+    {
         _Overlay = overlay;
     }
 
@@ -82,16 +84,18 @@ public class OVROverlayMeshGenerator : MonoBehaviour {
         return new Rect(xMin, yMin, xMax - xMin, yMax - yMin);
     }
 
-    protected void OnEnable() {
-        #if UNITY_EDITOR
+    protected void OnEnable()
+    {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.update += Update;
-        #endif
+#endif
     }
 
-    protected void OnDisable() {
-        #if UNITY_EDITOR
+    protected void OnDisable()
+    {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.update -= Update;
-        #endif
+#endif
     }
 
     private void Update()
@@ -226,7 +230,7 @@ public class OVROverlayMeshGenerator : MonoBehaviour {
         latitudes = Mathf.CeilToInt(latitudes * rect.height);
         longitudes = Mathf.CeilToInt(longitudes * rect.width);
 
-        float minTheta = Mathf.PI * 2 * ( rect.x);
+        float minTheta = Mathf.PI * 2 * (rect.x);
         float minPhi = Mathf.PI * (0.5f - rect.y - rect.height);
 
         float thetaScale = Mathf.PI * 2 * rect.width / longitudes;
@@ -339,9 +343,9 @@ public class OVROverlayMeshGenerator : MonoBehaviour {
 
         for (int i = 0; i < (int)CubeFace.COUNT; i++)
         {
-            for(int j = 0; j < subQuads + 1; j++)
+            for (int j = 0; j < subQuads + 1; j++)
             {
-                for(int k = 0; k < subQuads + 1; k++)
+                for (int k = 0; k < subQuads + 1; k++)
                 {
                     float u = j / (float)subQuads;
                     float v = k / (float)subQuads;
@@ -355,9 +359,9 @@ public class OVROverlayMeshGenerator : MonoBehaviour {
                 }
             }
 
-            for(int j = 0; j < subQuads; j++)
+            for (int j = 0; j < subQuads; j++)
             {
-                for(int k = 0; k < subQuads; k++)
+                for (int k = 0; k < subQuads; k++)
                 {
                     triangles.Add(vertsPerSide * i + ((j + 1) * (subQuads + 1)) + k);
                     triangles.Add(vertsPerSide * i + (j * (subQuads + 1)) + k);

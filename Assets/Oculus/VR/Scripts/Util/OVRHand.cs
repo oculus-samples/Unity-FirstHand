@@ -31,24 +31,24 @@ public class OVRHand : MonoBehaviour,
 {
     public enum Hand
     {
-        None      = OVRPlugin.Hand.None,
-        HandLeft  = OVRPlugin.Hand.HandLeft,
+        None = OVRPlugin.Hand.None,
+        HandLeft = OVRPlugin.Hand.HandLeft,
         HandRight = OVRPlugin.Hand.HandRight,
     }
 
     public enum HandFinger
     {
-        Thumb  = OVRPlugin.HandFinger.Thumb,
-        Index  = OVRPlugin.HandFinger.Index,
+        Thumb = OVRPlugin.HandFinger.Thumb,
+        Index = OVRPlugin.HandFinger.Index,
         Middle = OVRPlugin.HandFinger.Middle,
-        Ring   = OVRPlugin.HandFinger.Ring,
-        Pinky  = OVRPlugin.HandFinger.Pinky,
-        Max    = OVRPlugin.HandFinger.Max,
+        Ring = OVRPlugin.HandFinger.Ring,
+        Pinky = OVRPlugin.HandFinger.Pinky,
+        Max = OVRPlugin.HandFinger.Max,
     }
 
     public enum TrackingConfidence
     {
-        Low  = OVRPlugin.TrackingConfidence.Low,
+        Low = OVRPlugin.TrackingConfidence.Low,
         High = OVRPlugin.TrackingConfidence.High
     }
 
@@ -158,13 +158,13 @@ public class OVRHand : MonoBehaviour,
     {
         switch (HandType)
         {
-        case Hand.HandLeft:
-            return OVRSkeleton.SkeletonType.HandLeft;
-        case Hand.HandRight:
-            return OVRSkeleton.SkeletonType.HandRight;
-        case Hand.None:
-        default:
-            return OVRSkeleton.SkeletonType.None;
+            case Hand.HandLeft:
+                return OVRSkeleton.SkeletonType.HandLeft;
+            case Hand.HandRight:
+                return OVRSkeleton.SkeletonType.HandRight;
+            case Hand.None:
+            default:
+                return OVRSkeleton.SkeletonType.None;
         }
     }
 
@@ -203,14 +203,14 @@ public class OVRHand : MonoBehaviour,
     {
         switch (HandType)
         {
-        case Hand.None:
-            return OVRMesh.MeshType.None;
-        case Hand.HandLeft:
-            return OVRMesh.MeshType.HandLeft;
-        case Hand.HandRight:
-            return OVRMesh.MeshType.HandRight;
-        default:
-            return OVRMesh.MeshType.None;
+            case Hand.None:
+                return OVRMesh.MeshType.None;
+            case Hand.HandLeft:
+                return OVRMesh.MeshType.HandLeft;
+            case Hand.HandRight:
+                return OVRMesh.MeshType.HandRight;
+            default:
+                return OVRMesh.MeshType.None;
         }
     }
 

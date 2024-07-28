@@ -24,7 +24,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Diagnostics;
 
-public static class OVREditorUtil {
+public static class OVREditorUtil
+{
 
     private static GUIContent tooltipLink = new GUIContent("[?]");
 
@@ -243,10 +244,10 @@ public static class OVREditorUtil {
                 Application.OpenURL(docLink);
             }
 #else
-            if (GUILayout.Button(tooltipLink, GUILayout.ExpandWidth(false)))
-            {
-                Application.OpenURL(docLink);
-            }
+        if (GUILayout.Button(tooltipLink, GUILayout.ExpandWidth(false)))
+        {
+            Application.OpenURL(docLink);
+        }
 #endif
     }
 }

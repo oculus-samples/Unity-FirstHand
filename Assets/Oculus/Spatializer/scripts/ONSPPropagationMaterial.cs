@@ -66,7 +66,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
         public float frequency;
         public float data;
 
-        public Point( float frequency = 0, float data = 0 )
+        public Point(float frequency = 0, float data = 0)
         {
             this.frequency = frequency;
             this.data = data;
@@ -140,11 +140,11 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     // Public Fields
 
     [Tooltip("Absorption")]
-    public Spectrum absorption   = new Spectrum();
+    public Spectrum absorption = new Spectrum();
     [Tooltip("Transmission")]
     public Spectrum transmission = new Spectrum();
     [Tooltip("Scattering")]
-    public Spectrum scattering   = new Spectrum();
+    public Spectrum scattering = new Spectrum();
 
     [SerializeField]
     private Preset preset_ = Preset.Custom;
@@ -153,7 +153,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
         get { return preset_; }
         set
         {
-            this.SetPreset( value );
+            this.SetPreset(value);
             preset_ = value;
         }
     }
@@ -170,11 +170,11 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
     public void StartInternal()
     {
         // Ensure that the material is not initialized twice.
-        if ( materialHandle != IntPtr.Zero )
+        if (materialHandle != IntPtr.Zero)
             return;
 
         // Create the internal material.
-        if (ONSPPropagation.Interface.CreateAudioMaterial( out materialHandle ) != ONSPPropagationGeometry.OSPSuccess)
+        if (ONSPPropagation.Interface.CreateAudioMaterial(out materialHandle) != ONSPPropagationGeometry.OSPSuccess)
             throw new Exception("Unable to create internal audio material");
 
         // Run the updates to initialize the material.
@@ -189,7 +189,7 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     public void DestroyInternal()
     {
-        if ( materialHandle != IntPtr.Zero )
+        if (materialHandle != IntPtr.Zero)
         {
             // Destroy the material.
             ONSPPropagation.Interface.DestroyAudioMaterial(materialHandle);
@@ -202,15 +202,15 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     public void UploadMaterial()
     {
-        if ( materialHandle == IntPtr.Zero )
+        if (materialHandle == IntPtr.Zero)
             return;
 
         // Absorption
         ONSPPropagation.Interface.AudioMaterialReset(materialHandle, MaterialProperty.ABSORPTION);
 
-        foreach ( Point p in absorption.points )
+        foreach (Point p in absorption.points)
             ONSPPropagation.Interface.AudioMaterialSetFrequency(materialHandle, MaterialProperty.ABSORPTION,
-                                                          p.frequency, p.data );
+                                                          p.frequency, p.data);
 
         // Transmission
         ONSPPropagation.Interface.AudioMaterialReset(materialHandle, MaterialProperty.TRANSMISSION);
@@ -230,41 +230,41 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     //***********************************************************************
 
-    public void SetPreset(Preset preset )
+    public void SetPreset(Preset preset)
     {
         ONSPPropagationMaterial material = this;
 
-        switch ( preset )
+        switch (preset)
         {
-            case Preset.AcousticTile:           AcousticTile(ref material);             break;
-            case Preset.Brick:                  Brick(ref material);                    break;
-            case Preset.BrickPainted:           BrickPainted(ref material);             break;
-            case Preset.Carpet:                 Carpet(ref material);                   break;
-            case Preset.CarpetHeavy:            CarpetHeavy(ref material);              break;
-            case Preset.CarpetHeavyPadded:      CarpetHeavyPadded(ref material);        break;
-            case Preset.CeramicTile:            CeramicTile(ref material);              break;
-            case Preset.Concrete:               Concrete(ref material);                 break;
-            case Preset.ConcreteRough:          ConcreteRough(ref material);            break;
-            case Preset.ConcreteBlock:          ConcreteBlock(ref material);            break;
-            case Preset.ConcreteBlockPainted:   ConcreteBlockPainted(ref material);     break;
-            case Preset.Curtain:                Curtain(ref material);                  break;
-            case Preset.Foliage:                Foliage(ref material);                  break;
-            case Preset.Glass:                  Glass(ref material);                    break;
-            case Preset.GlassHeavy:             GlassHeavy(ref material);               break;
-            case Preset.Grass:                  Grass(ref material);                    break;
-            case Preset.Gravel:                 Gravel(ref material);                   break;
-            case Preset.GypsumBoard:            GypsumBoard(ref material);              break;
-            case Preset.PlasterOnBrick:         PlasterOnBrick(ref material);           break;
-            case Preset.PlasterOnConcreteBlock: PlasterOnConcreteBlock(ref material);   break;
-            case Preset.Soil:                   Soil(ref material);                     break;
-            case Preset.SoundProof:             SoundProof(ref material);               break;
-            case Preset.Snow:                   Snow(ref material);                     break;
-            case Preset.Steel:                  Steel(ref material);                    break;
-            case Preset.Water:                  Water(ref material);                    break;
-            case Preset.WoodThin:               WoodThin(ref material);                 break;
-            case Preset.WoodThick:              WoodThick(ref material);                break;
-            case Preset.WoodFloor:              WoodFloor(ref material);                break;
-            case Preset.WoodOnConcrete:         WoodOnConcrete(ref material);           break;
+            case Preset.AcousticTile: AcousticTile(ref material); break;
+            case Preset.Brick: Brick(ref material); break;
+            case Preset.BrickPainted: BrickPainted(ref material); break;
+            case Preset.Carpet: Carpet(ref material); break;
+            case Preset.CarpetHeavy: CarpetHeavy(ref material); break;
+            case Preset.CarpetHeavyPadded: CarpetHeavyPadded(ref material); break;
+            case Preset.CeramicTile: CeramicTile(ref material); break;
+            case Preset.Concrete: Concrete(ref material); break;
+            case Preset.ConcreteRough: ConcreteRough(ref material); break;
+            case Preset.ConcreteBlock: ConcreteBlock(ref material); break;
+            case Preset.ConcreteBlockPainted: ConcreteBlockPainted(ref material); break;
+            case Preset.Curtain: Curtain(ref material); break;
+            case Preset.Foliage: Foliage(ref material); break;
+            case Preset.Glass: Glass(ref material); break;
+            case Preset.GlassHeavy: GlassHeavy(ref material); break;
+            case Preset.Grass: Grass(ref material); break;
+            case Preset.Gravel: Gravel(ref material); break;
+            case Preset.GypsumBoard: GypsumBoard(ref material); break;
+            case Preset.PlasterOnBrick: PlasterOnBrick(ref material); break;
+            case Preset.PlasterOnConcreteBlock: PlasterOnConcreteBlock(ref material); break;
+            case Preset.Soil: Soil(ref material); break;
+            case Preset.SoundProof: SoundProof(ref material); break;
+            case Preset.Snow: Snow(ref material); break;
+            case Preset.Steel: Steel(ref material); break;
+            case Preset.Water: Water(ref material); break;
+            case Preset.WoodThin: WoodThin(ref material); break;
+            case Preset.WoodThick: WoodThick(ref material); break;
+            case Preset.WoodFloor: WoodFloor(ref material); break;
+            case Preset.WoodOnConcrete: WoodOnConcrete(ref material); break;
             case Preset.Custom:
                 break;
             default:
@@ -525,8 +525,8 @@ public sealed class ONSPPropagationMaterial : MonoBehaviour
 
     private static void SoundProof(ref ONSPPropagationMaterial material)
     {
-        material.absorption.points = new List<Point>{ new Point(1000f, 1.0f) };
-        material.scattering.points = new List<Point>{ new Point(1000f, 0.0f) };
+        material.absorption.points = new List<Point> { new Point(1000f, 1.0f) };
+        material.scattering.points = new List<Point> { new Point(1000f, 0.0f) };
         material.transmission.points = new List<Point>();
     }
 

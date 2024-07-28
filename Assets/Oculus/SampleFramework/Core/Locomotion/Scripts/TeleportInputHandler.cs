@@ -58,7 +58,7 @@ public abstract class TeleportInputHandler : TeleportSupport
 
     protected override void RemoveEventHandlers()
     {
-        if(LocomotionTeleport.InputHandler == this)
+        if (LocomotionTeleport.InputHandler == this)
         {
             LocomotionTeleport.InputHandler = null;
         }

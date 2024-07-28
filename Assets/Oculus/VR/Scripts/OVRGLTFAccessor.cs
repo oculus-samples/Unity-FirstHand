@@ -92,7 +92,7 @@ public class OVRGLTFAccessor
 
     private static OVRGLTFType ToOVRType(string type)
     {
-        switch(type)
+        switch (type)
         {
             case "SCALAR":
                 return OVRGLTFType.SCALAR;
@@ -130,7 +130,7 @@ public class OVRGLTFAccessor
         chunk.chunkStream.Read(bufferData, 0, byteLength);
 
         int stride = byteStride > 0 ? byteStride : GetStrideForType(componentType);
-        for(int i = 0; i < dataCount; i++)
+        for (int i = 0; i < dataCount; i++)
         {
             data[offset + i] = (int)ReadElementAsUint(bufferData, i * stride, componentType);
         }
@@ -417,7 +417,7 @@ public class OVRGLTFAccessor
 
     private uint ReadElementAsUint(byte[] data, int index, OVRGLTFComponentType type)
     {
-        switch(type)
+        switch (type)
         {
             case OVRGLTFComponentType.BYTE:
                 return (uint)Convert.ToSByte(data[index]);

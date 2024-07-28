@@ -120,7 +120,7 @@ namespace Oculus.Interaction
         {
             Vector3 coneOriginToPoint = point - this.transform.position;
             Vector3 pointProjection = Vector3.Project(coneOriginToPoint, Direction);
-            if(Vector3.Dot(pointProjection, Direction) < 0)
+            if (Vector3.Dot(pointProjection, Direction) < 0)
             {
                 return false;
             }

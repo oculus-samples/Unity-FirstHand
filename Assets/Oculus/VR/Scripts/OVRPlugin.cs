@@ -60,7 +60,8 @@ public static partial class OVRPlugin
 #endif
     public static System.Version version
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             Debug.LogWarning("Platform is not currently supported by OVRPlugin");
             return _versionZero;
@@ -105,7 +106,8 @@ public static partial class OVRPlugin
 #endif
     public static System.Version nativeSDKVersion
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return _versionZero;
 #else
@@ -196,7 +198,7 @@ public static partial class OVRPlugin
     public static void SetLogCallback2(LogCallback2DelegateType logCallback)
     {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
-            // do nothing
+        // do nothing
 #else
         if (version >= OVRP_1_70_0.version)
         {
@@ -892,19 +894,22 @@ public static partial class OVRPlugin
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Recti {
+    public struct Recti
+    {
         Vector2i Pos;
         Sizei Size;
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Rectf {
+    public struct Rectf
+    {
         public Vector2f Pos;
         public Sizef Size;
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Boundsf {
+    public struct Boundsf
+    {
         public Vector3f Pos;
         public Size3f Size;
     }
@@ -1049,7 +1054,8 @@ public static partial class OVRPlugin
         }
     }
 
-    public enum BlendFactor {
+    public enum BlendFactor
+    {
         Zero = 0,
         One = 1,
         SrcAlpha = 2,
@@ -1094,38 +1100,38 @@ public static partial class OVRPlugin
 
     public enum BoneId
     {
-        Invalid                 = -1,
+        Invalid = -1,
 
         // hand bones
-        Hand_Start              = 0,
-        Hand_WristRoot          = Hand_Start + 0, // root frame of the hand, where the wrist is located
-        Hand_ForearmStub        = Hand_Start + 1, // frame for user's forearm
-        Hand_Thumb0             = Hand_Start + 2, // thumb trapezium bone
-        Hand_Thumb1             = Hand_Start + 3, // thumb metacarpal bone
-        Hand_Thumb2             = Hand_Start + 4, // thumb proximal phalange bone
-        Hand_Thumb3             = Hand_Start + 5, // thumb distal phalange bone
-        Hand_Index1             = Hand_Start + 6, // index proximal phalange bone
-        Hand_Index2             = Hand_Start + 7, // index intermediate phalange bone
-        Hand_Index3             = Hand_Start + 8, // index distal phalange bone
-        Hand_Middle1            = Hand_Start + 9, // middle proximal phalange bone
-        Hand_Middle2            = Hand_Start + 10, // middle intermediate phalange bone
-        Hand_Middle3            = Hand_Start + 11, // middle distal phalange bone
-        Hand_Ring1              = Hand_Start + 12, // ring proximal phalange bone
-        Hand_Ring2              = Hand_Start + 13, // ring intermediate phalange bone
-        Hand_Ring3              = Hand_Start + 14, // ring distal phalange bone
-        Hand_Pinky0             = Hand_Start + 15, // pinky metacarpal bone
-        Hand_Pinky1             = Hand_Start + 16, // pinky proximal phalange bone
-        Hand_Pinky2             = Hand_Start + 17, // pinky intermediate phalange bone
-        Hand_Pinky3             = Hand_Start + 18, // pinky distal phalange bone
-        Hand_MaxSkinnable       = Hand_Start + 19,
+        Hand_Start = 0,
+        Hand_WristRoot = Hand_Start + 0, // root frame of the hand, where the wrist is located
+        Hand_ForearmStub = Hand_Start + 1, // frame for user's forearm
+        Hand_Thumb0 = Hand_Start + 2, // thumb trapezium bone
+        Hand_Thumb1 = Hand_Start + 3, // thumb metacarpal bone
+        Hand_Thumb2 = Hand_Start + 4, // thumb proximal phalange bone
+        Hand_Thumb3 = Hand_Start + 5, // thumb distal phalange bone
+        Hand_Index1 = Hand_Start + 6, // index proximal phalange bone
+        Hand_Index2 = Hand_Start + 7, // index intermediate phalange bone
+        Hand_Index3 = Hand_Start + 8, // index distal phalange bone
+        Hand_Middle1 = Hand_Start + 9, // middle proximal phalange bone
+        Hand_Middle2 = Hand_Start + 10, // middle intermediate phalange bone
+        Hand_Middle3 = Hand_Start + 11, // middle distal phalange bone
+        Hand_Ring1 = Hand_Start + 12, // ring proximal phalange bone
+        Hand_Ring2 = Hand_Start + 13, // ring intermediate phalange bone
+        Hand_Ring3 = Hand_Start + 14, // ring distal phalange bone
+        Hand_Pinky0 = Hand_Start + 15, // pinky metacarpal bone
+        Hand_Pinky1 = Hand_Start + 16, // pinky proximal phalange bone
+        Hand_Pinky2 = Hand_Start + 17, // pinky intermediate phalange bone
+        Hand_Pinky3 = Hand_Start + 18, // pinky distal phalange bone
+        Hand_MaxSkinnable = Hand_Start + 19,
         // Bone tips are position only. They are not used for skinning but are useful for hit-testing.
         // NOTE: Hand_ThumbTip == Hand_MaxSkinnable since the extended tips need to be contiguous
-        Hand_ThumbTip           = Hand_MaxSkinnable + 0, // tip of the thumb
-        Hand_IndexTip           = Hand_MaxSkinnable + 1, // tip of the index finger
-        Hand_MiddleTip          = Hand_MaxSkinnable + 2, // tip of the middle finger
-        Hand_RingTip            = Hand_MaxSkinnable + 3, // tip of the ring finger
-        Hand_PinkyTip           = Hand_MaxSkinnable + 4, // tip of the pinky
-        Hand_End                = Hand_MaxSkinnable + 5,
+        Hand_ThumbTip = Hand_MaxSkinnable + 0, // tip of the thumb
+        Hand_IndexTip = Hand_MaxSkinnable + 1, // tip of the index finger
+        Hand_MiddleTip = Hand_MaxSkinnable + 2, // tip of the middle finger
+        Hand_RingTip = Hand_MaxSkinnable + 3, // tip of the ring finger
+        Hand_PinkyTip = Hand_MaxSkinnable + 4, // tip of the pinky
+        Hand_End = Hand_MaxSkinnable + 5,
 
 
         // add new bones here
@@ -1146,11 +1152,11 @@ public static partial class OVRPlugin
     [Flags]
     public enum HandFingerPinch
     {
-        Thumb  = (1 << HandFinger.Thumb),
-        Index  = (1 << HandFinger.Index),
+        Thumb = (1 << HandFinger.Thumb),
+        Index = (1 << HandFinger.Index),
         Middle = (1 << HandFinger.Middle),
-        Ring   = (1 << HandFinger.Ring),
-        Pinky  = (1 << HandFinger.Pinky),
+        Ring = (1 << HandFinger.Ring),
+        Pinky = (1 << HandFinger.Pinky),
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1419,14 +1425,16 @@ public static partial class OVRPlugin
     }
 
     // Enum defining the type of the keyboard model, effect render parameters and passthrough configuration.
-    public enum TrackedKeyboardPresentationStyles {
+    public enum TrackedKeyboardPresentationStyles
+    {
         Unknown = 0,
         Opaque = 1,
         KeyLabel = 2,
     }
 
     // Enum defining the type of the keyboard returned
-    public enum TrackedKeyboardFlags {
+    public enum TrackedKeyboardFlags
+    {
         Exists = 1,
         Local = 2,
         Remote = 4,
@@ -1434,7 +1442,8 @@ public static partial class OVRPlugin
     }
 
     // Enum defining the type of the keyboard requested
-    public enum TrackedKeyboardQueryFlags {
+    public enum TrackedKeyboardQueryFlags
+    {
         Local = 2,
         Remote = 4,
     }
@@ -1650,7 +1659,8 @@ public static partial class OVRPlugin
 
     public static bool initialized
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1689,7 +1699,8 @@ public static partial class OVRPlugin
 
     public static bool chromatic
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1704,7 +1715,8 @@ public static partial class OVRPlugin
 #endif
         }
 
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -1716,14 +1728,16 @@ public static partial class OVRPlugin
 
     public static bool monoscopic
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
             return initialized && OVRP_1_1_0.ovrp_GetAppMonoscopic() == OVRPlugin.Bool.True;
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -1737,14 +1751,16 @@ public static partial class OVRPlugin
 
     public static bool rotation
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
             return initialized && OVRP_1_1_0.ovrp_GetTrackingOrientationEnabled() == Bool.True;
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -1758,14 +1774,16 @@ public static partial class OVRPlugin
 
     public static bool position
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
             return initialized && OVRP_1_1_0.ovrp_GetTrackingPositionEnabled() == Bool.True;
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -1779,7 +1797,8 @@ public static partial class OVRPlugin
 
     public static bool useIPDInPositionTracking
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1790,7 +1809,8 @@ public static partial class OVRPlugin
 #endif
         }
 
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -1802,7 +1822,8 @@ public static partial class OVRPlugin
 
     public static bool positionSupported
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1813,7 +1834,8 @@ public static partial class OVRPlugin
 
     public static bool positionTracked
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1824,7 +1846,8 @@ public static partial class OVRPlugin
 
     public static bool powerSaving
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1835,7 +1858,8 @@ public static partial class OVRPlugin
 
     public static bool hmdPresent
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1846,7 +1870,8 @@ public static partial class OVRPlugin
 
     public static bool userPresent
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1858,7 +1883,8 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. This function will not be supported in OpenXR", false)]
     public static bool headphonesPresent
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -1869,7 +1895,8 @@ public static partial class OVRPlugin
 
     public static int recommendedMSAALevel
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 2;
 #else
@@ -1883,7 +1910,8 @@ public static partial class OVRPlugin
 
     public static SystemRegion systemRegion
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return SystemRegion.Unspecified;
 #else
@@ -1903,7 +1931,8 @@ public static partial class OVRPlugin
 
     public static string audioOutId
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return string.Empty;
 #else
@@ -1953,7 +1982,8 @@ public static partial class OVRPlugin
 
     public static string audioInId
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return string.Empty;
 #else
@@ -1997,7 +2027,8 @@ public static partial class OVRPlugin
 
     public static bool hasVrFocus
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -2033,7 +2064,8 @@ public static partial class OVRPlugin
 
     public static bool shouldQuit
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -2044,7 +2076,8 @@ public static partial class OVRPlugin
 
     public static bool shouldRecenter
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
@@ -2055,7 +2088,8 @@ public static partial class OVRPlugin
 
     public static string productName
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return string.Empty;
 #else
@@ -2066,7 +2100,8 @@ public static partial class OVRPlugin
 
     public static string latency
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return string.Empty;
 #else
@@ -2080,7 +2115,8 @@ public static partial class OVRPlugin
 
     public static float eyeDepth
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
@@ -2090,7 +2126,8 @@ public static partial class OVRPlugin
             return OVRP_1_1_0.ovrp_GetUserEyeDepth();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2101,14 +2138,16 @@ public static partial class OVRPlugin
 
     public static float eyeHeight
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
             return OVRP_1_1_0.ovrp_GetUserEyeHeight();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2120,7 +2159,8 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. Please use SystemInfo.batteryLevel", false)]
     public static float batteryLevel
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
@@ -2132,7 +2172,8 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. This function will not be supported in OpenXR", false)]
     public static float batteryTemperature
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
@@ -2206,14 +2247,16 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. Please use suggestedCpuPerfLevel.", false)]
     public static int cpuLevel
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0;
 #else
             return OVRP_1_1_0.ovrp_GetSystemCpuLevel();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2225,14 +2268,16 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. Please use suggestedGpuPerfLevel.", false)]
     public static int gpuLevel
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0;
 #else
             return OVRP_1_1_0.ovrp_GetSystemGpuLevel();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2243,14 +2288,16 @@ public static partial class OVRPlugin
 
     public static int vsyncCount
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0;
 #else
             return OVRP_1_1_0.ovrp_GetSystemVSyncCount();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2262,7 +2309,8 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. This function will not be supported in OpenXR", false)]
     public static float systemVolume
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
@@ -2273,14 +2321,16 @@ public static partial class OVRPlugin
 
     public static float ipd
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return 0.0f;
 #else
             return OVRP_1_1_0.ovrp_GetUserIPD();
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2291,14 +2341,16 @@ public static partial class OVRPlugin
 
     public static bool occlusionMesh
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return false;
 #else
             return initialized && (OVRP_1_3_0.ovrp_GetEyeOcclusionMeshEnabled() == Bool.True);
 #endif
         }
-        set {
+        set
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return;
 #else
@@ -2313,7 +2365,8 @@ public static partial class OVRPlugin
     [System.Obsolete("Deprecated. Please use SystemInfo.batteryStatus", false)]
     public static BatteryStatus batteryStatus
     {
-        get {
+        get
+        {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
             return default(BatteryStatus);
 #else
@@ -5506,7 +5559,7 @@ public static partial class OVRPlugin
         public static bool SetMrcHeadsetControllerPose(Posef headsetPose, Posef leftControllerPose, Posef rightControllerPose)
         {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
-        return false;
+            return false;
 #else
             if (version >= OVRP_1_49_0.version)
             {
@@ -6043,7 +6096,7 @@ public static partial class OVRPlugin
             return false;
         }
 #endif
-        }
+    }
 
     public static ColorSpace GetHmdColorDesc()
     {
@@ -6106,7 +6159,7 @@ public static partial class OVRPlugin
     public static UInt64 GetNativeOpenXRInstance()
     {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
-            return 0;
+        return 0;
 #else
         if (version >= OVRP_1_55_0.version)
         {
@@ -6123,7 +6176,7 @@ public static partial class OVRPlugin
     public static UInt64 GetNativeOpenXRSession()
     {
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
-            return 0;
+        return 0;
 #else
         if (version >= OVRP_1_55_0.version)
         {
@@ -6154,7 +6207,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool CreateSpatialAnchor(SpatialAnchorCreateInfo createInfo, out UInt64 requestId) {
+    public static bool CreateSpatialAnchor(SpatialAnchorCreateInfo createInfo, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6171,7 +6225,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool SetSpaceComponentStatus(UInt64 space, SpaceComponentType componentType, bool enable, double timeout, out UInt64 requestId) {
+    public static bool SetSpaceComponentStatus(UInt64 space, SpaceComponentType componentType, bool enable, double timeout, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6188,7 +6243,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceComponentStatus(UInt64 space, SpaceComponentType componentType, out bool enabled, out bool changePending) {
+    public static bool GetSpaceComponentStatus(UInt64 space, SpaceComponentType componentType, out bool enabled, out bool changePending)
+    {
         enabled = false;
         changePending = false;
 
@@ -6210,7 +6266,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-  public static bool EnumerateSpaceSupportedComponents(UInt64 space, out uint numSupportedComponents, SpaceComponentType[] supportedComponents) {
+    public static bool EnumerateSpaceSupportedComponents(UInt64 space, out uint numSupportedComponents, SpaceComponentType[] supportedComponents)
+    {
         numSupportedComponents = 0;
 
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
@@ -6226,9 +6283,10 @@ public static partial class OVRPlugin
             return false;
         }
 #endif
-  }
+    }
 
-    public static bool SaveSpace(UInt64 space, SpaceStorageLocation location, SpaceStoragePersistenceMode mode, out UInt64 requestId) {
+    public static bool SaveSpace(UInt64 space, SpaceStorageLocation location, SpaceStoragePersistenceMode mode, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6245,7 +6303,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool EraseSpace(UInt64 space, SpaceStorageLocation location, out UInt64 requestId) {
+    public static bool EraseSpace(UInt64 space, SpaceStorageLocation location, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6262,7 +6321,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool QuerySpaces(SpaceQueryInfo queryInfo, out UInt64 requestId) {
+    public static bool QuerySpaces(SpaceQueryInfo queryInfo, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6308,7 +6368,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool RetrieveSpaceQueryResults(UInt64 requestId, out SpaceQueryResult[] results) {
+    public static bool RetrieveSpaceQueryResults(UInt64 requestId, out SpaceQueryResult[] results)
+    {
         results = null;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6385,7 +6446,7 @@ public static partial class OVRPlugin
     }
 
     [StructLayout(LayoutKind.Sequential)]
-  private struct SpaceContainerInternal
+    private struct SpaceContainerInternal
     {
         public int uuidCapacityInput;
         public int uuidCountOutput;
@@ -6393,7 +6454,7 @@ public static partial class OVRPlugin
     }
 
     [StructLayout(LayoutKind.Sequential)]
-  private struct SpaceSemanticLabelInternal
+    private struct SpaceSemanticLabelInternal
     {
         public int byteCapacityInput;
         public int byteCountOutput;
@@ -6409,7 +6470,7 @@ public static partial class OVRPlugin
     }
 
     [StructLayout(LayoutKind.Sequential)]
-  private struct RoomLayoutInternal
+    private struct RoomLayoutInternal
     {
         public Guid floorUuid;
         public Guid ceilingUuid;
@@ -6437,12 +6498,13 @@ public static partial class OVRPlugin
     private struct PinnedArray<T> : IDisposable where T : unmanaged
     {
         GCHandle _handle;
-        public PinnedArray(T[] array) =>_handle = GCHandle.Alloc(array, GCHandleType.Pinned);
+        public PinnedArray(T[] array) => _handle = GCHandle.Alloc(array, GCHandleType.Pinned);
         public void Dispose() => _handle.Free();
         public static implicit operator IntPtr(PinnedArray<T> pinnedArray) => pinnedArray._handle.AddrOfPinnedObject();
     }
 
-    public static bool GetSpaceContainer(UInt64 space, out Guid[] containerUuids) {
+    public static bool GetSpaceContainer(UInt64 space, out Guid[] containerUuids)
+    {
         containerUuids = Array.Empty<Guid>();
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6464,7 +6526,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceBoundingBox2D(UInt64 space, out Rectf rect) {
+    public static bool GetSpaceBoundingBox2D(UInt64 space, out Rectf rect)
+    {
         rect = new Rectf();
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6481,7 +6544,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceBoundingBox3D(UInt64 space, out Boundsf bounds) {
+    public static bool GetSpaceBoundingBox3D(UInt64 space, out Boundsf bounds)
+    {
         bounds = new Boundsf();
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6498,7 +6562,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceSemanticLabels(UInt64 space, out string labels) {
+    public static bool GetSpaceSemanticLabels(UInt64 space, out string labels)
+    {
         labels = "";
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6523,7 +6588,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceRoomLayout(UInt64 space, out RoomLayout roomLayout) {
+    public static bool GetSpaceRoomLayout(UInt64 space, out RoomLayout roomLayout)
+    {
         roomLayout = new RoomLayout();
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6547,7 +6613,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool GetSpaceBoundary2D(UInt64 space, out Vector2[] boundary) {
+    public static bool GetSpaceBoundary2D(UInt64 space, out Vector2[] boundary)
+    {
         boundary = Array.Empty<Vector2>();
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -6587,7 +6654,8 @@ public static partial class OVRPlugin
 #endif
     }
 
-    public static bool RequestSceneCapture(string requestString, out UInt64 requestId) {
+    public static bool RequestSceneCapture(string requestString, out UInt64 requestId)
+    {
         requestId = 0;
 #if OVRPLUGIN_UNSUPPORTED_PLATFORM
         return false;
@@ -8113,7 +8181,7 @@ public static partial class OVRPlugin
         public static extern Result ovrp_GetKeyboardState(Step stepId, int frameIndex, out KeyboardState keyboardState);
     }
 
-  private static class OVRP_1_69_0
+    private static class OVRP_1_69_0
     {
         public static readonly System.Version version = new System.Version(1, 69, 0);
 
@@ -8122,7 +8190,7 @@ public static partial class OVRPlugin
 
     }
 
-  private static class OVRP_1_70_0
+    private static class OVRP_1_70_0
     {
         public static readonly System.Version version = new System.Version(1, 70, 0);
 
@@ -8131,7 +8199,7 @@ public static partial class OVRPlugin
 
     }
 
-  private static class OVRP_1_71_0
+    private static class OVRP_1_71_0
     {
         public static readonly System.Version version = new System.Version(1, 71, 0);
 
@@ -8186,7 +8254,7 @@ public static partial class OVRPlugin
 
     }
 
-  private static class OVRP_1_72_0
+    private static class OVRP_1_72_0
     {
         public static readonly System.Version version = new System.Version(1, 72, 0);
 
@@ -8224,7 +8292,7 @@ public static partial class OVRPlugin
         public static extern Result ovrp_GetSpaceBoundingBox3D(ref UInt64 space, out Boundsf bounds);
 
         [DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
-        public static extern Result  ovrp_GetSpaceSemanticLabels(ref UInt64 space, ref SpaceSemanticLabelInternal labelsInternal);
+        public static extern Result ovrp_GetSpaceSemanticLabels(ref UInt64 space, ref SpaceSemanticLabelInternal labelsInternal);
 
         [DllImport(pluginName, CallingConvention = CallingConvention.Cdecl)]
         public static extern Result ovrp_GetSpaceRoomLayout(ref UInt64 space, ref RoomLayoutInternal roomLayoutInternal);
@@ -8237,7 +8305,7 @@ public static partial class OVRPlugin
 
     }
 
-  private static class OVRP_1_73_0
+    private static class OVRP_1_73_0
     {
         public static readonly System.Version version = new System.Version(1, 73, 0);
 

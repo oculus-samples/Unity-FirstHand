@@ -70,7 +70,7 @@ namespace Oculus.Voice.Utility
             }
             Texts = JsonUtility.FromJson<VoiceSDKTexts>(textAsset.text);
 
-            MainHeader = (Texture2D) Resources.Load("voicesdk_heroart");
+            MainHeader = (Texture2D)Resources.Load("voicesdk_heroart");
             SetupTitle = new GUIContent(Texts.SetupTitleLabel);
             AboutTitle = new GUIContent(Texts.AboutTitleLabel);
             SettingsTitle = new GUIContent(Texts.SettingsTitleLabel);

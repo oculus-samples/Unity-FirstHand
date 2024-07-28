@@ -54,13 +54,13 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
         }
 
         Separator();
-        Label ("GLOBAL SCALE (0.00001 - 10000.0)");
+        Label("GLOBAL SCALE (0.00001 - 10000.0)");
         plugin.GetFloatParameter("GScale", out fval);
-        plugin.SetFloatParameter("GScale", EditorGUILayout.FloatField(" ", Mathf.Clamp (fval, 0.00001f, 10000.0f)));
+        plugin.SetFloatParameter("GScale", EditorGUILayout.FloatField(" ", Mathf.Clamp(fval, 0.00001f, 10000.0f)));
 
         Separator();
 
-        Label ("REFLECTION ENGINE");
+        Label("REFLECTION ENGINE");
         Label("");
         // Treat these floats as bools in the inspector
         plugin.GetFloatParameter("E.Rflt On", out fval);
@@ -137,7 +137,7 @@ public class OculusSpatializerReflectionCustomGUI : IAudioEffectPluginGUI
     // Label
     void Label(string label)
     {
-        EditorGUILayout.LabelField (label);
+        EditorGUILayout.LabelField(label);
     }
 
 

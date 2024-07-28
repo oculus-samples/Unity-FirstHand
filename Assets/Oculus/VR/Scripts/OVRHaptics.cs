@@ -220,7 +220,7 @@ public static class OVRHaptics
 
             int acquiredSamplesCount = 0;
             int clipIndex = 0;
-            while(acquiredSamplesCount < desiredSamplesCount && clipIndex < m_pendingClips.Count)
+            while (acquiredSamplesCount < desiredSamplesCount && clipIndex < m_pendingClips.Count)
             {
                 int numSamplesToCopy = desiredSamplesCount - acquiredSamplesCount;
                 int remainingSamplesInClip = m_pendingClips[clipIndex].Clip.Count - m_pendingClips[clipIndex].ReadCount;
@@ -330,7 +330,7 @@ public static class OVRHaptics
                 for (int i = 0; i < numClipsToMix; i++)
                 {
                     OVRHapticsClip b = m_pendingClips[i].Clip;
-                    for(int bReadCount = m_pendingClips[i].ReadCount; bReadCount < b.Count; bReadCount++)
+                    for (int bReadCount = m_pendingClips[i].ReadCount; bReadCount < b.Count; bReadCount++)
                     {
                         if (OVRHaptics.Config.SampleSizeInBytes == 1)
                         {

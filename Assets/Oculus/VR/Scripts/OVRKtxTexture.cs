@@ -59,7 +59,7 @@ public class OVRKtxTexture
 
         uint textureSize = OVRPlugin.Ktx.GetKtxTextureSize(ktxTexturePtr);
         IntPtr textureDataPtr = Marshal.AllocHGlobal(sizeof(byte) * (int)textureSize);
-        if(!OVRPlugin.Ktx.GetKtxTextureData(ktxTexturePtr, textureDataPtr, textureSize))
+        if (!OVRPlugin.Ktx.GetKtxTextureData(ktxTexturePtr, textureDataPtr, textureSize))
         {
             Debug.LogError("Failed to get texture data from Ktx texture reference");
             return false;

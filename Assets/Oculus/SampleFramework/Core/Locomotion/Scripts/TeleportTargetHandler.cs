@@ -97,7 +97,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
             _aimPoints.Clear();
             LocomotionTeleport.AimHandler.GetPoints(_aimPoints);
 
-            for(int i = 0; i < _aimPoints.Count; i++)
+            for (int i = 0; i < _aimPoints.Count; i++)
             {
                 var adjustedPoint = _aimPoints[i];
                 AimData.TargetValid = ConsiderTeleport(current, ref adjustedPoint);

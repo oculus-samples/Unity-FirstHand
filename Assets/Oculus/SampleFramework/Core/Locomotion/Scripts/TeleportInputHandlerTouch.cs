@@ -126,7 +126,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
     [Tooltip("The thumbstick magnitude required to trigger aiming and teleports when InputMode==InputModes.ThumbstickTeleport")]
     public float ThumbstickTeleportThreshold = 0.5f;
 
-    void Start ()
+    void Start()
     {
     }
 
@@ -184,7 +184,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
             }
             else
             {
-                if(leftMag > rightMag)
+                if (leftMag > rightMag)
                 {
                     bestMag = leftMag;
                     bestController = OVRInput.Controller.LTouch;
@@ -281,7 +281,7 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
     public override void GetAimData(out Ray aimRay)
     {
         OVRInput.Controller sourceController = AimingController;
-        if(sourceController == OVRInput.Controller.Touch)
+        if (sourceController == OVRInput.Controller.Touch)
         {
             sourceController = InitiatingController;
         }

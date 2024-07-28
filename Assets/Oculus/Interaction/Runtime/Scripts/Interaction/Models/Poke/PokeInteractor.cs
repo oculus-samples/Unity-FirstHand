@@ -82,7 +82,8 @@ namespace Oculus.Interaction
             }
         }
 
-        public override bool ShouldUnselect {
+        public override bool ShouldUnselect
+        {
             get
             {
                 if (State != InteractorState.Select)
@@ -205,7 +206,7 @@ namespace Oculus.Interaction
                 return true;
             }
 
-            if(ComputeDistanceAbove(interactable, _previousOrigin) > -1f * interactable.EnterHoverDistance)
+            if (ComputeDistanceAbove(interactable, _previousOrigin) > -1f * interactable.EnterHoverDistance)
             {
                 return false;
             }

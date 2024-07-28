@@ -114,7 +114,7 @@ public class OVRCameraRig : MonoBehaviour
     protected Camera _leftEyeCamera;
     protected Camera _rightEyeCamera;
 
-#region Unity Messages
+    #region Unity Messages
     protected virtual void Awake()
     {
         _skipUpdate = true;
@@ -145,7 +145,7 @@ public class OVRCameraRig : MonoBehaviour
     {
         Application.onBeforeRender -= OnBeforeRenderCallback;
     }
-#endregion
+    #endregion
 
     protected virtual void UpdateAnchors(bool updateEyeAnchors, bool updateHandAnchors)
     {

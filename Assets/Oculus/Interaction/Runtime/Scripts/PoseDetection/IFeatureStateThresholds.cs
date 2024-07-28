@@ -24,7 +24,7 @@ namespace Oculus.Interaction.PoseDetection
 {
     public interface IFeatureStateThresholds<TFeature, TFeatureState>
     {
-        TFeature Feature {get;}
-        IReadOnlyList<IFeatureStateThreshold<TFeatureState>> Thresholds {get;}
+        TFeature Feature { get; }
+        IReadOnlyList<IFeatureStateThreshold<TFeatureState>> Thresholds { get; }
     }
 }

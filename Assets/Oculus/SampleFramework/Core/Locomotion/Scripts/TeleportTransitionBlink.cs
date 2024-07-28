@@ -48,14 +48,14 @@ public class TeleportTransitionBlink : TeleportTransition
     /// At what percentage of the elapsed transition time does the teleport occur?
     /// </summary>
     [Tooltip("At what percentage of the elapsed transition time does the teleport occur?")]
-    [Range(0.0f,1.0f)]
+    [Range(0.0f, 1.0f)]
     public float TeleportDelay = 0.5f;
 
     /// <summary>
     /// Fade to black over the duration of the transition.
     /// </summary>
     [Tooltip("Fade to black over the duration of the transition")]
-    public AnimationCurve FadeLevels = new AnimationCurve(new Keyframe[3] { new Keyframe(0,0), new Keyframe(0.5f, 1.0f), new Keyframe(1.0f, 0.0f) });
+    public AnimationCurve FadeLevels = new AnimationCurve(new Keyframe[3] { new Keyframe(0, 0), new Keyframe(0.5f, 1.0f), new Keyframe(1.0f, 0.0f) });
 
     /// <summary>
     /// When the teleport state is entered, start a coroutine that will handle the

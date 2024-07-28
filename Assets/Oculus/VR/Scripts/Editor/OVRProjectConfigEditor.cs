@@ -224,7 +224,7 @@ public class OVRProjectConfigEditor : Editor
                     ref projectConfig.experimentalFeaturesEnabled, ref hasModified);
 
 
-            break;
+                break;
         }
 
         EditorGUILayout.EndVertical();

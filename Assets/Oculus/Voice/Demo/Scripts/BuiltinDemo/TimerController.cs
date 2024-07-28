@@ -215,7 +215,7 @@ namespace Oculus.Voice.Demo.BuiltInDemo
                 Log("Error: Hit max time");
             }
             TimeSpan span = TimeSpan.FromSeconds(_time);
-            return $"{Math.Floor(span.TotalHours)}:{span.Minutes:00}:{span.Seconds:00}.{Math.Floor(span.Milliseconds/100f)}";
+            return $"{Math.Floor(span.TotalHours)}:{span.Minutes:00}:{span.Seconds:00}.{Math.Floor(span.Milliseconds / 100f)}";
         }
 
         /// <summary>

@@ -34,7 +34,7 @@ namespace Oculus.Interaction
 
         protected virtual void Awake()
         {
-            ActiveState = _activeState as IActiveState;;
+            ActiveState = _activeState as IActiveState; ;
         }
 
         protected virtual void Start()

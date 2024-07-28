@@ -116,7 +116,7 @@ namespace Oculus.Interaction
             {
                 _skinnedMeshRenderer.enabled = true;
             }
-            else if(IsVisible && ForceOffVisibility)
+            else if (IsVisible && ForceOffVisibility)
             {
                 _skinnedMeshRenderer.enabled = false;
             }

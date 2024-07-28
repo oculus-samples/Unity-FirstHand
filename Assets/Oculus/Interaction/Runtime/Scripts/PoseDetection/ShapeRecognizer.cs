@@ -108,7 +108,7 @@ namespace Oculus.Interaction.PoseDetection
             }
         }
 
-#region Inject
+        #region Inject
         public void InjectAllShapeRecognizer(IDictionary<HandFinger, FingerFeatureConfig[]> fingerFeatureConfigs)
         {
             FingerFeatureConfigList ReadFeatureConfigs(HandFinger finger)
@@ -157,6 +157,6 @@ namespace Oculus.Interaction.PoseDetection
         {
             _shapeName = shapeName;
         }
-#endregion
+        #endregion
     }
 }

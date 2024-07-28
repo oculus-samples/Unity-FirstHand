@@ -152,14 +152,14 @@ public class ONSPPropagationGeometry : MonoBehaviour
         // Check for LOD. If present, use only the highest LOD and don't recurse to children.
         // Without this, we can accidentally get all LODs merged together.
         LODGroup lodGroup = obj.GetComponent(typeof(LODGroup)) as LODGroup;
-        if ( lodGroup != null )
+        if (lodGroup != null)
         {
-            LOD [] lods = lodGroup.GetLODs();
-            if ( lods.Length > 0 )
+            LOD[] lods = lodGroup.GetLODs();
+            if (lods.Length > 0)
             {
                 // Get renderers for highest LOD.
-                Renderer [] lodRenderers = lods[0].renderers;
-                if ( lodRenderers.Length > 0 )
+                Renderer[] lodRenderers = lods[0].renderers;
+                if (lodRenderers.Length > 0)
                 {
                     // Use the rendered game object to get the mesh instead, and don't go to children.
                     obj = lodRenderers[0].gameObject;
@@ -168,8 +168,8 @@ public class ONSPPropagationGeometry : MonoBehaviour
             }
         }
 
-        MeshFilter[] meshes                 = obj.GetComponents<MeshFilter>();
-        Terrain[] terrains                  = obj.GetComponents<Terrain>();
+        MeshFilter[] meshes = obj.GetComponents<MeshFilter>();
+        Terrain[] terrains = obj.GetComponents<Terrain>();
         ONSPPropagationMaterial[] materials = obj.GetComponents<ONSPPropagationMaterial>();
 
         // Initialize the current material array to a new array if there are any new materials.
@@ -698,4 +698,3 @@ public class ONSPPropagationGeometry : MonoBehaviour
         return true;
     }
 }
-

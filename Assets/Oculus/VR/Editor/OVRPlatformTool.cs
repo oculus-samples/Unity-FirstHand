@@ -99,7 +99,8 @@ namespace Assets.Oculus.VR.Editor
 
             // Load redist packages by calling list-redists in the CLI
             string dataPath = Application.dataPath;
-            var thread = new Thread(delegate () {
+            var thread = new Thread(delegate ()
+            {
                 retryCount = 0;
                 LoadRedistPackages(dataPath);
             });
@@ -516,7 +517,8 @@ namespace Assets.Oculus.VR.Editor
             {
                 ranSelfUpdate = true;
                 activeProcess = true;
-                var updateThread = new Thread(delegate () {
+                var updateThread = new Thread(delegate ()
+                {
                     retryCount = 0;
                     CheckForUpdate(dataPath);
                 });
@@ -830,10 +832,10 @@ namespace Assets.Oculus.VR.Editor
                     command += " --gamepad-emulation ";
                     switch (OVRPlatformToolSettings.RiftGamepadEmulation)
                     {
-                        case GamepadType.TWINSTICK:     command += "TWINSTICK";     break;
-                        case GamepadType.RIGHT_D_PAD:   command += "RIGHT_D_PAD";   break;
-                        case GamepadType.LEFT_D_PAD:    command += "LEFT_D_PAD";    break;
-                        default:                                                command += "OFF";           break;
+                        case GamepadType.TWINSTICK: command += "TWINSTICK"; break;
+                        case GamepadType.RIGHT_D_PAD: command += "RIGHT_D_PAD"; break;
+                        case GamepadType.LEFT_D_PAD: command += "LEFT_D_PAD"; break;
+                        default: command += "OFF"; break;
                     }
                 }
 
@@ -1303,13 +1305,15 @@ namespace Assets.Oculus.VR.Editor
             public static void HInset(int pixels, Worker worker)
             {
                 InOut(
-                    () => {
+                    () =>
+                    {
                         GUILayout.BeginHorizontal();
                         GUILayout.Space(pixels);
                         GUILayout.BeginVertical();
                     },
                     worker,
-                    () => {
+                    () =>
+                    {
                         GUILayout.EndVertical();
                         GUILayout.EndHorizontal();
                     }

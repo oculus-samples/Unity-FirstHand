@@ -51,7 +51,8 @@ public class OVRTracker
     /// </summary>
     public bool isPresent
     {
-        get {
+        get
+        {
             if (!OVRManager.isHmdPresent)
                 return false;
 
@@ -64,7 +65,8 @@ public class OVRTracker
     /// </summary>
     public bool isPositionTracked
     {
-        get {
+        get
+        {
             return OVRPlugin.positionTracked;
         }
     }
@@ -74,14 +76,16 @@ public class OVRTracker
     /// </summary>
     public bool isEnabled
     {
-        get {
+        get
+        {
             if (!OVRManager.isHmdPresent)
                 return false;
 
             return OVRPlugin.position;
         }
 
-        set {
+        set
+        {
             if (!OVRManager.isHmdPresent)
                 return;
 
@@ -94,7 +98,8 @@ public class OVRTracker
     /// </summary>
     public int count
     {
-        get {
+        get
+        {
             int count = 0;
 
             for (int i = 0; i < (int)OVRPlugin.Tracker.Count; ++i)

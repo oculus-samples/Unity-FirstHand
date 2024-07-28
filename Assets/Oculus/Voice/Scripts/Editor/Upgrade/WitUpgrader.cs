@@ -35,7 +35,7 @@ namespace Oculus.Voice.Upgrade
 
         public override void OnInspectorGUI()
         {
-            var wit = (Wit) target;
+            var wit = (Wit)target;
             if (!wit.GetComponent<AppVoiceExperience>())
             {
                 base.OnInspectorGUI();

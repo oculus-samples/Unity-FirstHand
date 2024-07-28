@@ -498,7 +498,7 @@ public class OVRGLTFLoader
         mesh.subMeshCount = primitives.Count;
 
         int baseVertex = 0;
-        for(int i = 0; i < primitives.Count; i++)
+        for (int i = 0; i < primitives.Count; i++)
         {
             mesh.SetIndices(indicies[i], MeshTopology.Triangles, i, false, baseVertex);
             baseVertex += primitiveVertexCounts[i];

@@ -28,9 +28,9 @@ public class OVRMonoscopic : MonoBehaviour
     /// <summary>
     /// The gamepad button that will toggle monoscopic rendering.
     /// </summary>
-    public OVRInput.RawButton   toggleButton = OVRInput.RawButton.B;
+    public OVRInput.RawButton toggleButton = OVRInput.RawButton.B;
 
-    private bool                        monoscopic = false;
+    private bool monoscopic = false;
 
     /// <summary>
     /// Check input and toggle monoscopic rendering mode if necessary

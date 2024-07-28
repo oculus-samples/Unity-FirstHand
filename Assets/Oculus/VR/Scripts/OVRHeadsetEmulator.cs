@@ -22,7 +22,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OVRHeadsetEmulator : MonoBehaviour {
+public class OVRHeadsetEmulator : MonoBehaviour
+{
     public enum OpMode
     {
         Off,
@@ -57,11 +58,13 @@ public class OVRHeadsetEmulator : MonoBehaviour {
     private CursorLockMode previousCursorLockMode = CursorLockMode.None;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         //todo: enable for Unity Input System
 #if ENABLE_LEGACY_INPUT_MANAGER
         if (!emulatorHasInitialized)

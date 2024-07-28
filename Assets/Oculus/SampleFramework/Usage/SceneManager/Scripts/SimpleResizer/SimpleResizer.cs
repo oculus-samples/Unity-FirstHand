@@ -70,9 +70,9 @@ public class SimpleResizer
 
         Vector3[] resizedVertices = originalMesh.vertices;
 
-        float pivotX = (1/resizable.DefaultSize.x) * resizable.PivotPosition.x;
-        float pivotY = (1/resizable.DefaultSize.y) * resizable.PivotPosition.y;
-        float pivotZ = (1/resizable.DefaultSize.z) * resizable.PivotPosition.z;
+        float pivotX = (1 / resizable.DefaultSize.x) * resizable.PivotPosition.x;
+        float pivotY = (1 / resizable.DefaultSize.y) * resizable.PivotPosition.y;
+        float pivotZ = (1 / resizable.DefaultSize.z) * resizable.PivotPosition.z;
 
         for (int i = 0; i < resizedVertices.Length; i++)
         {

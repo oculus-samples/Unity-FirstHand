@@ -24,12 +24,12 @@ using System;
 
 namespace Oculus.Platform
 {
-  public interface IMicrophone
-  {
-    void Start();
+    public interface IMicrophone
+    {
+        void Start();
 
-    void Stop();
+        void Stop();
 
-    float[] Update();
-  }
+        float[] Update();
+    }
 }

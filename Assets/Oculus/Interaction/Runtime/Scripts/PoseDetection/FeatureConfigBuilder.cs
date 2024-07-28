@@ -44,7 +44,7 @@ namespace Oculus.Interaction.PoseDetection
     {
         public static BuildCondition<OpenCloseStateBuilder> Curl { get; } =
             new BuildCondition<OpenCloseStateBuilder>(mode => new OpenCloseStateBuilder(mode, FingerFeature.Curl));
-        public static BuildCondition<OpenCloseStateBuilder> Flexion  { get; } =
+        public static BuildCondition<OpenCloseStateBuilder> Flexion { get; } =
             new BuildCondition<OpenCloseStateBuilder>(mode => new OpenCloseStateBuilder(mode, FingerFeature.Flexion));
         public static BuildCondition<AbductionStateBuilder> Abduction { get; } =
             new BuildCondition<AbductionStateBuilder>(mode => new AbductionStateBuilder(mode));

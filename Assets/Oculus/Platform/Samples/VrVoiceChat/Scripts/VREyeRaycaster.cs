@@ -32,7 +32,7 @@ namespace Oculus.Platform.Samples.VrVoiceChat
 
         private Button m_currentButton;
 
-        void Update ()
+        void Update()
         {
             RaycastHit hit;
             Button button = null;

@@ -114,7 +114,7 @@ namespace Oculus.Interaction.ComprehensiveSample
 
         public override string ToString()
         {
-            if (Max == Min){ return Max.ToString(); }
+            if (Max == Min) { return Max.ToString(); }
             if (float.IsPositiveInfinity(Max) && !float.IsNegativeInfinity(Min)) { return $">{Min}"; }
             if (!float.IsPositiveInfinity(Max) && float.IsNegativeInfinity(Min)) { return $"<{Min}"; }
             if (float.IsPositiveInfinity(Max) && float.IsNegativeInfinity(Min)) { return "Infinity"; }

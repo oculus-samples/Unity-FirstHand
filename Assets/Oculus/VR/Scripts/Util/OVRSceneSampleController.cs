@@ -157,7 +157,7 @@ public class OVRSceneSampleController : MonoBehaviour
 #endif
 #endif
     }
-#endregion
+    #endregion
 
     /// <summary>
     /// Updates the vision mode.

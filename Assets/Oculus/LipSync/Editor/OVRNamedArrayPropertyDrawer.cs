@@ -22,15 +22,20 @@ using UnityEngine;
 using UnityEditor;
 
 // Adds a custom named array drawer to the Unity editor
-[CustomPropertyDrawer( typeof(OVRNamedArrayAttribute) )]
-public class OVRNamedArrayPropertyDrawer : PropertyDrawer {
-    public override void OnGUI( Rect rect, SerializedProperty property, GUIContent label ) {
-        try {
+[CustomPropertyDrawer(typeof(OVRNamedArrayAttribute))]
+public class OVRNamedArrayPropertyDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect rect, SerializedProperty property, GUIContent label)
+    {
+        try
+        {
             int pos = int.Parse(property.propertyPath.Split('[', ']')[1]);
-            EditorGUI.PropertyField( rect, property,
-                new GUIContent( ( (OVRNamedArrayAttribute)attribute ).names[pos] ) );
-        } catch {
-            EditorGUI.PropertyField( rect, property, label );
+            EditorGUI.PropertyField(rect, property,
+                new GUIContent(((OVRNamedArrayAttribute)attribute).names[pos]));
+        }
+        catch
+        {
+            EditorGUI.PropertyField(rect, property, label);
         }
     }
 }

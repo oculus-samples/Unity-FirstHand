@@ -28,7 +28,8 @@ using UnityEngine.Rendering;
 /// </summary>
 [RequireComponent(typeof(Camera))]
 [ExecuteInEditMode]
-public class OVRVignette : MonoBehaviour {
+public class OVRVignette : MonoBehaviour
+{
 
     /// <summary>
     /// Controls the number of triangles in the vignette mesh.
@@ -108,7 +109,7 @@ public class OVRVignette : MonoBehaviour {
 
     private int GetTriangleCount()
     {
-        switch(MeshComplexity)
+        switch (MeshComplexity)
         {
             case MeshComplexityLevel.VerySimple: return 32;
             case MeshComplexityLevel.Simple: return 64;

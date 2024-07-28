@@ -24,9 +24,10 @@ namespace Oculus.Platform.Samples.VrHoops
     using System.Collections;
 
     // An AI Player just shoots a ball forward with some random delay.
-    public class AIPlayer : Player {
+    public class AIPlayer : Player
+    {
 
-        void FixedUpdate ()
+        void FixedUpdate()
         {
             if (HasBall)
             {

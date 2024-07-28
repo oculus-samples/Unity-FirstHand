@@ -79,7 +79,7 @@ namespace Oculus.Platform.Samples.NetChat
     public class chatPacket
     {
         public int packetID { get; set; }
-        public string textString { get; set;  }
+        public string textString { get; set; }
 
         public byte[] Serialize()
         {
@@ -90,7 +90,7 @@ namespace Oculus.Platform.Samples.NetChat
                     // Limit our string to BUFFER_SIZE
                     if (textString.Length > Constants.BUFFER_SIZE)
                     {
-                        textString = textString.Substring(0, Constants.BUFFER_SIZE-1);
+                        textString = textString.Substring(0, Constants.BUFFER_SIZE - 1);
                     }
                     writer.Write(packetID);
                     writer.Write(textString.ToCharArray());
@@ -115,7 +115,8 @@ namespace Oculus.Platform.Samples.NetChat
         }
     }
 
-    public class DataEntry : MonoBehaviour {
+    public class DataEntry : MonoBehaviour
+    {
 
         public Text dataOutput;
 
@@ -127,7 +128,8 @@ namespace Oculus.Platform.Samples.NetChat
         bool ratedMatchStarted;
 
         // Use this for initialization
-        void Start () {
+        void Start()
+        {
             currentState = states.NOT_INIT;
             localUser = null;
             remoteUser = null;
@@ -446,7 +448,7 @@ namespace Oculus.Platform.Samples.NetChat
                     queries[0].key = "map";
                     queries[0].importance = MatchmakingCriterionImportance.Required;
                     queries[0].parameters = new Dictionary<string, object>();
-                    queries[0].parameters.Add("map_param_1","Really_Big_Map");
+                    queries[0].parameters.Add("map_param_1", "Really_Big_Map");
                     queries[0].parameters.Add("map_param_2", "Big_Map");
 
                     queries[1].key = "game_type";
@@ -663,17 +665,17 @@ namespace Oculus.Platform.Samples.NetChat
                     break;
 
                 case states.IN_FULL_ROOM:
-                    {
-                        chatPacket newMessage = new chatPacket();
+                {
+                    chatPacket newMessage = new chatPacket();
 
-                        // Create a packet to send with the packet ID and string payload
-                        lastPacketID++;
-                        newMessage.packetID = lastPacketID;
-                        newMessage.textString = chatMessage;
+                    // Create a packet to send with the packet ID and string payload
+                    lastPacketID++;
+                    newMessage.packetID = lastPacketID;
+                    newMessage.textString = chatMessage;
 
-                        Oculus.Platform.Net.SendPacket(remoteUser.ID, newMessage.Serialize(), SendPolicy.Reliable);
-                    }
-                    break;
+                    Oculus.Platform.Net.SendPacket(remoteUser.ID, newMessage.Serialize(), SendPolicy.Reliable);
+                }
+                break;
 
                 default:
                     printOutputLine("You have hit an unknown state.");
@@ -784,7 +786,7 @@ namespace Oculus.Platform.Samples.NetChat
 
         void startRatedMatchResponse(Message msg)
         {
-            if(!msg.IsError)
+            if (!msg.IsError)
             {
                 printOutputLine("Started a rated match");
                 ratedMatchStarted = true;
@@ -820,7 +822,7 @@ namespace Oculus.Platform.Samples.NetChat
                     {
                         printOutputLine("Submitting rated match results.");
 
-                        Dictionary <string, int> results = new Dictionary<string, int>();
+                        Dictionary<string, int> results = new Dictionary<string, int>();
                         results.Add(localUser.ID.ToString(), 1);
                         results.Add(remoteUser.ID.ToString(), 2);
 

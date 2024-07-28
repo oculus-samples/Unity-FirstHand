@@ -48,7 +48,8 @@ public class HandsActiveChecker : MonoBehaviour
         else
         {
             _notification.SetActive(true);
-            if (_centerEye) {
+            if (_centerEye)
+            {
                 _notification.transform.position = _centerEye.position + _centerEye.forward * 0.5f;
                 _notification.transform.rotation = _centerEye.rotation;
             }

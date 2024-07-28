@@ -65,9 +65,9 @@ public readonly struct OVRSpace : IEquatable<OVRSpace>
 
     public override int GetHashCode() => Handle.GetHashCode();
 
-    public static bool operator== (OVRSpace lhs, OVRSpace rhs) => lhs.Handle == rhs.Handle;
+    public static bool operator ==(OVRSpace lhs, OVRSpace rhs) => lhs.Handle == rhs.Handle;
 
-    public static bool operator!= (OVRSpace lhs, OVRSpace rhs) => lhs.Handle != rhs.Handle;
+    public static bool operator !=(OVRSpace lhs, OVRSpace rhs) => lhs.Handle != rhs.Handle;
 
     public static implicit operator OVRSpace(ulong handle) => new OVRSpace(handle);
 

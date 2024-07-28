@@ -50,43 +50,43 @@ public class OVRSkeleton : MonoBehaviour
 
     public enum BoneId
     {
-        Invalid                 = OVRPlugin.BoneId.Invalid,
+        Invalid = OVRPlugin.BoneId.Invalid,
 
         // hand bones
-        Hand_Start              = OVRPlugin.BoneId.Hand_Start,
-        Hand_WristRoot          = OVRPlugin.BoneId.Hand_WristRoot,          // root frame of the hand, where the wrist is located
-        Hand_ForearmStub        = OVRPlugin.BoneId.Hand_ForearmStub,        // frame for user's forearm
-        Hand_Thumb0             = OVRPlugin.BoneId.Hand_Thumb0,             // thumb trapezium bone
-        Hand_Thumb1             = OVRPlugin.BoneId.Hand_Thumb1,             // thumb metacarpal bone
-        Hand_Thumb2             = OVRPlugin.BoneId.Hand_Thumb2,             // thumb proximal phalange bone
-        Hand_Thumb3             = OVRPlugin.BoneId.Hand_Thumb3,             // thumb distal phalange bone
-        Hand_Index1             = OVRPlugin.BoneId.Hand_Index1,             // index proximal phalange bone
-        Hand_Index2             = OVRPlugin.BoneId.Hand_Index2,             // index intermediate phalange bone
-        Hand_Index3             = OVRPlugin.BoneId.Hand_Index3,             // index distal phalange bone
-        Hand_Middle1            = OVRPlugin.BoneId.Hand_Middle1,            // middle proximal phalange bone
-        Hand_Middle2            = OVRPlugin.BoneId.Hand_Middle2,            // middle intermediate phalange bone
-        Hand_Middle3            = OVRPlugin.BoneId.Hand_Middle3,            // middle distal phalange bone
-        Hand_Ring1              = OVRPlugin.BoneId.Hand_Ring1,              // ring proximal phalange bone
-        Hand_Ring2              = OVRPlugin.BoneId.Hand_Ring2,              // ring intermediate phalange bone
-        Hand_Ring3              = OVRPlugin.BoneId.Hand_Ring3,              // ring distal phalange bone
-        Hand_Pinky0             = OVRPlugin.BoneId.Hand_Pinky0,             // pinky metacarpal bone
-        Hand_Pinky1             = OVRPlugin.BoneId.Hand_Pinky1,             // pinky proximal phalange bone
-        Hand_Pinky2             = OVRPlugin.BoneId.Hand_Pinky2,             // pinky intermediate phalange bone
-        Hand_Pinky3             = OVRPlugin.BoneId.Hand_Pinky3,             // pinky distal phalange bone
-        Hand_MaxSkinnable       = OVRPlugin.BoneId.Hand_MaxSkinnable,
+        Hand_Start = OVRPlugin.BoneId.Hand_Start,
+        Hand_WristRoot = OVRPlugin.BoneId.Hand_WristRoot,          // root frame of the hand, where the wrist is located
+        Hand_ForearmStub = OVRPlugin.BoneId.Hand_ForearmStub,        // frame for user's forearm
+        Hand_Thumb0 = OVRPlugin.BoneId.Hand_Thumb0,             // thumb trapezium bone
+        Hand_Thumb1 = OVRPlugin.BoneId.Hand_Thumb1,             // thumb metacarpal bone
+        Hand_Thumb2 = OVRPlugin.BoneId.Hand_Thumb2,             // thumb proximal phalange bone
+        Hand_Thumb3 = OVRPlugin.BoneId.Hand_Thumb3,             // thumb distal phalange bone
+        Hand_Index1 = OVRPlugin.BoneId.Hand_Index1,             // index proximal phalange bone
+        Hand_Index2 = OVRPlugin.BoneId.Hand_Index2,             // index intermediate phalange bone
+        Hand_Index3 = OVRPlugin.BoneId.Hand_Index3,             // index distal phalange bone
+        Hand_Middle1 = OVRPlugin.BoneId.Hand_Middle1,            // middle proximal phalange bone
+        Hand_Middle2 = OVRPlugin.BoneId.Hand_Middle2,            // middle intermediate phalange bone
+        Hand_Middle3 = OVRPlugin.BoneId.Hand_Middle3,            // middle distal phalange bone
+        Hand_Ring1 = OVRPlugin.BoneId.Hand_Ring1,              // ring proximal phalange bone
+        Hand_Ring2 = OVRPlugin.BoneId.Hand_Ring2,              // ring intermediate phalange bone
+        Hand_Ring3 = OVRPlugin.BoneId.Hand_Ring3,              // ring distal phalange bone
+        Hand_Pinky0 = OVRPlugin.BoneId.Hand_Pinky0,             // pinky metacarpal bone
+        Hand_Pinky1 = OVRPlugin.BoneId.Hand_Pinky1,             // pinky proximal phalange bone
+        Hand_Pinky2 = OVRPlugin.BoneId.Hand_Pinky2,             // pinky intermediate phalange bone
+        Hand_Pinky3 = OVRPlugin.BoneId.Hand_Pinky3,             // pinky distal phalange bone
+        Hand_MaxSkinnable = OVRPlugin.BoneId.Hand_MaxSkinnable,
         // Bone tips are position only. They are not used for skinning but are useful for hit-testing.
         // NOTE: Hand_ThumbTip == Hand_MaxSkinnable since the extended tips need to be contiguous
-        Hand_ThumbTip           = OVRPlugin.BoneId.Hand_ThumbTip,           // tip of the thumb
-        Hand_IndexTip           = OVRPlugin.BoneId.Hand_IndexTip,           // tip of the index finger
-        Hand_MiddleTip          = OVRPlugin.BoneId.Hand_MiddleTip,          // tip of the middle finger
-        Hand_RingTip            = OVRPlugin.BoneId.Hand_RingTip,            // tip of the ring finger
-        Hand_PinkyTip           = OVRPlugin.BoneId.Hand_PinkyTip,           // tip of the pinky
-        Hand_End                = OVRPlugin.BoneId.Hand_End,
+        Hand_ThumbTip = OVRPlugin.BoneId.Hand_ThumbTip,           // tip of the thumb
+        Hand_IndexTip = OVRPlugin.BoneId.Hand_IndexTip,           // tip of the index finger
+        Hand_MiddleTip = OVRPlugin.BoneId.Hand_MiddleTip,          // tip of the middle finger
+        Hand_RingTip = OVRPlugin.BoneId.Hand_RingTip,            // tip of the ring finger
+        Hand_PinkyTip = OVRPlugin.BoneId.Hand_PinkyTip,           // tip of the pinky
+        Hand_End = OVRPlugin.BoneId.Hand_End,
 
 
         // add new bones here
 
-        Max                     = OVRPlugin.BoneId.Max
+        Max = OVRPlugin.BoneId.Max
     }
 
     [SerializeField]
@@ -470,12 +470,12 @@ public class OVRSkeleton : MonoBehaviour
     {
         switch (_skeletonType)
         {
-        case SkeletonType.HandLeft:
-        case SkeletonType.HandRight:
-            return BoneId.Hand_Start;
-        case SkeletonType.None:
-        default:
-            return BoneId.Invalid;
+            case SkeletonType.HandLeft:
+            case SkeletonType.HandRight:
+                return BoneId.Hand_Start;
+            case SkeletonType.None:
+            default:
+                return BoneId.Invalid;
         }
     }
 
@@ -483,12 +483,12 @@ public class OVRSkeleton : MonoBehaviour
     {
         switch (_skeletonType)
         {
-        case SkeletonType.HandLeft:
-        case SkeletonType.HandRight:
-            return BoneId.Hand_End;
-        case SkeletonType.None:
-        default:
-            return BoneId.Invalid;
+            case SkeletonType.HandLeft:
+            case SkeletonType.HandRight:
+                return BoneId.Hand_End;
+            case SkeletonType.None:
+            default:
+                return BoneId.Invalid;
         }
     }
 
@@ -496,12 +496,12 @@ public class OVRSkeleton : MonoBehaviour
     {
         switch (_skeletonType)
         {
-        case SkeletonType.HandLeft:
-        case SkeletonType.HandRight:
-            return BoneId.Hand_MaxSkinnable;
-        case SkeletonType.None:
-        default:
-            return BoneId.Invalid;
+            case SkeletonType.HandLeft:
+            case SkeletonType.HandRight:
+                return BoneId.Hand_MaxSkinnable;
+            case SkeletonType.None:
+            default:
+                return BoneId.Invalid;
         }
     }
 
@@ -509,12 +509,12 @@ public class OVRSkeleton : MonoBehaviour
     {
         switch (_skeletonType)
         {
-        case SkeletonType.HandLeft:
-        case SkeletonType.HandRight:
-            return GetCurrentEndBoneId() - GetCurrentStartBoneId();
-        case SkeletonType.None:
-        default:
-            return 0;
+            case SkeletonType.HandLeft:
+            case SkeletonType.HandRight:
+                return GetCurrentEndBoneId() - GetCurrentStartBoneId();
+            case SkeletonType.None:
+            default:
+                return 0;
         }
     }
 
@@ -522,12 +522,12 @@ public class OVRSkeleton : MonoBehaviour
     {
         switch (_skeletonType)
         {
-        case SkeletonType.HandLeft:
-        case SkeletonType.HandRight:
-            return GetCurrentMaxSkinnableBoneId() - GetCurrentStartBoneId();
-        case SkeletonType.None:
-        default:
-            return 0;
+            case SkeletonType.HandLeft:
+            case SkeletonType.HandRight:
+                return GetCurrentMaxSkinnableBoneId() - GetCurrentStartBoneId();
+            case SkeletonType.None:
+            default:
+                return 0;
         }
     }
 

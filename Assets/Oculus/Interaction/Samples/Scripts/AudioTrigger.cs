@@ -47,7 +47,7 @@ namespace Oculus.Interaction
         private MinMaxPair _volumeRandomization;
         [Tooltip("Pitch set here will override the volume set on the attached sound source component.")]
         [SerializeField]
-        [Range(-3f,3f)]
+        [Range(-3f, 3f)]
         [Space(10)]
         private float _pitch = 1f;
         [Tooltip("Check the 'Use Random Range' bool to and adjust the min and max slider values for randomized volume level playback.")]
@@ -126,7 +126,8 @@ namespace Oculus.Interaction
             int randomIndex = Random.Range(0, _randomAudioClipPool.Count);
             AudioClip randomClip = _randomAudioClipPool[randomIndex];
             _randomAudioClipPool.RemoveAt(randomIndex);
-            if (_previousAudioClip != null) {
+            if (_previousAudioClip != null)
+            {
                 _randomAudioClipPool.Add(_previousAudioClip);
             }
             _previousAudioClip = randomClip;

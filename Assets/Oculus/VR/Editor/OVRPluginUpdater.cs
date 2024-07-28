@@ -289,7 +289,7 @@ public class OVRPluginUpdater
         {
             var dirs = Directory.GetDirectories(pluginRootPath);
 
-            foreach(string dir in dirs)
+            foreach (string dir in dirs)
             {
                 packages.Add(GetPluginPackage(dir));
             }
@@ -426,9 +426,9 @@ public class OVRPluginUpdater
     {
         List<PluginPackage> allUtilsPluginPkgs = GetAllUtilitiesPluginPackages();
 
-        foreach(PluginPackage pluginPkg in allUtilsPluginPkgs)
+        foreach (PluginPackage pluginPkg in allUtilsPluginPkgs)
         {
-            foreach(string path in pluginPkg.Plugins.Values)
+            foreach (string path in pluginPkg.Plugins.Values)
             {
                 if ((Directory.Exists(path)) || (File.Exists(path)))
                 {
@@ -597,11 +597,13 @@ public class OVRPluginUpdater
     private static readonly string autoUpdateEnabledKey = "Oculus_Utilities_OVRPluginUpdater_AutoUpdate_" + OVRManager.utilitiesVersion;
     private static bool autoUpdateEnabled
     {
-        get {
+        get
+        {
             return PlayerPrefs.GetInt(autoUpdateEnabledKey, 1) == 1;
         }
 
-        set {
+        set
+        {
             PlayerPrefs.SetInt(autoUpdateEnabledKey, value ? 1 : 0);
         }
     }
@@ -613,7 +615,7 @@ public class OVRPluginUpdater
 
         PluginPackage enabledUtilsPluginPkg = null;
 
-        foreach(PluginPackage pluginPkg in allUtilsPluginPkgs)
+        foreach (PluginPackage pluginPkg in allUtilsPluginPkgs)
         {
             if (pluginPkg.IsEnabled())
             {
@@ -1104,7 +1106,7 @@ public class OVRPluginUpdater
         PluginPackage enabledUtilsPluginPkg = null;
         PluginPackage newestUtilsPluginPkg = null;
 
-        foreach(PluginPackage pluginPkg in allUtilsPluginPkgs)
+        foreach (PluginPackage pluginPkg in allUtilsPluginPkgs)
         {
             if ((newestUtilsPluginPkg == null) || (pluginPkg.Version > newestUtilsPluginPkg.Version))
             {
@@ -1230,7 +1232,7 @@ public class OVRPluginUpdater
     {
         List<PluginPackage> allUtilsPluginPkgs = GetAllUtilitiesPluginPackages();
 
-        foreach(PluginPackage pluginPkg in allUtilsPluginPkgs)
+        foreach (PluginPackage pluginPkg in allUtilsPluginPkgs)
         {
             if (pluginPkg.IsEnabled())
             {

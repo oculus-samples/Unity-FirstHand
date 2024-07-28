@@ -100,7 +100,7 @@ public class OVRPlatformMenu : MonoBehaviour
         if (sceneStack.Count > 1)
         {
             string parentScene = sceneStack.Pop();
-            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync (parentScene);
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(parentScene);
             return false;
         }
 

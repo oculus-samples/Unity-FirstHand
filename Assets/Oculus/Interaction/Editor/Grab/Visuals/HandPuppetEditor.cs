@@ -86,7 +86,7 @@ namespace Oculus.Interaction.HandGrab.Visuals.Editor
                 Transform child = root.GetChild(i);
                 string childName = child.name.ToLower();
 
-                bool shouldCheck = string.IsNullOrEmpty(ignorePattern)|| !childName.Contains(ignorePattern);
+                bool shouldCheck = string.IsNullOrEmpty(ignorePattern) || !childName.Contains(ignorePattern);
                 if (shouldCheck)
                 {
                     bool containsAllArgs = args.All(a => childName.Contains(a));

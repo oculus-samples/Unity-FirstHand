@@ -25,7 +25,8 @@ namespace Oculus.Platform.Samples.VrHoops
 
     // This script moves to goal around in a random direction to add a bit more difficulty
     // to the game.
-    public class GoalMover : MonoBehaviour {
+    public class GoalMover : MonoBehaviour
+    {
 
         // how far to from the center before changing direction
         [SerializeField] private float MAX_OFFSET = 2.0f;
@@ -63,7 +64,7 @@ namespace Oculus.Platform.Samples.VrHoops
             set { m_nextMoveDirection = value; }
         }
 
-        void Start ()
+        void Start()
         {
             ExpectedPosition = transform.localPosition;
 
@@ -76,7 +77,7 @@ namespace Oculus.Platform.Samples.VrHoops
             m_nextMoveDirection = Vector3.ClampMagnitude(m_nextMoveDirection, m_speed);
         }
 
-        void FixedUpdate ()
+        void FixedUpdate()
         {
             // move a bit along our random direction
             transform.localPosition += MoveDirection;
@@ -88,7 +89,7 @@ namespace Oculus.Platform.Samples.VrHoops
             transform.localPosition += correction;
 
             // if we've gone too far from the center point, correct and change direction
-            if (transform.localPosition.sqrMagnitude > (MAX_OFFSET*MAX_OFFSET))
+            if (transform.localPosition.sqrMagnitude > (MAX_OFFSET * MAX_OFFSET))
             {
                 transform.localPosition = Vector3.ClampMagnitude(transform.localPosition, MAX_OFFSET);
                 ExpectedPosition = transform.localPosition;

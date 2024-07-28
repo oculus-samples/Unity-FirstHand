@@ -56,14 +56,14 @@ namespace Oculus.Platform.Samples.VrHoops
         private float m_timeForNextBallUpdate;
 
         private const byte TIME_SYNC_MESSAGE = 1;
-        private const uint TIME_SYNC_MESSAGE_SIZE = 1+4;
+        private const uint TIME_SYNC_MESSAGE_SIZE = 1 + 4;
         private const int TIME_SYNC_MESSAGE_COUNT = 7;
         private const byte START_TIME_MESSAGE = 2;
-        private const uint START_TIME_MESSAGE_SIZE = 1+4;
+        private const uint START_TIME_MESSAGE_SIZE = 1 + 4;
         private const byte BACKBOARD_UPDATE_MESSAGE = 3;
-        private const uint BACKBOARD_UPDATE_MESSAGE_SIZE = 1+4+12+12+12;
+        private const uint BACKBOARD_UPDATE_MESSAGE_SIZE = 1 + 4 + 12 + 12 + 12;
         private const byte LOCAL_BALLS_UPDATE_MESSAGE = 4;
-        private const uint LOCAL_BALLS_UPDATE_MESSATE_SIZE_MAX = 1+4+(2*Player.MAX_BALLS*(1+4+12+12));
+        private const uint LOCAL_BALLS_UPDATE_MESSATE_SIZE_MAX = 1 + 4 + (2 * Player.MAX_BALLS * (1 + 4 + 12 + 12));
         private const float LOCAL_BALLS_UPDATE_DELAY = 0.1f;
         private const byte SCORE_UPDATE_MESSAGE = 5;
         private const uint SCORE_UPDATE_MESSAGE_SIZE = 1 + 4;
@@ -144,17 +144,17 @@ namespace Oculus.Platform.Samples.VrHoops
         // adds a remote player to establish a connection to, or accept a connection from
         public void AddRemotePlayer(RemotePlayer player)
         {
-            if (!m_remotePlayers.ContainsKey (player.ID))
+            if (!m_remotePlayers.ContainsKey(player.ID))
             {
                 m_remotePlayers[player.ID] = new RemotePlayerData();
                 m_remotePlayers[player.ID].state = PeerConnectionState.Unknown;
-                m_remotePlayers [player.ID].player = player;
+                m_remotePlayers[player.ID].player = player;
 
                 // ID comparison is used to decide who Connects and who Accepts
                 if (PlatformManager.MyID < player.ID)
                 {
-                    Debug.Log ("P2P Try Connect to: " + player.ID);
-                    Net.Connect (player.ID);
+                    Debug.Log("P2P Try Connect to: " + player.ID);
+                    Net.Connect(player.ID);
                 }
             }
         }
@@ -191,23 +191,23 @@ namespace Oculus.Platform.Samples.VrHoops
 
                 switch (msg.Data.State)
                 {
-                case PeerConnectionState.Connected:
-                    if (PlatformManager.MyID < msg.Data.ID)
-                    {
-                        SendTimeSyncMessage(msg.Data.ID);
-                    }
-                    break;
+                    case PeerConnectionState.Connected:
+                        if (PlatformManager.MyID < msg.Data.ID)
+                        {
+                            SendTimeSyncMessage(msg.Data.ID);
+                        }
+                        break;
 
-                case PeerConnectionState.Timeout:
-                    if (PlatformManager.MyID < msg.Data.ID)
-                    {
-                        Net.Connect(msg.Data.ID);
-                    }
-                    break;
+                    case PeerConnectionState.Timeout:
+                        if (PlatformManager.MyID < msg.Data.ID)
+                        {
+                            Net.Connect(msg.Data.ID);
+                        }
+                        break;
 
-                case PeerConnectionState.Closed:
-                    m_remotePlayers.Remove(msg.Data.ID);
-                    break;
+                    case PeerConnectionState.Closed:
+                        m_remotePlayers.Remove(msg.Data.ID);
+                        break;
                 }
             }
         }
@@ -277,7 +277,7 @@ namespace Oculus.Platform.Samples.VrHoops
 
                 // sort the times and remember the median
                 m_remoteSyncTimeCache[remoteID].Sort();
-                float median = m_remoteSyncTimeCache[remoteID][TIME_SYNC_MESSAGE_COUNT/2];
+                float median = m_remoteSyncTimeCache[remoteID][TIME_SYNC_MESSAGE_COUNT / 2];
 
                 // calucate the mean and standard deviation
                 double mean = 0;
@@ -290,16 +290,16 @@ namespace Oculus.Platform.Samples.VrHoops
                 double std_dev = 0;
                 foreach (var time in m_remoteSyncTimeCache[remoteID])
                 {
-                    std_dev += (mean-time)*(mean-time);
+                    std_dev += (mean - time) * (mean - time);
                 }
-                std_dev = Math.Sqrt(std_dev)/TIME_SYNC_MESSAGE_COUNT;
+                std_dev = Math.Sqrt(std_dev) / TIME_SYNC_MESSAGE_COUNT;
 
                 // time delta is the mean of the values less than 1 standard deviation from the median
                 mean = 0;
                 int meanCount = 0;
                 foreach (var time in m_remoteSyncTimeCache[remoteID])
                 {
-                    if (Math.Abs(time-median) < std_dev)
+                    if (Math.Abs(time - median) < std_dev)
                     {
                         mean += time;
                         meanCount++;
@@ -357,9 +357,9 @@ namespace Oculus.Platform.Samples.VrHoops
 
             foreach (var remoteID in m_remotePlayers.Keys)
             {
-                if (m_remotePlayers [remoteID].state == PeerConnectionState.Connected)
+                if (m_remotePlayers[remoteID].state == PeerConnectionState.Connected)
                 {
-                    Net.SendPacket (remoteID, buf, SendPolicy.Reliable);
+                    Net.SendPacket(remoteID, buf, SendPolicy.Reliable);
                 }
             }
         }
@@ -385,7 +385,7 @@ namespace Oculus.Platform.Samples.VrHoops
             PackVector3(moveDir, buf, ref offset);
             PackVector3(nextMoveDir, buf, ref offset);
 
-            foreach (KeyValuePair<ulong,RemotePlayerData> player in m_remotePlayers)
+            foreach (KeyValuePair<ulong, RemotePlayerData> player in m_remotePlayers)
             {
                 if (player.Value.state == PeerConnectionState.Connected)
                 {
@@ -402,7 +402,7 @@ namespace Oculus.Platform.Samples.VrHoops
             Vector3 moveDir = UnpackVector3(msg, ref offset);
             Vector3 nextMoveDir = UnpackVector3(msg, ref offset);
 
-            var goal = m_remotePlayers [remoteID].player.Goal;
+            var goal = m_remotePlayers[remoteID].player.Goal;
             goal.RemoteBackboardUpdate(remoteTime, pos, moveDir, nextMoveDir);
         }
 
@@ -591,7 +591,7 @@ namespace Oculus.Platform.Samples.VrHoops
 
         bool UnpackBool(byte[] buf, ref int offset)
         {
-            return buf[offset++] != 0;;
+            return buf[offset++] != 0; ;
         }
 
         #endregion

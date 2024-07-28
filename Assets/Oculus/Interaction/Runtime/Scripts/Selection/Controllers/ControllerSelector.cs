@@ -116,7 +116,7 @@ namespace Oculus.Interaction
 
         public void InjectController(IController controller)
         {
-            _controller  = controller as MonoBehaviour;;
+            _controller = controller as MonoBehaviour; ;
             Controller = controller;
         }
 

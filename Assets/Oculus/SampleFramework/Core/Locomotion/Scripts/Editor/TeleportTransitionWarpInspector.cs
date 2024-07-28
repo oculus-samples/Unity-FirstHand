@@ -39,7 +39,7 @@ public class TeleportTransitionWarpInspector : Editor
     {
         base.OnInspectorGUI();
 
-        var warp = (TeleportTransitionWarp) target;
+        var warp = (TeleportTransitionWarp)target;
 
         warp.PositionLerp = EditorGUILayout.CurveField("Position Lerp", warp.PositionLerp, GUILayout.Height(50));
 
@@ -66,14 +66,14 @@ public class TeleportTransitionWarpInspector : Editor
 
     void CreateStep(TeleportTransitionWarp warp, int count)
     {
-        Keyframe[] keys = new Keyframe[count+1];
+        Keyframe[] keys = new Keyframe[count + 1];
         for (int i = 0; i < count; i++)
         {
             keys[i] = new Keyframe((float)i / (count), (i + 1.0f) / count);
         }
-        keys[count] = new Keyframe(1,1);
+        keys[count] = new Keyframe(1, 1);
         warp.PositionLerp = new AnimationCurve(keys);
-        for (int i = 0; i < count+1; i++)
+        for (int i = 0; i < count + 1; i++)
         {
             AnimationUtility.SetKeyLeftTangentMode(warp.PositionLerp, i, AnimationUtility.TangentMode.Constant);
         }

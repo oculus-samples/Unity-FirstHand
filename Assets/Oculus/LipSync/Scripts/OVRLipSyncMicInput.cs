@@ -317,7 +317,8 @@ public class OVRLipSyncMicInput : MonoBehaviour
         Stopwatch timer = Stopwatch.StartNew();
 
         // Wait until the recording has started
-        while (!(Microphone.GetPosition(selectedDevice) > 0) && timer.Elapsed.TotalMilliseconds < 1000) {
+        while (!(Microphone.GetPosition(selectedDevice) > 0) && timer.Elapsed.TotalMilliseconds < 1000)
+        {
             Thread.Sleep(50);
         }
 

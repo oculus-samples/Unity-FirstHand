@@ -31,68 +31,68 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public class OVRScenePrefabOverride : ISerializationCallbackReceiver
 {
-  /// <summary>
-  /// The prefab to instantiate instead of the default one specified in the <see cref="OVRSceneManager"/>.
-  /// </summary>
-  [FormerlySerializedAs("prefab")]
-  public OVRSceneAnchor Prefab;
+    /// <summary>
+    /// The prefab to instantiate instead of the default one specified in the <see cref="OVRSceneManager"/>.
+    /// </summary>
+    [FormerlySerializedAs("prefab")]
+    public OVRSceneAnchor Prefab;
 
-  /// <summary>
-  /// The classification label that must be associated with a scene entity in order to instantiate <see cref="Prefab"/>.
-  /// </summary>
-  [FormerlySerializedAs("classificationLabel")]
-  public string ClassificationLabel = "";
+    /// <summary>
+    /// The classification label that must be associated with a scene entity in order to instantiate <see cref="Prefab"/>.
+    /// </summary>
+    [FormerlySerializedAs("classificationLabel")]
+    public string ClassificationLabel = "";
 
-  // We use a custom property drawer to allow the user to select a label among a set of options.
-  // Because the prefabOverrides is an array, and we want each entry to have their own
-  // classification, we need to store an index. That cannot be stored in the custom property drawer
-  // as it would be shared among all entries. We store it here instead. However, to ensure that
-  // this value does not break over time, we update it after de-serialization based on the
-  // classification label and the available classification options.
-  [FormerlySerializedAs("editorClassificationIndex")]
-  [SerializeField]
-  private int _editorClassificationIndex;
+    // We use a custom property drawer to allow the user to select a label among a set of options.
+    // Because the prefabOverrides is an array, and we want each entry to have their own
+    // classification, we need to store an index. That cannot be stored in the custom property drawer
+    // as it would be shared among all entries. We store it here instead. However, to ensure that
+    // this value does not break over time, we update it after de-serialization based on the
+    // classification label and the available classification options.
+    [FormerlySerializedAs("editorClassificationIndex")]
+    [SerializeField]
+    private int _editorClassificationIndex;
 
-  void ISerializationCallbackReceiver.OnBeforeSerialize()
-  {
-  }
-
-  void ISerializationCallbackReceiver.OnAfterDeserialize()
-  {
-    if (ClassificationLabel != "")
+    void ISerializationCallbackReceiver.OnBeforeSerialize()
     {
-      int IndexOf(string label, IEnumerable<string> collection)
-      {
-        var index = 0;
-        foreach (var item in collection)
+    }
+
+    void ISerializationCallbackReceiver.OnAfterDeserialize()
+    {
+        if (ClassificationLabel != "")
         {
-          if (item == label)
-          {
-            return index;
-          }
-          index++;
+            int IndexOf(string label, IEnumerable<string> collection)
+            {
+                var index = 0;
+                foreach (var item in collection)
+                {
+                    if (item == label)
+                    {
+                        return index;
+                    }
+                    index++;
+                }
+
+                return -1;
+            }
+
+            // We do this ever time we deserialize in case the classification options have been updated
+            // This ensures that the label displayed
+            _editorClassificationIndex = IndexOf(ClassificationLabel, OVRSceneManager.Classification.List);
+
+            if (_editorClassificationIndex < 0)
+            {
+                Debug.LogError($"[{nameof(OVRScenePrefabOverride)}] OnAfterDeserialize() " + ClassificationLabel +
+                  " not found. The Classification list in OVRSceneManager has likely changed");
+            }
         }
-
-        return -1;
-      }
-
-      // We do this ever time we deserialize in case the classification options have been updated
-      // This ensures that the label displayed
-      _editorClassificationIndex = IndexOf(ClassificationLabel, OVRSceneManager.Classification.List);
-
-      if (_editorClassificationIndex < 0)
-      {
-        Debug.LogError($"[{nameof(OVRScenePrefabOverride)}] OnAfterDeserialize() " + ClassificationLabel +
-          " not found. The Classification list in OVRSceneManager has likely changed");
-      }
+        else
+        {
+            // No classification was selected, so we can just assign a default
+            // This typically happens this object was just created
+            _editorClassificationIndex = 0;
+        }
     }
-    else
-    {
-      // No classification was selected, so we can just assign a default
-      // This typically happens this object was just created
-      _editorClassificationIndex = 0;
-    }
-  }
 }
 
 #if UNITY_EDITOR

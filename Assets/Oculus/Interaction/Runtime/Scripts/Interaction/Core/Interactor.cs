@@ -89,7 +89,8 @@ namespace Oculus.Interaction
             }
         }
 
-        public virtual bool ShouldUnselect {
+        public virtual bool ShouldUnselect
+        {
             get
             {
                 if (State != InteractorState.Select)
@@ -575,7 +576,7 @@ namespace Oculus.Interaction
                     break;
                 }
 
-                if(State == InteractorState.Select)
+                if (State == InteractorState.Select)
                 {
                     if (ShouldUnselect)
                     {

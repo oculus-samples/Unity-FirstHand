@@ -31,7 +31,7 @@ public class EnableSwitch : MonoBehaviour
     /// <param name="target">Target.</param>
     public bool SetActive<T>(int target) where T : MonoBehaviour
     {
-        if((target < 0) || (target >= SwitchTargets.Length))
+        if ((target < 0) || (target >= SwitchTargets.Length))
             return false;
 
         for (int i = 0; i < SwitchTargets.Length; i++)
@@ -59,4 +59,3 @@ public class EnableSwitch : MonoBehaviour
         return true;
     }
 }
-

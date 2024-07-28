@@ -42,7 +42,8 @@ public class OVRTrackedKeyboardSampleControls : MonoBehaviour
     {
         StartingFocusField.Select();
         StartingFocusField.ActivateInputField();
-        if(TrackingToggle.isOn != trackedKeyboard.TrackingEnabled){
+        if (TrackingToggle.isOn != trackedKeyboard.TrackingEnabled)
+        {
             TrackingToggle.isOn = trackedKeyboard.TrackingEnabled;
         }
         if (ConnectionToggle.isOn != trackedKeyboard.ConnectionRequired)
@@ -50,7 +51,8 @@ public class OVRTrackedKeyboardSampleControls : MonoBehaviour
             ConnectionToggle.isOn = trackedKeyboard.ConnectionRequired;
         }
 
-        if (RemoteKeyboardToggle.isOn != trackedKeyboard.RemoteKeyboard) {
+        if (RemoteKeyboardToggle.isOn != trackedKeyboard.RemoteKeyboard)
+        {
             RemoteKeyboardToggle.isOn = trackedKeyboard.RemoteKeyboard;
         }
 

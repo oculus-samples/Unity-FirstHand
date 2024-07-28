@@ -36,7 +36,7 @@ namespace Oculus.Voice.Core.Utilities
 
         protected virtual ArrayElementTitleAttribute Attribute
         {
-            get { return (ArrayElementTitleAttribute) attribute; }
+            get { return (ArrayElementTitleAttribute)attribute; }
         }
 
         SerializedProperty titleNameProp;

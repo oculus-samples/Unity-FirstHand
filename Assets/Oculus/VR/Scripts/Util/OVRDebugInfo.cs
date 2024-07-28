@@ -43,29 +43,29 @@ public class OVRDebugInfo : MonoBehaviour
     #endregion
 
     #region Debug strings
-    string strRiftPresent            = null; // "VR DISABLED"
-    string strFPS                    = null; // "FPS: 0";
-    string strIPD                    = null; // "IPD: 0.000";
-    string strFOV                    = null; // "FOV: 0.0f";
-    string strHeight                 = null; // "Height: 0.0f";
-    string strDepth                  = null; // "Depth: 0.0f";
-    string strResolutionEyeTexture   = null; // "Resolution : {0} x {1}"
-    string strLatencies              = null; // "R: {0:F3} TW: {1:F3} PP: {2:F3} RE: {3:F3} TWE: {4:F3}"
+    string strRiftPresent = null; // "VR DISABLED"
+    string strFPS = null; // "FPS: 0";
+    string strIPD = null; // "IPD: 0.000";
+    string strFOV = null; // "FOV: 0.0f";
+    string strHeight = null; // "Height: 0.0f";
+    string strDepth = null; // "Depth: 0.0f";
+    string strResolutionEyeTexture = null; // "Resolution : {0} x {1}"
+    string strLatencies = null; // "R: {0:F3} TW: {1:F3} PP: {2:F3} RE: {3:F3} TWE: {4:F3}"
     #endregion
 
     /// <summary>
     /// Variables for FPS
     /// </summary>
     float updateInterval = 0.5f;
-    float accum          = 0.0f;
-    int   frames         = 0;
-    float timeLeft       = 0.0f;
+    float accum = 0.0f;
+    int frames = 0;
+    float timeLeft = 0.0f;
 
     /// <summary>
     /// Managing for UI initialization
     /// </summary>
-    bool  initUIComponent = false;
-    bool  isInited        = false;
+    bool initUIComponent = false;
+    bool isInited = false;
 
     /// <summary>
     /// UIs Y offset
@@ -146,9 +146,9 @@ public class OVRDebugInfo : MonoBehaviour
     {
         isInited = false;
     }
-#endregion
+    #endregion
 
-#region Private Functions
+    #region Private Functions
     /// <summary>
     /// Initialize UI GameObjects
     /// </summary>
@@ -331,9 +331,9 @@ public class OVRDebugInfo : MonoBehaviour
 
         return GO;
     }
-#endregion
+    #endregion
 
-#region Debugging variables handler
+    #region Debugging variables handler
     /// <summary>
     /// Updates the IPD.
     /// </summary>
@@ -390,16 +390,16 @@ public class OVRDebugInfo : MonoBehaviour
     void UpdateLatencyValues()
     {
 #if !UNITY_ANDROID || UNITY_EDITOR
-            OVRDisplay.LatencyData latency = OVRManager.display.latency;
-            if (latency.render < 0.000001f && latency.timeWarp < 0.000001f && latency.postPresent < 0.000001f)
-                strLatencies = System.String.Format("Latency values are not available.");
-            else
-                strLatencies = System.String.Format("Render: {0:F3} TimeWarp: {1:F3} Post-Present: {2:F3}\nRender Error: {3:F3} TimeWarp Error: {4:F3}",
-                    latency.render,
-                    latency.timeWarp,
-                    latency.postPresent,
-                    latency.renderError,
-                    latency.timeWarpError);
+        OVRDisplay.LatencyData latency = OVRManager.display.latency;
+        if (latency.render < 0.000001f && latency.timeWarp < 0.000001f && latency.postPresent < 0.000001f)
+            strLatencies = System.String.Format("Latency values are not available.");
+        else
+            strLatencies = System.String.Format("Render: {0:F3} TimeWarp: {1:F3} Post-Present: {2:F3}\nRender Error: {3:F3} TimeWarp Error: {4:F3}",
+                latency.render,
+                latency.timeWarp,
+                latency.postPresent,
+                latency.renderError,
+                latency.timeWarpError);
 #endif
     }
 
@@ -425,5 +425,5 @@ public class OVRDebugInfo : MonoBehaviour
             frames = 0;
         }
     }
-#endregion
+    #endregion
 }

@@ -69,7 +69,7 @@ namespace Oculus.Platform.Samples.VrHoops
 
         public void QueueForMatch()
         {
-            Matchmaking.Enqueue (NORMAL_POOL).OnComplete(MatchmakingEnqueueCallback);
+            Matchmaking.Enqueue(NORMAL_POOL).OnComplete(MatchmakingEnqueueCallback);
         }
 
         void MatchmakingEnqueueCallback(Message msg)
@@ -92,11 +92,11 @@ namespace Oculus.Platform.Samples.VrHoops
         {
             if (msg.IsError)
             {
-                Debug.Log (msg.GetError().Message);
+                Debug.Log(msg.GetError().Message);
                 EnqueueResultCallback(false);
                 return;
             }
-            Debug.Log ("Match found and room joined " + m_matchRoom);
+            Debug.Log("Match found and room joined " + m_matchRoom);
 
             EnqueueResultCallback(true);
 
@@ -112,7 +112,7 @@ namespace Oculus.Platform.Samples.VrHoops
                     if (PlatformManager.MyID != user.ID)
                     {
                         m_remotePlayers[user.ID] = user;
-                        PlatformManager.P2P.AddRemotePlayer (player as RemotePlayer);
+                        PlatformManager.P2P.AddRemotePlayer(player as RemotePlayer);
                     }
                 }
             }
@@ -149,9 +149,9 @@ namespace Oculus.Platform.Samples.VrHoops
         {
             if (m_matchRoom != 0)
             {
-                Rooms.Leave (m_matchRoom);
-                m_remotePlayers.Clear ();
-                PlatformManager.P2P.DisconnectAll ();
+                Rooms.Leave(m_matchRoom);
+                m_remotePlayers.Clear();
+                PlatformManager.P2P.DisconnectAll();
                 m_matchRoom = 0;
             }
         }

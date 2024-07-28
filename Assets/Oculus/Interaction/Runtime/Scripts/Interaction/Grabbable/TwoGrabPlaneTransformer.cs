@@ -124,7 +124,7 @@ namespace Oculus.Interaction
 
             // Scale logic
             float activeDistance = targetVector.magnitude;
-            if(Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
+            if (Mathf.Abs(activeDistance) < 0.0001f) activeDistance = 0.0001f;
 
             float scalePercentage = activeDistance / _initialDistance;
 
@@ -132,11 +132,11 @@ namespace Oculus.Interaction
             _activeScale = _initialScale * scalePercentage;
 
             // Scale constraints
-            if(_constraints.MinScale.Constrain)
+            if (_constraints.MinScale.Constrain)
             {
                 _activeScale = Mathf.Max(_constraints.MinScale.Value, _activeScale);
             }
-            if(_constraints.MaxScale.Constrain)
+            if (_constraints.MaxScale.Constrain)
             {
                 _activeScale = Mathf.Min(_constraints.MaxScale.Value, _activeScale);
             }
@@ -162,16 +162,16 @@ namespace Oculus.Interaction
             Vector3 planePosition = planeTransform.position;
             float positionDeltaProjectedOnPlaneNormal = Vector3.Dot((targetTransform.position - planePosition), rotationAxis);
             float targetDeltaOnPlaneNormal = positionDeltaProjectedOnPlaneNormal;
-            if(_constraints.MinY.Constrain)
+            if (_constraints.MinY.Constrain)
             {
                 targetDeltaOnPlaneNormal = Mathf.Max(_constraints.MinY.Value, targetDeltaOnPlaneNormal);
             }
-            if(_constraints.MaxY.Constrain)
+            if (_constraints.MaxY.Constrain)
             {
                 targetDeltaOnPlaneNormal = Mathf.Min(_constraints.MaxY.Value, targetDeltaOnPlaneNormal);
             }
-            float difference =  positionDeltaProjectedOnPlaneNormal - targetDeltaOnPlaneNormal;
-            targetTransform.position -= difference*rotationAxis;
+            float difference = positionDeltaProjectedOnPlaneNormal - targetDeltaOnPlaneNormal;
+            targetTransform.position -= difference * rotationAxis;
         }
 
         public void MarkAsBaseScale()

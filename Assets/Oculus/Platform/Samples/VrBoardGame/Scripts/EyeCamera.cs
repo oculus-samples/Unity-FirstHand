@@ -56,7 +56,8 @@ namespace Oculus.Platform.Samples.VrBoardGame
 
             // do a forward raycast to see if we hit a selectable object
             bool hitSomething = Physics.Raycast(transform.position, transform.forward, out hit, 50f);
-            if (hitSomething) {
+            if (hitSomething)
+            {
                 button = hit.collider.GetComponent<Button>();
                 piece = hit.collider.GetComponent<GamePiece>();
                 pos = hit.collider.GetComponent<BoardPosition>();

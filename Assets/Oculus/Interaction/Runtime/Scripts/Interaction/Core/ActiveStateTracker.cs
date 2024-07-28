@@ -66,7 +66,7 @@ namespace Oculus.Interaction
 
             if (_includeChildrenAsDependents)
             {
-                for(int i = 0; i < transform.childCount; i ++)
+                for (int i = 0; i < transform.childCount; i++)
                 {
                     _gameObjects.Add(transform.GetChild(i).gameObject);
                 }

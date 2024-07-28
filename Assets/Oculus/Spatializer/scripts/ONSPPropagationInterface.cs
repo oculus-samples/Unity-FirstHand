@@ -73,7 +73,7 @@ class ONSPPropagation
             Debug.Log("Propagation initialized with Wwise Oculus Spatializer plugin");
             return new WwisePluginInterface();
         }
-        catch(System.DllNotFoundException)
+        catch (System.DllNotFoundException)
         {
             // this is fine
         }

@@ -22,5 +22,5 @@ using UnityEngine;
 
 namespace Oculus.Interaction.Samples
 {
-    public class ShouldHideHandOnGrab : MonoBehaviour {}
+    public class ShouldHideHandOnGrab : MonoBehaviour { }
 }

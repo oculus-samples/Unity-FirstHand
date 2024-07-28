@@ -251,7 +251,7 @@ namespace Oculus.Interaction.PoseDetection
 
         #endregion
 
-        public bool Active { get; private set;  }
+        public bool Active { get; private set; }
 
         #region Inject
 

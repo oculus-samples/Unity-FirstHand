@@ -40,7 +40,7 @@ namespace Oculus.Platform.Samples.VrHoops
 
         public void CheckForAchievmentUpdates()
         {
-            Achievements.GetProgressByName(new string[]{ LIKES_TO_WIN }).OnComplete(
+            Achievements.GetProgressByName(new string[] { LIKES_TO_WIN }).OnComplete(
                 (Message<AchievementProgressList> msg) =>
                 {
                     foreach (var achievement in msg.Data)

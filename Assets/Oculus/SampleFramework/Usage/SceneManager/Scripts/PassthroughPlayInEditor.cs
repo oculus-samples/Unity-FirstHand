@@ -23,8 +23,8 @@ using UnityEngine;
 [RequireComponent(typeof(OVRManager))]
 public class PassthroughPlayInEditor : MonoBehaviour
 {
-  void Awake()
-  {
+    void Awake()
+    {
 #if UNITY_EDITOR
     // Disable passthrough in editor to avoid errors being printed
     GetComponent<OVRManager>().isInsightPassthroughEnabled = false;
@@ -34,5 +34,5 @@ public class PassthroughPlayInEditor : MonoBehaviour
       passthroughLayer.enabled = false;
     }
 #endif
-  }
+    }
 }

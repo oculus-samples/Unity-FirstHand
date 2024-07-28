@@ -119,7 +119,8 @@ namespace Oculus.Interaction
             }
         }
 
-        public override bool ShouldUnselect {
+        public override bool ShouldUnselect
+        {
             get
             {
                 if (State != InteractorState.Select)

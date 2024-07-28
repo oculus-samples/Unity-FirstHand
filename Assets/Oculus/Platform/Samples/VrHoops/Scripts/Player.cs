@@ -26,7 +26,8 @@ namespace Oculus.Platform.Samples.VrHoops
 
     // The base Player component manages the balls that are in play.  Besides spawning new balls,
     // old balls are destroyed when too many are around or the Player object itself is destroyed.
-    public abstract class Player : MonoBehaviour {
+    public abstract class Player : MonoBehaviour
+    {
 
         // maximum number of balls allowed at a time
         public const uint MAX_BALLS = 6;

@@ -125,10 +125,10 @@ public class OVRCustomSkeleton : OVRSkeleton, ISerializationCallbackReceiver
 
     void ISerializationCallbackReceiver.OnAfterDeserialize()
     {
-        if (_customBones_V2.Count == (int) BoneId.Max) return;
+        if (_customBones_V2.Count == (int)BoneId.Max) return;
 
         // Make sure we have the right number of bones
-        while (_customBones_V2.Count < (int) BoneId.Max)
+        while (_customBones_V2.Count < (int)BoneId.Max)
         {
             _customBones_V2.Add(null);
         }

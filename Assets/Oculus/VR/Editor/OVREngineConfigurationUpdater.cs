@@ -149,9 +149,9 @@ class OVREngineConfigurationUpdater
         var mgrs = GameObject.FindObjectsOfType<OVRManager>();
         for (int i = 0; i < mgrs.Length; ++i)
         {
-            if (mgrs [i].isActiveAndEnabled)
+            if (mgrs[i].isActiveAndEnabled)
             {
-                Debug.Log ("Enabling Unity VR support");
+                Debug.Log("Enabling Unity VR support");
 #pragma warning disable 618
                 PlayerSettings.virtualRealitySupported = true;
 #pragma warning restore 618
@@ -196,4 +196,3 @@ class OVREngineConfigurationUpdater
             PlayerSettings.Android.preferredInstallLocation = AndroidPreferredInstallLocation.Auto;
     }
 }
-

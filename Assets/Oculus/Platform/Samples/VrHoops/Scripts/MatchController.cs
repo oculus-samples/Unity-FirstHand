@@ -100,7 +100,7 @@ namespace Oculus.Platform.Samples.VrHoops
         {
             get
             {
-                switch(m_currentState)
+                switch (m_currentState)
                 {
                     case State.WAITING_TO_START_PRACTICE:
                     case State.WAITING_TO_SETUP_MATCH:
@@ -284,9 +284,9 @@ namespace Oculus.Platform.Samples.VrHoops
         void SetupForPractice()
         {
             // randomly select a position for the local player
-            m_localSlot = Random.Range(0,m_playerAreas.Length-1);
+            m_localSlot = Random.Range(0, m_playerAreas.Length - 1);
 
-            for (int i=0; i < m_playerAreas.Length; i++)
+            for (int i = 0; i < m_playerAreas.Length; i++)
             {
                 if (i == m_localSlot)
                 {
@@ -367,17 +367,17 @@ namespace Oculus.Platform.Samples.VrHoops
 
         public void PlayOnlineOrCancel()
         {
-            Debug.Log ("Play online or Cancel");
+            Debug.Log("Play online or Cancel");
 
             if (m_currentState == State.NONE)
             {
                 PlatformManager.Matchmaking.QueueForMatch();
-                TransitionToState (State.WAITING_FOR_MATCH);
+                TransitionToState(State.WAITING_FOR_MATCH);
             }
             else if (m_currentState == State.WAITING_FOR_MATCH)
             {
                 PlatformManager.Matchmaking.LeaveQueue();
-                TransitionToState (State.NONE);
+                TransitionToState(State.NONE);
             }
         }
 

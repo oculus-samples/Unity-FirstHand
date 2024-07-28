@@ -24,100 +24,100 @@ using UnityEditor;
 [CustomEditor(typeof(OVRLipSyncContextMorphTarget))]
 public class OVRLipSyncContextMorphTargetEditor : Editor
 {
-  SerializedProperty skinnedMeshRenderer;
-  SerializedProperty visemeToBlendTargets;
-  SerializedProperty visemeTestKeys;
-  SerializedProperty laughterKey;
-  SerializedProperty laughterBlendTarget;
-  SerializedProperty laughterThreshold;
-  SerializedProperty laughterMultiplier;
-  SerializedProperty smoothAmounth;
-  private static string[] visemeNames = new string[] {
+    SerializedProperty skinnedMeshRenderer;
+    SerializedProperty visemeToBlendTargets;
+    SerializedProperty visemeTestKeys;
+    SerializedProperty laughterKey;
+    SerializedProperty laughterBlendTarget;
+    SerializedProperty laughterThreshold;
+    SerializedProperty laughterMultiplier;
+    SerializedProperty smoothAmounth;
+    private static string[] visemeNames = new string[] {
     "sil", "PP", "FF", "TH",
     "DD", "kk", "CH", "SS",
     "nn", "RR", "aa", "E",
     "ih", "oh", "ou" };
-  void OnEnable()
-  {
-    skinnedMeshRenderer = serializedObject.FindProperty("skinnedMeshRenderer");
-    visemeToBlendTargets = serializedObject.FindProperty("visemeToBlendTargets");
-    visemeTestKeys = serializedObject.FindProperty("visemeTestKeys");
-    laughterKey = serializedObject.FindProperty("laughterKey");
-    laughterBlendTarget = serializedObject.FindProperty("laughterBlendTarget");
-    laughterThreshold = serializedObject.FindProperty("laughterThreshold");
-    laughterMultiplier = serializedObject.FindProperty("laughterMultiplier");
-    smoothAmounth = serializedObject.FindProperty("smoothAmount");
-  }
+    void OnEnable()
+    {
+        skinnedMeshRenderer = serializedObject.FindProperty("skinnedMeshRenderer");
+        visemeToBlendTargets = serializedObject.FindProperty("visemeToBlendTargets");
+        visemeTestKeys = serializedObject.FindProperty("visemeTestKeys");
+        laughterKey = serializedObject.FindProperty("laughterKey");
+        laughterBlendTarget = serializedObject.FindProperty("laughterBlendTarget");
+        laughterThreshold = serializedObject.FindProperty("laughterThreshold");
+        laughterMultiplier = serializedObject.FindProperty("laughterMultiplier");
+        smoothAmounth = serializedObject.FindProperty("smoothAmount");
+    }
 
-  private void BlendNameProperty(SerializedProperty prop, string name, string[] blendNames = null)
-  {
-    if (blendNames == null)
+    private void BlendNameProperty(SerializedProperty prop, string name, string[] blendNames = null)
     {
-      EditorGUILayout.PropertyField(prop, new GUIContent(name));
-      return;
+        if (blendNames == null)
+        {
+            EditorGUILayout.PropertyField(prop, new GUIContent(name));
+            return;
+        }
+        var values = new int[blendNames.Length + 1];
+        var options = new GUIContent[blendNames.Length + 1];
+        values[0] = -1;
+        options[0] = new GUIContent("   ");
+        for (int i = 0; i < blendNames.Length; ++i)
+        {
+            values[i + 1] = i;
+            options[i + 1] = new GUIContent(blendNames[i]);
+        }
+        EditorGUILayout.IntPopup(prop, options, values, new GUIContent(name));
     }
-    var values = new int[blendNames.Length + 1];
-    var options = new GUIContent[blendNames.Length + 1];
-    values[0] = -1;
-    options[0] = new GUIContent("   ");
-    for(int i = 0; i < blendNames.Length; ++i)
-    {
-      values[i + 1] = i;
-      options[i + 1] = new GUIContent(blendNames[i]);
-    }
-    EditorGUILayout.IntPopup(prop, options, values, new GUIContent(name));
-  }
 
-  private string[] GetMeshBlendNames()
-  {
-    var morphTarget = (OVRLipSyncContextMorphTarget)serializedObject.targetObject;
-    if (morphTarget == null || morphTarget.skinnedMeshRenderer == null)
+    private string[] GetMeshBlendNames()
     {
-      return null;
+        var morphTarget = (OVRLipSyncContextMorphTarget)serializedObject.targetObject;
+        if (morphTarget == null || morphTarget.skinnedMeshRenderer == null)
+        {
+            return null;
+        }
+        var mesh = morphTarget.skinnedMeshRenderer.sharedMesh;
+        var blendshapeCount = mesh.blendShapeCount;
+        var blendNames = new string[blendshapeCount];
+        for (int i = 0; i < mesh.blendShapeCount; ++i)
+        {
+            blendNames[i] = mesh.GetBlendShapeName(i);
+        }
+        return blendNames;
     }
-    var mesh = morphTarget.skinnedMeshRenderer.sharedMesh;
-    var blendshapeCount = mesh.blendShapeCount;
-    var blendNames = new string[blendshapeCount];
-    for(int i = 0; i < mesh.blendShapeCount; ++i)
+    public override void OnInspectorGUI()
     {
-      blendNames[i] = mesh.GetBlendShapeName(i);
-    }
-    return blendNames;
-  }
-  public override void OnInspectorGUI()
-  {
-    var blendNames = GetMeshBlendNames();
-    var morphTarget = (OVRLipSyncContextMorphTarget)serializedObject.targetObject;
+        var blendNames = GetMeshBlendNames();
+        var morphTarget = (OVRLipSyncContextMorphTarget)serializedObject.targetObject;
 
-    serializedObject.Update();
-    EditorGUILayout.PropertyField(skinnedMeshRenderer);
-    if (EditorGUILayout.PropertyField(visemeToBlendTargets))
-    {
-      EditorGUI.indentLevel++;
-      for(int i = 1; i < visemeNames.Length; ++i)
-      {
-        BlendNameProperty(visemeToBlendTargets.GetArrayElementAtIndex(i), visemeNames[i], blendNames);
-      }
-      BlendNameProperty(laughterBlendTarget, "Laughter", blendNames);
-      EditorGUI.indentLevel--;
+        serializedObject.Update();
+        EditorGUILayout.PropertyField(skinnedMeshRenderer);
+        if (EditorGUILayout.PropertyField(visemeToBlendTargets))
+        {
+            EditorGUI.indentLevel++;
+            for (int i = 1; i < visemeNames.Length; ++i)
+            {
+                BlendNameProperty(visemeToBlendTargets.GetArrayElementAtIndex(i), visemeNames[i], blendNames);
+            }
+            BlendNameProperty(laughterBlendTarget, "Laughter", blendNames);
+            EditorGUI.indentLevel--;
+        }
+        if (morphTarget)
+        {
+            morphTarget.enableVisemeTestKeys = EditorGUILayout.ToggleLeft("Enable Viseme Test Keys", morphTarget.enableVisemeTestKeys);
+        }
+        if (EditorGUILayout.PropertyField(visemeTestKeys))
+        {
+            EditorGUI.indentLevel++;
+            for (int i = 1; i < visemeNames.Length; ++i)
+            {
+                EditorGUILayout.PropertyField(visemeTestKeys.GetArrayElementAtIndex(i), new GUIContent(visemeNames[i]));
+            }
+            EditorGUILayout.PropertyField(laughterKey, new GUIContent("Laughter"));
+            EditorGUI.indentLevel--;
+        }
+        EditorGUILayout.PropertyField(laughterThreshold);
+        EditorGUILayout.PropertyField(laughterMultiplier);
+        EditorGUILayout.PropertyField(smoothAmounth);
+        serializedObject.ApplyModifiedProperties();
     }
-    if (morphTarget)
-    {
-      morphTarget.enableVisemeTestKeys = EditorGUILayout.ToggleLeft("Enable Viseme Test Keys", morphTarget.enableVisemeTestKeys);
-    }
-    if (EditorGUILayout.PropertyField(visemeTestKeys))
-    {
-      EditorGUI.indentLevel++;
-      for(int i = 1; i < visemeNames.Length; ++i)
-      {
-        EditorGUILayout.PropertyField(visemeTestKeys.GetArrayElementAtIndex(i), new GUIContent(visemeNames[i]));
-      }
-      EditorGUILayout.PropertyField(laughterKey, new GUIContent("Laughter"));
-      EditorGUI.indentLevel--;
-    }
-    EditorGUILayout.PropertyField(laughterThreshold);
-    EditorGUILayout.PropertyField(laughterMultiplier);
-    EditorGUILayout.PropertyField(smoothAmounth);
-    serializedObject.ApplyModifiedProperties();
-  }
 }

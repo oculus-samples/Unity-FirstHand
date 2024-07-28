@@ -22,7 +22,8 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(OVRLayerAttribute))]
-class LayerAttributeEditor : PropertyDrawer {
+class LayerAttributeEditor : PropertyDrawer
+{
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         // One line of  oxygen free code.

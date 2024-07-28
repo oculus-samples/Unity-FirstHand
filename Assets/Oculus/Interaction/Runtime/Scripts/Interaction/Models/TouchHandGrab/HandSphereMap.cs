@@ -76,7 +76,7 @@ namespace Oculus.Interaction
                 Vector3 spherePosition = (handedness == Handedness.Left ? -1 : 1) * sphere.Position;
                 HandSphere target = new HandSphere(
                     pose.rotation * spherePosition * scale + pose.position,
-                    sphere.Radius*scale,
+                    sphere.Radius * scale,
                     sphere.Joint);
                 spheres.Add(target);
             }

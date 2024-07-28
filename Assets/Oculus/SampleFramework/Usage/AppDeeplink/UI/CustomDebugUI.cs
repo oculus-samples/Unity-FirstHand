@@ -67,7 +67,7 @@ public class CustomDebugUI : MonoBehaviour
         var field = typeof(DebugUIBuilder).GetField("insertedElements", privateFlags);
         var relayout = typeof(DebugUIBuilder).GetMethod("Relayout", privateFlags);
         List<RectTransform>[] elements = (List<RectTransform>[])field.GetValue(ui);
-        if(targetCanvas > -1 && targetCanvas < elements.Length-1)
+        if (targetCanvas > -1 && targetCanvas < elements.Length - 1)
         {
             elements[targetCanvas].Remove(element);
             element.SetParent(null);

@@ -20,14 +20,14 @@
 
 namespace Oculus.Platform
 {
-  using UnityEngine;
-  using System.Collections;
-  using System;
+    using UnityEngine;
+    using System.Collections;
+    using System;
 
-  public class AndroidPlatform
-  {
-    public bool Initialize(string appId)
+    public class AndroidPlatform
     {
+        public bool Initialize(string appId)
+        {
 #if UNITY_ANDROID
       if(String.IsNullOrEmpty(appId))
       {
@@ -35,12 +35,12 @@ namespace Oculus.Platform
       }
       return CAPI.ovr_UnityInitWrapper(appId);
 #else
-      return false;
+            return false;
 #endif
-    }
+        }
 
-    public Request<Models.PlatformInitialize> AsyncInitialize(string appId)
-    {
+        public Request<Models.PlatformInitialize> AsyncInitialize(string appId)
+        {
 #if UNITY_ANDROID
       if(String.IsNullOrEmpty(appId))
       {
@@ -48,8 +48,8 @@ namespace Oculus.Platform
       }
       return new Request<Models.PlatformInitialize>(CAPI.ovr_UnityInitWrapperAsynchronous(appId));
 #else
-      return new Request<Models.PlatformInitialize>(0);
+            return new Request<Models.PlatformInitialize>(0);
 #endif
+        }
     }
-  }
 }

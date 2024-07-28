@@ -221,7 +221,7 @@ public class OVRGradleGeneration
                 {
                     File.Copy(sourcePath, targetPath, true);
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     throw new BuildFailedException(e.Message);
                 }

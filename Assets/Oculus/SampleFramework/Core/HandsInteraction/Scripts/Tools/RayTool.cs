@@ -36,7 +36,7 @@ namespace OculusSampleFramework
         private const int NUM_COLLIDERS_TO_TEST = 20;
 
         [SerializeField] private RayToolView _rayToolView = null;
-        [Range(0.0f, 45.0f)] [SerializeField] private float _coneAngleDegrees = 20.0f;
+        [Range(0.0f, 45.0f)][SerializeField] private float _coneAngleDegrees = 20.0f;
         [SerializeField] private float _farFieldMaxDistance = 5f;
 
         public override InteractableToolTags ToolTags

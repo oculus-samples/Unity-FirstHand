@@ -26,7 +26,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OVRMixedRealityCaptureTest : MonoBehaviour {
+public class OVRMixedRealityCaptureTest : MonoBehaviour
+{
 
     bool inited = false;
 
@@ -43,7 +44,8 @@ public class OVRMixedRealityCaptureTest : MonoBehaviour {
     OVRPlugin.Fovf defaultFov;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || OVR_ANDROID_MRC
         if (!defaultExternalCamera)
         {
@@ -156,7 +158,8 @@ public class OVRMixedRealityCaptureTest : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN || OVR_ANDROID_MRC
         if (!inited)
         {

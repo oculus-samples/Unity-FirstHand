@@ -339,7 +339,7 @@ public class LocomotionTeleport : MonoBehaviour
             }
 
             case AimCollisionTypes.Point:
-                return Physics.Raycast(start, direction, out hitInfo, distance, aimCollisionLayerMask,QueryTriggerInteraction.Ignore);
+                return Physics.Raycast(start, direction, out hitInfo, distance, aimCollisionLayerMask, QueryTriggerInteraction.Ignore);
 
             case AimCollisionTypes.Sphere:
             {
@@ -371,7 +371,7 @@ public class LocomotionTeleport : MonoBehaviour
     [Conditional("DEBUG_TELEPORT_STATES")]
     protected void LogState(string msg)
     {
-        Debug.Log(Time.frameCount + ": " +  msg);
+        Debug.Log(Time.frameCount + ": " + msg);
     }
 
     /// <summary>
@@ -433,12 +433,12 @@ public class LocomotionTeleport : MonoBehaviour
     /// <summary>
     /// Start the state machine coroutines.
     /// </summary>
-    public virtual void OnEnable ()
+    public virtual void OnEnable()
     {
         CurrentState = States.Ready;
         StartCoroutine(ReadyStateCoroutine());
     }
-    public virtual void OnDisable ()
+    public virtual void OnDisable()
     {
         StopAllCoroutines();
     }
@@ -864,7 +864,7 @@ public class LocomotionTeleport : MonoBehaviour
     {
         var destTransform = _teleportDestination.OrientationIndicator;
         Vector3 destPosition = destTransform.position;
-        destPosition.y += LocomotionController.CharacterController.height/2.0f;
+        destPosition.y += LocomotionController.CharacterController.height / 2.0f;
 
         var character = LocomotionController.CharacterController;
         var characterTransform = character.transform;

@@ -26,7 +26,8 @@ using UnityEngine.UI;
 /// <summary>
 /// UI pointer driven by gaze input.
 /// </summary>
-public class OVRGazePointer : OVRCursor {
+public class OVRGazePointer : OVRCursor
+{
     private Transform gazeIcon; //the transform that rotates according to our movement
 
     [Tooltip("Should the pointer be hidden when not over interactive objects.")]
@@ -114,7 +115,7 @@ public class OVRGazePointer : OVRCursor {
             if (hideByDefault)
             {
                 // fade the cursor out with time
-                strengthFromShowRequest =  Mathf.Clamp01(1 - (Time.time - lastShowRequestTime) / showTimeoutPeriod);
+                strengthFromShowRequest = Mathf.Clamp01(1 - (Time.time - lastShowRequestTime) / showTimeoutPeriod);
             }
             else
             {
@@ -163,7 +164,7 @@ public class OVRGazePointer : OVRCursor {
         progressIndicator = transform.GetComponent<OVRProgressIndicator>();
     }
 
-    void Update ()
+    void Update()
     {
         if (rayTransform == null && Camera.main != null)
             rayTransform = Camera.main.transform;

@@ -403,7 +403,7 @@ namespace Oculus.Platform.Samples.SimplePlatformSample
             }
         }
 
-       void leaderboardWriteCallback(Message msg)
+        void leaderboardWriteCallback(Message msg)
         {
             if (!msg.IsError)
             {
@@ -427,235 +427,235 @@ namespace Oculus.Platform.Samples.SimplePlatformSample
             }
         }
 
-       void achievementFieldsCallback(Message msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Achievement fields added.");
-           }
-           else
-           {
-               printOutputLine("Received achievement fields add error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void achievementFieldsCallback(Message msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Achievement fields added.");
+            }
+            else
+            {
+                printOutputLine("Received achievement fields add error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void achievementCountCallback(Message msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Achievement count added.");
-           }
-           else
-           {
-               printOutputLine("Received achievement count add error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void achievementCountCallback(Message msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Achievement count added.");
+            }
+            else
+            {
+                printOutputLine("Received achievement count add error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void achievementUnlockCallback(Message msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Achievement unlocked");
-           }
-           else
-           {
-               printOutputLine("Received achievement unlock error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void achievementUnlockCallback(Message msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Achievement unlocked");
+            }
+            else
+            {
+                printOutputLine("Received achievement unlock error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void achievementProgressCallback(Message<AchievementProgressList> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received achievement progress success");
-               AchievementProgressList progressList = msg.GetAchievementProgressList();
+        void achievementProgressCallback(Message<AchievementProgressList> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received achievement progress success");
+                AchievementProgressList progressList = msg.GetAchievementProgressList();
 
-               foreach (var progress in progressList)
-               {
-                   if (progress.IsUnlocked)
-                   {
-                       printOutputLine("Achievement Unlocked");
-                   }
-                   else
-                   {
-                       printOutputLine("Achievement Locked");
-                   }
-                   printOutputLine("Current Bitfield: " + progress.Bitfield.ToString());
-                   printOutputLine("Current Count: " + progress.Count.ToString());
-               }
-           }
-           else
-           {
-               printOutputLine("Received achievement progress error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+                foreach (var progress in progressList)
+                {
+                    if (progress.IsUnlocked)
+                    {
+                        printOutputLine("Achievement Unlocked");
+                    }
+                    else
+                    {
+                        printOutputLine("Achievement Locked");
+                    }
+                    printOutputLine("Current Bitfield: " + progress.Bitfield.ToString());
+                    printOutputLine("Current Count: " + progress.Count.ToString());
+                }
+            }
+            else
+            {
+                printOutputLine("Received achievement progress error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void achievementDefinitionCallback(Message<AchievementDefinitionList> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received achievement definitions success");
-               AchievementDefinitionList definitionList = msg.GetAchievementDefinitions();
+        void achievementDefinitionCallback(Message<AchievementDefinitionList> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received achievement definitions success");
+                AchievementDefinitionList definitionList = msg.GetAchievementDefinitions();
 
-               foreach (var definition in definitionList)
-               {
-                   switch (definition.Type)
-                   {
-                       case AchievementType.Simple:
-                           printOutputLine("Achievement Type: Simple");
-                           break;
-                       case AchievementType.Bitfield:
-                           printOutputLine("Achievement Type: Bitfield");
-                           printOutputLine("Bitfield Length: " + definition.BitfieldLength.ToString());
-                           printOutputLine("Target: " + definition.Target.ToString());
-                           break;
-                       case AchievementType.Count:
-                           printOutputLine("Achievement Type: Count");
-                           printOutputLine("Target: " + definition.Target.ToString());
-                           break;
-                       case AchievementType.Unknown:
-                       default:
-                           printOutputLine("Achievement Type: Unknown");
-                           break;
-                   }
-               }
-           }
-           else
-           {
-               printOutputLine("Received achievement definitions error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+                foreach (var definition in definitionList)
+                {
+                    switch (definition.Type)
+                    {
+                        case AchievementType.Simple:
+                            printOutputLine("Achievement Type: Simple");
+                            break;
+                        case AchievementType.Bitfield:
+                            printOutputLine("Achievement Type: Bitfield");
+                            printOutputLine("Bitfield Length: " + definition.BitfieldLength.ToString());
+                            printOutputLine("Target: " + definition.Target.ToString());
+                            break;
+                        case AchievementType.Count:
+                            printOutputLine("Achievement Type: Count");
+                            printOutputLine("Target: " + definition.Target.ToString());
+                            break;
+                        case AchievementType.Unknown:
+                        default:
+                            printOutputLine("Achievement Type: Unknown");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                printOutputLine("Received achievement definitions error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void createAndJoinPrivateRoomCallback(Message<Room> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received create and join room success");
-               outputRoomDetails(msg.Data);
-           }
-           else
-           {
-               printOutputLine("Received create and join room error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void createAndJoinPrivateRoomCallback(Message<Room> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received create and join room success");
+                outputRoomDetails(msg.Data);
+            }
+            else
+            {
+                printOutputLine("Received create and join room error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void getCurrentRoomCallback(Message<Room> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received get room success");
-               outputRoomDetails(msg.Data);
-           }
-           else
-           {
-               printOutputLine("Received get room error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void getCurrentRoomCallback(Message<Room> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received get room success");
+                outputRoomDetails(msg.Data);
+            }
+            else
+            {
+                printOutputLine("Received get room error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void joinRoomCallback(Message<Room> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received join room success");
-               outputRoomDetails(msg.Data);
-           }
-           else
-           {
-               printOutputLine("Received join room error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void joinRoomCallback(Message<Room> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received join room success");
+                outputRoomDetails(msg.Data);
+            }
+            else
+            {
+                printOutputLine("Received join room error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void leaveRoomCallback(Message<Room> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received leave room success");
-               outputRoomDetails(msg.Data);
-           }
-           else
-           {
-               printOutputLine("Received leave room error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void leaveRoomCallback(Message<Room> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received leave room success");
+                outputRoomDetails(msg.Data);
+            }
+            else
+            {
+                printOutputLine("Received leave room error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void getUserCallback(Message<User> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received get user success");
-               User user = msg.Data;
-               printOutputLine("User: " + user.ID + " " + user.OculusID + " " + user.Presence + " " + user.InviteToken);
-           }
-           else
-           {
-               printOutputLine("Received get user error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void getUserCallback(Message<User> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received get user success");
+                User user = msg.Data;
+                printOutputLine("User: " + user.ID + " " + user.OculusID + " " + user.Presence + " " + user.InviteToken);
+            }
+            else
+            {
+                printOutputLine("Received get user error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void getFriendsCallback(Message<UserList> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received get friends success");
-               UserList users = msg.Data;
-               outputUserArray(users);
-           }
-           else
-           {
-               printOutputLine("Received get friends error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void getFriendsCallback(Message<UserList> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received get friends success");
+                UserList users = msg.Data;
+                outputUserArray(users);
+            }
+            else
+            {
+                printOutputLine("Received get friends error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void getInvitableUsersCallback(Message<UserList> msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received get invitable users success");
-               UserList users = msg.Data;
-               outputUserArray(users);
-           }
-           else
-           {
-               printOutputLine("Received get invitable users error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void getInvitableUsersCallback(Message<UserList> msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received get invitable users success");
+                UserList users = msg.Data;
+                outputUserArray(users);
+            }
+            else
+            {
+                printOutputLine("Received get invitable users error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
 
-       void inviteUserCallback(Message msg)
-       {
-           if (!msg.IsError)
-           {
-               printOutputLine("Received invite user success");
-           }
-           else
-           {
-               printOutputLine("Received invite user error");
-               Error error = msg.GetError();
-               printOutputLine("Error: " + error.Message);
-           }
-       }
+        void inviteUserCallback(Message msg)
+        {
+            if (!msg.IsError)
+            {
+                printOutputLine("Received invite user success");
+            }
+            else
+            {
+                printOutputLine("Received invite user error");
+                Error error = msg.GetError();
+                printOutputLine("Error: " + error.Message);
+            }
+        }
     }
 }

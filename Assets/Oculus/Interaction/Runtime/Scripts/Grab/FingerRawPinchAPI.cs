@@ -58,7 +58,7 @@ namespace Oculus.Interaction.GrabAPI
             {
                 PinchStrength = hand.GetFingerPinchStrength(_finger);
                 bool isPinching = hand.GetFingerIsPinching(_finger);
-                if(isPinching != IsPinching)
+                if (isPinching != IsPinching)
                 {
                     IsPinchingChanged = true;
                 }

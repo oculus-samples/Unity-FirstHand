@@ -70,7 +70,7 @@ public class BuildAssetBundles : MonoBehaviour
 
             string androidNamepsaceURI;
             XmlElement element = (XmlElement)doc.SelectSingleNode("/manifest");
-            if(element == null)
+            if (element == null)
             {
                 UnityEngine.Debug.LogError("Could not find manifest tag in android manifest.");
                 return;

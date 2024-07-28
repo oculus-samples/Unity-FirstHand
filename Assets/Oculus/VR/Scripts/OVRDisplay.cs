@@ -192,7 +192,8 @@ public class OVRDisplay
     /// </summary>
     public Vector3 acceleration
     {
-        get {
+        get
+        {
             if (!OVRManager.isHmdPresent)
                 return Vector3.zero;
 
@@ -243,7 +244,8 @@ public class OVRDisplay
     /// </summary>
     public Vector3 angularVelocity
     {
-        get {
+        get
+        {
             if (!OVRManager.isHmdPresent)
                 return Vector3.zero;
 
@@ -267,7 +269,8 @@ public class OVRDisplay
     /// </summary>
     public LatencyData latency
     {
-        get {
+        get
+        {
             if (!OVRManager.isHmdPresent)
                 return new LatencyData();
 

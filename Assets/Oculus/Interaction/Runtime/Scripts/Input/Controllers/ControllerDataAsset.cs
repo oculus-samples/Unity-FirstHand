@@ -36,7 +36,7 @@ namespace Oculus.Interaction.Input
         public PoseOrigin PointerPoseOrigin;
         public ControllerDataSourceConfig Config;
 
-            public void CopyFrom(ControllerDataAsset source)
+        public void CopyFrom(ControllerDataAsset source)
         {
             IsDataValid = source.IsDataValid;
             IsConnected = source.IsConnected;

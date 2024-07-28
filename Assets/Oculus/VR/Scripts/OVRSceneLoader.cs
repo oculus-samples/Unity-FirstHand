@@ -127,7 +127,7 @@ public class OVRSceneLoader : MonoBehaviour
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             logTextBox.text += "<color=red>" + e.Message + "</color>";
             return;

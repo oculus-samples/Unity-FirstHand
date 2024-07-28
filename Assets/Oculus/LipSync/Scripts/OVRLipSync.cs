@@ -130,11 +130,11 @@ public class OVRLipSync : MonoBehaviour
 
     // * * * * * * * * * * * * *
     // Import functions
-    #if !UNITY_IOS || UNITY_EDITOR
+#if !UNITY_IOS || UNITY_EDITOR
     public const string strOVRLS = "OVRLipSync";
-    #else
+#else
     public const string strOVRLS = "__Internal";
-    #endif
+#endif
     [DllImport(strOVRLS)]
     private static extern int ovrLipSyncDll_Initialize(int samplerate, int buffersize);
     [DllImport(strOVRLS)]

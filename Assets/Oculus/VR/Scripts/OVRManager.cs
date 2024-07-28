@@ -195,7 +195,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public static OVRProfile profile
     {
-        get {
+        get
+        {
             if (_profile == null)
                 _profile = new OVRProfile();
 
@@ -332,7 +333,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public static bool isHmdPresent
     {
-        get {
+        get
+        {
             if (!_isHmdPresentCached)
             {
                 _isHmdPresentCached = true;
@@ -342,7 +344,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
             return _isHmdPresent;
         }
 
-        private set {
+        private set
+        {
             _isHmdPresentCached = true;
             _isHmdPresent = value;
         }
@@ -378,7 +381,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public static bool hasVrFocus
     {
-        get {
+        get
+        {
             if (!_hasVrFocusCached)
             {
                 _hasVrFocusCached = true;
@@ -388,7 +392,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
             return _hasVrFocus;
         }
 
-        private set {
+        private set
+        {
             _hasVrFocusCached = true;
             _hasVrFocus = value;
         }
@@ -411,14 +416,16 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public bool chromatic
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return false;
 
             return OVRPlugin.chromatic;
         }
 
-        set {
+        set
+        {
             if (!isHmdPresent)
                 return;
 
@@ -852,8 +859,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [HideInInspector, Tooltip("Specify if Insight Passthrough should be enabled. Passthrough layers can only be used if passthrough is enabled.")]
     public bool isInsightPassthroughEnabled = false;
 
-#region Feature Fidelity System
-#endregion
+    #region Feature Fidelity System
+    #endregion
 
     /// <summary>
     /// The native XR API being used
@@ -893,14 +900,16 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public int vsyncCount
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 1;
 
             return OVRPlugin.vsyncCount;
         }
 
-        set {
+        set
+        {
             if (!isHmdPresent)
                 return;
 
@@ -921,7 +930,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. Please use SystemInfo.batteryLevel", false)]
     public static float batteryLevel
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 1f;
 
@@ -937,7 +947,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. This function will not be supported in OpenXR", false)]
     public static float batteryTemperature
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 0f;
 
@@ -953,7 +964,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. Please use SystemInfo.batteryStatus", false)]
     public static int batteryStatus
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return -1;
 
@@ -968,7 +980,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. This function will not be supported in OpenXR", false)]
     public static float volumeLevel
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 0f;
 
@@ -1026,14 +1039,16 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. Please use suggestedCpuPerfLevel", false)]
     public static int cpuLevel
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 2;
 
             return OVRPlugin.cpuLevel;
         }
 
-        set {
+        set
+        {
             if (!isHmdPresent)
                 return;
 
@@ -1047,14 +1062,16 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     [System.Obsolete("Deprecated. Please use suggestedGpuPerfLevel", false)]
     public static int gpuLevel
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return 2;
 
             return OVRPlugin.gpuLevel;
         }
 
-        set {
+        set
+        {
             if (!isHmdPresent)
                 return;
 
@@ -1067,7 +1084,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public static bool isPowerSavingActive
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return false;
 
@@ -1317,14 +1335,16 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public OVRManager.TrackingOrigin trackingOriginType
     {
-        get {
+        get
+        {
             if (!isHmdPresent)
                 return _trackingOriginType;
 
             return (OVRManager.TrackingOrigin)OVRPlugin.GetTrackingOriginType();
         }
 
-        set {
+        set
+        {
             if (!isHmdPresent)
                 return;
 
@@ -1433,7 +1453,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     /// </summary>
     public bool isUserPresent
     {
-        get {
+        get
+        {
             if (!_isUserPresentCached)
             {
                 _isUserPresentCached = true;
@@ -1443,7 +1464,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
             return _isUserPresent;
         }
 
-        private set {
+        private set
+        {
             _isUserPresentCached = true;
             _isUserPresent = value;
         }
@@ -1547,7 +1569,7 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
 
     public static string UnityAlphaOrBetaVersionWarningMessage = "WARNING: It's not recommended to use Unity alpha/beta release in Oculus development. Use a stable release if you encounter any issue.";
 
-#region Unity Messages
+    #region Unity Messages
 
 #if UNITY_EDITOR
     [AOT.MonoPInvokeCallback(typeof(OVRPlugin.LogCallback2DelegateType))]
@@ -2153,9 +2175,9 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     private void UpdateHMDEvents()
     {
 
-        while(OVRPlugin.PollEvent(ref eventDataBuffer))
+        while (OVRPlugin.PollEvent(ref eventDataBuffer))
         {
-            switch(eventDataBuffer.EventType)
+            switch (eventDataBuffer.EventType)
             {
                 case OVRPlugin.EventType.DisplayRefreshRateChanged:
                     if (DisplayRefreshRateChanged != null)
@@ -2240,7 +2262,8 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
     private static bool multipleMainCameraWarningPresented = false;
     private static bool suppressUnableToFindMainCameraMessage = false;
     private static WeakReference<Camera> lastFoundMainCamera = null;
-    private static Camera FindMainCamera() {
+    private static Camera FindMainCamera()
+    {
 
         Camera lastCamera;
         if (lastFoundMainCamera != null &&
@@ -2368,7 +2391,7 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
         Debug.Log("[OVRManager] OnApplicationQuit");
     }
 
-#endregion // Unity Messages
+    #endregion // Unity Messages
 
     /// <summary>
     /// Leaves the application/game and returns to the launcher/dashboard
@@ -2621,13 +2644,15 @@ public class OVRManager : MonoBehaviour, OVRMixedRealityCaptureConfiguration
 
     /// Checks whether the passthrough is initialized.
     /// \return Boolean value to indicate the current state of passthrough. If the value returned is true, the passthrough is initialized.
-    public static bool IsInsightPassthroughInitialized() {
+    public static bool IsInsightPassthroughInitialized()
+    {
         return _passthroughInitializationState == PassthroughInitializationState.Initialized;
     }
 
     /// Checks whether the passthrough has failed the initialization.
     /// \return Boolean value to indicate the passthrough initialization failed status. If the value returned is true, the passthrough has failed the initialization.
-    public static bool HasInsightPassthroughInitFailed() {
+    public static bool HasInsightPassthroughInitFailed()
+    {
         return _passthroughInitializationState == PassthroughInitializationState.Failed;
     }
 
