@@ -1,24 +1,7 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Oculus.Interaction.ComprehensiveSample
 {
@@ -29,29 +12,73 @@ namespace Oculus.Interaction.ComprehensiveSample
     public abstract class ActiveStateObserver : MonoBehaviour
     {
         [SerializeField]
-        private ReferenceActiveState _activeState;
+        protected ReferenceActiveState _activeState;
+        [SerializeField]
+        private When _updateMode = When.Update;
+
+        string _profilerTag1;
+        string _profilerTag2;
 
         protected bool Active { get; private set; }
 
         protected virtual void Reset()
         {
-            _activeState.InjectActiveState(GetComponent<IActiveState>());
+            var activeStates = GetComponents<IActiveState>();
+            for (int i = 0; i < activeStates.Length; i++)
+            {
+                IActiveState state = activeStates[i];
+                if ((object)state != this)
+                {
+                    _activeState.InjectActiveState(state);
+                    return;
+                }
+            }
         }
 
         protected virtual void Start()
         {
             _activeState.AssertNotNull($"{name} ({GetType()}) requires an IActiveState assigned");
+            Active = _activeState.Active;
         }
 
         protected virtual void Update()
         {
-            if (Active != _activeState.Active)
+            if ((_updateMode & When.Update) != 0)
             {
-                Active = !Active;
-                HandleActiveStateChanged();
+                UpdateActive();
             }
         }
 
+        protected virtual void LateUpdate()
+        {
+            if ((_updateMode & When.LateUpdate) != 0)
+            {
+                UpdateActive();
+            }
+        }
+
+        private void UpdateActive()
+        {
+            if (_profilerTag1 == null) _profilerTag1 = $"{GetType().Name}.UpdateActive";
+            Profiler.BeginSample(_profilerTag1);
+            if (Active != _activeState.Active)
+            {
+                Active = !Active;
+                if (_profilerTag2 == null) _profilerTag2 = $"{GetType().Name}.HandleActiveStateChanged";
+                Profiler.BeginSample(_profilerTag2);
+                HandleActiveStateChanged();
+                Profiler.EndSample();
+            }
+            Profiler.EndSample();
+        }
+
         protected abstract void HandleActiveStateChanged();
+
+        [System.Flags]
+        public enum When
+        {
+            Update = 1 << 0,
+            LateUpdate = 1 << 1
+        }
     }
 }

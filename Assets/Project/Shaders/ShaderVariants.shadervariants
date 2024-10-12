@@ -1,0 +1,922 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShaderVariants
+  m_Shaders:
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _ALPHAPREMULTIPLY_ON
+        passType: 8
+  - first: {fileID: 101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: UNITY_HDR_ON _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _SUNDISK_SIMPLE _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA _SUNDISK_SIMPLE
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+          _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: PROCEDURAL_INSTANCING_ON
+        passType: 8
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9007, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: b895d3431e75dc345a72e171f82bfbea, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _COLORGRADIENT_ON
+          _FRESNEL_ON _KEYWORD0_ON
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _COLORGRADIENT_ON
+          _DEPTH_NO_MSAA _FRESNEL_ON _KEYWORD0_ON
+        passType: 13
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 14
+      - keywords: DIRECTIONAL LIGHTPROBE_SH STEREO_INSTANCING_ON
+        passType: 14
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+        passType: 14
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 14
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _COLORGRADIENT_ON
+          _FRESNEL_ON _KEYWORD0_ON
+        passType: 14
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _COLORGRADIENT_ON
+          _DEPTH_NO_MSAA _FRESNEL_ON _KEYWORD0_ON
+        passType: 14
+  - first: {fileID: 4800000, guid: ced943c76cb8fb8489bab18c3dfcdcd3, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _DEPTH_MSAA_2 _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_MSAA_2 _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+  - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: e7857e9d0c934dc4f83f270f8447b006, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: _BLOOM_LQ
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _BLOOM_LQ _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _BLOOM_LQ _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _BLOOM_LQ _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _BLOOM_LQ
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _BLOOM_LQ _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _BLOOM_LQ _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _BLOOM_LQ _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _BLOOM_LQ _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _NORMALMAP
+        passType: 8
+      - keywords: _DETAIL_MULX2
+        passType: 8
+      - keywords: _ALPHATEST_ON
+        passType: 8
+      - keywords: _EMISSION
+        passType: 8
+      - keywords: _METALLICSPECGLOSSMAP
+        passType: 8
+      - keywords: _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 8
+      - keywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: LIGHTMAP_ON
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: _DETAIL_MULX2
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _DETAIL_MULX2
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA _DETAIL_MULX2
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _DETAIL_MULX2
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _DETAIL_MULX2
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _DETAIL_MULX2 _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+          _DETAIL_MULX2
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2
+        passType: 13
+      - keywords: _ALPHATEST_ON
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ALPHATEST_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ALPHATEST_ON
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _ALPHATEST_ON
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ALPHATEST_ON
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _ALPHATEST_ON
+        passType: 13
+      - keywords: _EMISSION
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _EMISSION
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION
+        passType: 13
+      - keywords: _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _METALLICSPECGLOSSMAP _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+          _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+          _NORMALMAP
+        passType: 13
+      - keywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION
+          _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ALPHATEST_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ALPHATEST_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _ALPHATEST_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _ALPHATEST_ON _EMISSION
+          _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _ALPHATEST_ON _DEPTH_NO_MSAA _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ALPHATEST_ON _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _ALPHATEST_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _ALPHATEST_ON _EMISSION
+          _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _SPECULARHIGHLIGHTS_OFF _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _NORMALMAP
+          _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: LIGHTMAP_ON STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+          _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+          _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA _EMISSION
+          _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON  _EMISSION
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _ALPHATEST_ON
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _DETAIL_MULX2
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _EMISSION
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _METALLICSPECGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ALPHATEST_ON
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _DETAIL_MULX2
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _METALLICSPECGLOSSMAP
+        passType: 13
+      - keywords: FOG_EXP2 LIGHTMAP_ON STEREO_MULTIVIEW_ON _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: FOG_EXP2 STEREO_MULTIVIEW_ON _ADDITIONAL_LIGHTS_VERTEX _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON _EMISSION
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON STEREO_INSTANCING_ON _EMISSION
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _EMISSION _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA _EMISSION
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON _COLORCOLOR_ON
+        passType: 0
+      - keywords: PROCEDURAL_INSTANCING_ON STEREO_INSTANCING_ON _COLORCOLOR_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _COLORCOLOR_ON _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          _ADDITIONAL_LIGHTS _COLORCOLOR_ON _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 4431b1f1f743fbf4eb310a967890cbea, type: 3}
+    second:
+      variants:
+      - keywords: XR_OCCLUSION_MESH_COMBINED
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS XR_OCCLUSION_MESH_COMBINED _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS XR_OCCLUSION_MESH_COMBINED _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+  - first: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _EMISSION _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: d5a307c014552314b9f560906d708772, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 5f1864addb451f54bae8c86d230f736e, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS _ADDITIONAL_LIGHTS _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: 7863df5cdb060144c86b6e70c911bad7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX
+        passType: 13
+  - first: {fileID: 4800000, guid: f98fc22324f0f5248bc2a4b595aa681d, type: 3}
+    second:
+      variants:
+      - keywords: VERTEX_COLOR_LIGHTMAP
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON VERTEX_COLOR_LIGHTMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON VERTEX_COLOR_LIGHTMAP
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _ADDITIONAL_LIGHTS
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON VERTEX_COLOR_LIGHTMAP
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _ADDITIONAL_LIGHTS
+          _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON VERTEX_COLOR_LIGHTMAP
+          _DEPTH_NO_MSAA _METALLICGLOSSMAP _NORMALMAP _USE_DRAW_PROCEDURAL
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH VERTEX_COLOR_LIGHTMAP _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _METALLICGLOSSMAP _NORMALMAP
+        passType: 13
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON VERTEX_COLOR_LIGHTMAP
+          _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA _METALLICGLOSSMAP _NORMALMAP _USE_DRAW_PROCEDURAL
+        passType: 13
+  - first: {fileID: 4800000, guid: 54112343f386ede4aa9a58e2e78603bd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0
+  - first: {fileID: 4800000, guid: 535e6d422d2c5744a81d188187809d14, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH UNITY_HDR_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+  - first: {fileID: 4800000, guid: 290cea77a50bce949bcb23191b91d065, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _DEPTH_NO_MSAA
+          _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _DEPTH_NO_MSAA _USE_DRAW_PROCEDURAL
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _DEPTH_MSAA_2 _DEPTH_NO_MSAA
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS LIGHTPROBE_SH _ADDITIONAL_LIGHTS _DEPTH_MSAA_2
+          _DEPTH_NO_MSAA
+        passType: 0

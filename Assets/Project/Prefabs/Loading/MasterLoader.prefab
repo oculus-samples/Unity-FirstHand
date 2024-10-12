@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3338550795411845785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3338550795411845799}
+  - component: {fileID: 3338550795411845798}
+  m_Layer: 0
+  m_Name: MasterLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3338550795411845799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338550795411845785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1163576, y: 1.491413, z: 0.033503935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3338550795411845798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338550795411845785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596efe1a1ca23414c8bc1244007e6a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levels:
+  - _name: main_menu
+    _activeIndex: 0
+    _scenes:
+    - MainMenu
+  - _name: clock_tower
+    _activeIndex: 0
+    _scenes:
+    - ClockTower
+    - DevClocktower
+  - _name: street
+    _activeIndex: 0
+    _scenes:
+    - Street
+    - StreetAudio
+    - DevStreet
+  - _name: hub
+    _activeIndex: 0
+    _scenes:
+    - Hub
+    - DevHub
+  - _name: mixed_reality
+    _activeIndex: 0
+    _scenes:
+    - MRPortals
+    - DevMixedReality
+  - _name: intro
+    _activeIndex: 0
+    _scenes:
+    - MRPortals
+    - DevIntroPart1
+  - _name: intro_part_2
+    _activeIndex: 0
+    _scenes:
+    - MountainPeak
+    - MRIntroInteractablesPart2
+    - DevIntroPart2
+  - _name: haptics
+    _activeIndex: 0
+    _scenes:
+    - MountainPeak
+    - DevHaptics

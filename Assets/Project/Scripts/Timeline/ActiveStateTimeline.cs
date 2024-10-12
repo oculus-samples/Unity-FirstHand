@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using UnityEngine;
 using UnityEngine.Playables;
@@ -32,6 +14,10 @@ namespace Oculus.Interaction.ComprehensiveSample
         PlayableDirector _playableDirector;
         [SerializeField]
         float _activeTime = 0.5f;
+        [SerializeField]
+        bool _skipOnLoad = false;
+        [SerializeField]
+        bool _requireSeamlessLooping = false;
 
         protected override void Reset()
         {
@@ -44,6 +30,12 @@ namespace Oculus.Interaction.ComprehensiveSample
         {
             base.Start();
             UpdateTimeline();
+
+            if (_skipOnLoad && Active)
+            {
+                _playableDirector.time = _activeTime > 0 ? _activeTime : _playableDirector.duration - double.Epsilon;
+                _playableDirector.Evaluate();
+            }
         }
 
         protected override void HandleActiveStateChanged()
@@ -55,9 +47,9 @@ namespace Oculus.Interaction.ComprehensiveSample
         {
             if (!_playableDirector.playableGraph.IsValid()) { _playableDirector.RebuildGraph(); }
 
-            if (_activeTime > 0)
+            if (_activeTime > 0 && _activeTime < _playableDirector.playableAsset.GetDurationFast())
             {
-                PlayTimlineUsingMiddleStoppingPoint(Active);
+                PlayTimelineUsingMiddleStoppingPoint(Active);
             }
             else
             {
@@ -76,15 +68,29 @@ namespace Oculus.Interaction.ComprehensiveSample
         /// This is preferable to playing the timeline backwards
         /// programatically as Audio tracks would not play
         /// </summary>
-        private void PlayTimlineUsingMiddleStoppingPoint(bool toActiveTime)
+        private void PlayTimelineUsingMiddleStoppingPoint(bool toActiveTime)
         {
-            var assetDuration = _playableDirector.playableAsset.duration;
+            var assetDuration = _playableDirector.playableAsset.GetDurationFast();
+            bool atEnd = _playableDirector.time >= assetDuration - double.Epsilon;
+
+            if (_requireSeamlessLooping)
+            {
+                TweenRunner.Kill(this);
+                // we must have gone false, so we're playing to the end, but then become true again
+                // we require it to be seamless, so wait for however long we need to then call it again
+                if (toActiveTime && _playableDirector.time > _activeTime && !atEnd)
+                {
+                    var timeToWait = assetDuration - _playableDirector.time;
+                    TweenRunner.DelayedCall((float)timeToWait + 0.05f, () => PlayTimelineUsingMiddleStoppingPoint(toActiveTime)).SetID(this);
+                    return;
+                }
+            }
 
             // set the duration of the playable director to the mddle or end
             _playableDirector.playableGraph.GetRootPlayable(0).SetDuration(toActiveTime ? _activeTime : assetDuration);
 
             // if we want to play to the middle but we're at the end reset the time to 0
-            if (toActiveTime && _playableDirector.time >= assetDuration - double.Epsilon)
+            if (toActiveTime && atEnd)
             {
                 _playableDirector.time = 0;
             }

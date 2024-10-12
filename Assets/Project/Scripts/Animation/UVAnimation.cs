@@ -1,24 +1,5 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -32,6 +13,8 @@ namespace Oculus.Interaction.ComprehensiveSample
         static MaterialPropertyBlock _mpb;
         static MaterialPropertyBlock PropertyBlock => _mpb ??= new MaterialPropertyBlock();
 
+        public float TimeMultiplier { get => _timeMultiplier; set => _timeMultiplier = value; }
+
         [SerializeField] string _uvPropertyName = "_BaseMap_ST";
 
         [Header("Flipbook")]
@@ -40,6 +23,12 @@ namespace Oculus.Interaction.ComprehensiveSample
 
         [Header("Scroll")]
         [SerializeField] Vector2 _scroll = new Vector2(0, 0);
+
+        [SerializeField]
+        float _timeMultiplier = 1;
+
+        [SerializeField]
+        bool _modifyMaterial;
 
         private void OnEnable()
         {
@@ -75,10 +64,10 @@ namespace Oculus.Interaction.ComprehensiveSample
                 StartCoroutine(Scroll());
                 IEnumerator Scroll()
                 {
-                    while (isActiveAndEnabled)
+                    while (isActiveAndEnabled) //TODO this cant be needed? coroutines stop when disabled
                     {
-                        tileOffset.z += Time.deltaTime * _scroll.x;
-                        tileOffset.w += Time.deltaTime * _scroll.y;
+                        tileOffset.z += Time.deltaTime * _timeMultiplier * _scroll.x;
+                        tileOffset.w += Time.deltaTime * _timeMultiplier * _scroll.y;
                         SetTileOffset(renderer, property, tileOffset);
 
                         yield return null;
@@ -87,11 +76,18 @@ namespace Oculus.Interaction.ComprehensiveSample
             }
         }
 
-        private static void SetTileOffset(Renderer renderer, int property, Vector4 uv)
+        private void SetTileOffset(Renderer renderer, int property, Vector4 uv)
         {
-            renderer.GetPropertyBlock(PropertyBlock);
-            PropertyBlock.SetVector(property, uv);
-            renderer.SetPropertyBlock(PropertyBlock);
+            if (_modifyMaterial)
+            {
+                renderer.material.SetVector(property, uv);
+            }
+            else
+            {
+                renderer.GetPropertyBlock(PropertyBlock);
+                PropertyBlock.SetVector(property, uv);
+                renderer.SetPropertyBlock(PropertyBlock);
+            }
         }
     }
 }

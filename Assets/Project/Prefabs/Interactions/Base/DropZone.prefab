@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3495937616641476301}
   - component: {fileID: 6346289970449330776}
   - component: {fileID: 4915905605507623368}
+  - component: {fileID: 2130917530426345218}
+  - component: {fileID: 622967216580825643}
   m_Layer: 0
   m_Name: DropZone
   m_TagString: Untagged
@@ -46,11 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bd28341d3e86a4c8ab52b1a0269c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: 1
-  _movementProvider: {fileID: 0}
-  _snapPosesProvider: {fileID: 0}
+  _data: {fileID: 0}
   _rigidbody: {fileID: 6346289970449330776}
+  _snapPoseDelegate: {fileID: 0}
+  _movementProvider: {fileID: 0}
 --- !u!54 &6346289970449330776
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -80,6 +84,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tags: []
+--- !u!114 &2130917530426345218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460499168944198161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf6e3d0ce333c04d8b3fb29ee41a56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactable: {fileID: 3495937616641476301}
+  _property: 4
+  _minimumInteractorCount: 1
+--- !u!114 &622967216580825643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460499168944198161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6072b371e3b884fad740b531a2c439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snapInteractable: {fileID: 3495937616641476301}
 --- !u!1 &7903598143178579081
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using System;
 using UnityEngine;
@@ -32,17 +14,13 @@ namespace Oculus.Interaction.ComprehensiveSample
     /// </summary>
     public class BlasterProjectile : MonoBehaviour
     {
-        public enum Owner
-        {
-            Player,
-            Drone
-        };
-
-        [SerializeField] private Rigidbody _rigidbody;
-        public Owner ProjectileOwner { get; set; }
-        private float _speed;
+        [SerializeField]
+        private Rigidbody _rigidbody;
+        public bool FinishOnStaticCollision;
         public bool Lethal = true;
 
+        public Owner ProjectileOwner { get; set; }
+        private float _speed;
         public static Action<Owner> WhenAnyFire = delegate { };
 
         private void Awake()
@@ -52,6 +30,7 @@ namespace Oculus.Interaction.ComprehensiveSample
 
         public void Fire(float speed)
         {
+            gameObject.SetActive(true);
             _speed = speed;
             Lethal = true;
             WhenAnyFire(ProjectileOwner);
@@ -61,6 +40,40 @@ namespace Oculus.Interaction.ComprehensiveSample
         {
             Vector3 newPosition = transform.position + (transform.forward * (_speed * Time.deltaTime));
             _rigidbody.MovePosition(newPosition);
+        }
+
+        public void Finish()
+        {
+            gameObject.SetActive(false);
+            // TODO particle burst?
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            ProjectileHitReaction hitReaction = other.GetComponentInParent<ProjectileHitReaction>();
+            if (hitReaction != null)
+            {
+                hitReaction.OnProjectileHit(this);
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log($"Collision: {collision.collider.name}", this);
+
+            // hit a collider without a rigidbody, its probably a static mesh collider
+            bool isStatic = collision.rigidbody == null;
+
+            if (isStatic && FinishOnStaticCollision)
+            {
+                Finish();
+            }
+        }
+
+        public enum Owner
+        {
+            Player,
+            Enemy
         }
     }
 }

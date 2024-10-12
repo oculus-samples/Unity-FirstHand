@@ -1,23 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using Oculus.Interaction.Input;
 using UnityEngine;
@@ -110,8 +91,9 @@ namespace Oculus.Interaction.ComprehensiveSample
 
             // update scale
             float desiredScale = _isEnabled ? _maxScale : 0f;
-            _currentScale = Mathf.Lerp(_currentScale, desiredScale, Time.deltaTime * _scalingSpeed);
-            _shieldTransform.localScale = Vector3.one * _currentScale;
+            float deltaTime = _isEnabled ? Time.deltaTime : 50f;
+            _currentScale = Mathf.Lerp(_currentScale, desiredScale, deltaTime * _scalingSpeed);
+            //_shieldTransform.localScale = Vector3.one * _currentScale;
 
             // update transform
             if (_isEnabled)
@@ -119,7 +101,7 @@ namespace Oculus.Interaction.ComprehensiveSample
                 Pose desiredPose = CalculateDesiredShieldPose();
                 _currentPose.position =
                     Vector3.Lerp(_currentPose.position, desiredPose.position, Time.deltaTime * _moveLerpSpeed);
-                _currentPose.rotation = Quaternion.Slerp(_currentPose.rotation, desiredPose.rotation,
+                _currentPose.rotation = Quaternion.Lerp(_currentPose.rotation, desiredPose.rotation,
                     Time.deltaTime * _moveLerpSpeed);
                 _shieldTransform.SetPose(_currentPose);
             }

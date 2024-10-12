@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3703263182101497534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7136148728563479924}
+  - component: {fileID: 4035937562760766172}
+  - component: {fileID: 6496292037582566165}
+  - component: {fileID: 6908193870371361612}
+  m_Layer: 0
+  m_Name: DefaultUseInteractable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7136148728563479924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703263182101497534}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.15796818, y: -0.7825488, z: 0.46296462, w: 0.38513282}
+  m_LocalPosition: {x: -0.06548538, y: 0.069549955, z: -0.002801517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4035937562760766172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703263182101497534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35181eeb40ed13148b0721382f49aba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters:
+  - {fileID: 6908193870371361612}
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _data: {fileID: 0}
+  _handUseDelegate: {fileID: 0}
+  _useFingers:
+    _thumbRequirement: 0
+    _indexRequirement: 2
+    _middleRequirement: 0
+    _ringRequirement: 0
+    _pinkyRequirement: 0
+    _unselectMode: 0
+  _strengthDeadzone: 0.5
+  _relaxedHandGrabPoses:
+  - {fileID: 0}
+  _tightHandGrabPoses:
+  - {fileID: 6496292037582566165}
+--- !u!114 &6496292037582566165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703263182101497534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622db80eec0bd344f920b1aa056ae8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _surface: {fileID: 0}
+  _relativeTo: {fileID: 0}
+  _usesHandPose: 0
+  _handPose:
+    _handedness: 1
+    _fingersFreedom: 0100000001000000010000000100000001000000
+    _jointRotations:
+    - {x: 0.37538713, y: -0.42458415, z: 0.0077790027, w: 0.8238643}
+    - {x: 0.25649014, y: -0.18873505, z: -0.20811199, w: 0.9248143}
+    - {x: -0.077819645, y: 0.034621045, z: -0.3664213, w: 0.9265425}
+    - {x: 0.084351204, y: -0.03432065, z: -0.30434853, w: 0.9481978}
+    - {x: 0.065141544, y: -0.03696687, z: -0.507313, w: 0.8585008}
+    - {x: -0.024771184, y: -0.00722944, z: -0.51775044, w: 0.85514253}
+    - {x: -0.019717148, y: 0.020453926, z: -0.2959111, w: 0.954793}
+    - {x: 0.007815658, y: -0.030479614, z: -0.48646402, w: 0.8731339}
+    - {x: -0.012868925, y: -0.0022775058, z: -0.5278716, w: 0.8492237}
+    - {x: -0.059800718, y: -0.023862401, z: -0.44244337, w: 0.8944822}
+    - {x: -0.078966394, y: 0.03887803, z: -0.52597857, w: 0.84593105}
+    - {x: -0.03980332, y: -0.018995678, z: -0.6002775, w: 0.7985748}
+    - {x: -0.006654133, y: -0.032069407, z: -0.42224488, w: 0.9058899}
+    - {x: -0.20703596, y: 0.14034283, z: -0.01831182, w: 0.96804166}
+    - {x: 0.041868214, y: 0.07251799, z: -0.53666407, w: 0.8396308}
+    - {x: -0.08236507, y: 0.007538393, z: -0.61878663, w: 0.7811929}
+    - {x: 0.018189369, y: -0.044394772, z: -0.5369849, w: 0.8422265}
+--- !u!114 &6908193870371361612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703263182101497534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4701674d6305f1b4a98481b2455004ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _primaryInteractable: {fileID: 0}
+  _secondaryInteractable: {fileID: 4035937562760766172}
+  _selectRequired: 1

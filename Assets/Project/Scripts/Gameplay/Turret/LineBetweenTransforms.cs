@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,12 +21,14 @@ namespace Oculus.Interaction.ComprehensiveSample
         private LineRenderer _lineRenderer;
         private static Vector3[] _positions = new Vector3[20];
 
+        public List<Transform> Transforms => _transforms;
+
         private void Awake()
         {
             _lineRenderer = GetComponent<LineRenderer>();
         }
 
-        private void Update()
+        void Update()
         {
             if (!_smooth)
             {
@@ -52,6 +36,7 @@ namespace Oculus.Interaction.ComprehensiveSample
                 {
                     _lineRenderer.positionCount = _transforms.Count;
                 }
+
                 for (int i = 0; i < _transforms.Count; i++)
                 {
                     _lineRenderer.SetPosition(i, _transforms[i].position);
@@ -59,6 +44,11 @@ namespace Oculus.Interaction.ComprehensiveSample
             }
             else
             {
+                if (_lineRenderer.positionCount != _positions.Length)
+                {
+                    _lineRenderer.positionCount = _positions.Length;
+                }
+
                 Transform start = _transforms[0];
                 Transform end = _transforms[_transforms.Count - 1];
                 GetBezierPositions(start, end, _positions);
@@ -70,13 +60,14 @@ namespace Oculus.Interaction.ComprehensiveSample
             }
         }
 
-        private static void GetBezierPositions(Transform start, Transform end, Vector3[] positions)
+        public static void GetBezierPositions(Transform start, Transform end, Vector3[] positions)
         {
             var line = end.position - start.position;
             var midPointLin = start.position + line * 0.5f;
             var plane = new Plane(line, midPointLin);
-            plane.Raycast(new Ray(start.position, start.forward), out var midBezDist);
-            var midBez = start.position + start.forward * midBezDist;
+            var bendDirection = Vector3.Lerp(line, start.forward, Vector3.Dot(start.forward, line.normalized));
+            plane.Raycast(new Ray(start.position, bendDirection), out var midBezDist);
+            var midBez = start.position + bendDirection * midBezDist;
             Debug.DrawLine(midBez, midBez + Vector3.up * 0.1f);
 
             Vector3 p0 = start.position;

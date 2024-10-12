@@ -1,89 +1,86 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
-using System.Collections;
 using UnityEngine;
-using Was = UnityEngine.Serialization.FormerlySerializedAsAttribute;
+using UnityEngine.UI;
 
 namespace Oculus.Interaction.ComprehensiveSample
 {
     public class LazerProjectile : ActiveStateObserver
     {
         [SerializeField] Transform _target;
-        [SerializeField] GameObject _effect;
+        [SerializeField] Transform _end;
+        [SerializeField] ParticleSystem _chargeUpParticles;
+        [SerializeField] Animator _effectAnimator;
+        [SerializeField] Explosion _explosion;
         [SerializeField] float _rayCastDelay = 0.1f;
+        [SerializeField] float _fireTime = 0.1f;
         [SerializeField] float _fadeOutTime = 0.1f;
         [SerializeField] float _delayBetweenShots = 0.5f;
-        [SerializeField] AudioTrigger _chargeUp;
+        [SerializeField] AudioTrigger _chargeUpMono;
+        [SerializeField] private AudioTrigger _chargeUpAmbix;
         [SerializeField, Optional] AudioTrigger _chargeUpComplete;
+        [SerializeField] Image _batteryImage;
+        [SerializeField] private float _fallRate = 2;
+
+        private static Vector3[] _positions = new Vector3[2];
+
+        protected override void HandleActiveStateChanged()
+        {
+            _effectAnimator.SetBool("Fire", Active);
+        }
+
+        private void OnDisable()
+        {
+            _effectAnimator.SetBool("Fire", false);
+        }
+
+        public void StartFire()
+        {
+            BlasterProjectile.WhenAnyFire(BlasterProjectile.Owner.Player);
+            int randomIndex = Random.Range(0, _chargeUpMono.GetClips().Length);
+            _chargeUpMono.PlayAudio(randomIndex);
+            //_chargeUpAmbix.PlayAudio(randomIndex);
+            _chargeUpParticles.Play();
+        }
+
+        public void Recharged()
+        {
+            TweenRunner.Tween(_batteryImage.fillAmount, 1, 0.3f, x => _batteryImage.fillAmount = x);
+        }
 
         protected override void Update()
         {
             base.Update();
 
-            Vector3 endPos = Vector3.Lerp(_target.position, transform.position + transform.forward * 20, 5 * Time.deltaTime);
+            Vector3 endPos = Vector3.Lerp(_target.position, transform.position + transform.forward * 20, 15 * Time.deltaTime);
             _target.position = endPos;
         }
 
-        private void OnEnable()
+        public void LazerCast()
         {
-            StopAllCoroutines();
-            StartCoroutine(FireRoutine());
-            IEnumerator FireRoutine()
+            LineBetweenTransforms.GetBezierPositions(transform, _target, _positions);
+
+            Vector3 lineStart = _positions[0];
+            Vector3 lineEnd = _positions[_positions.Length - 1];
+            lineEnd += _positions[_positions.Length - 1] - _positions[_positions.Length - 2];
+
+            _explosion.Explode(lineStart, lineEnd);
+
+            if (Physics.Linecast(lineStart, lineEnd, out var raycastHit))
             {
-                while (isActiveAndEnabled)
+                var componentSource = raycastHit.rigidbody ? raycastHit.rigidbody.gameObject : raycastHit.collider.gameObject;
+                if (componentSource.TryGetComponent(out ProjectileHitReaction hit))
                 {
-                    if (!Active || !isActiveAndEnabled) { yield return null; continue; }
-
-                    // refresh effects
-                    _effect.SetActive(false);
-                    _effect.SetActive(true);
-                    _target.gameObject.SetActive(false);
-                    _target.gameObject.SetActive(true);
-
-                    _chargeUp.PlayAudio();
-
-                    // wait for the charge up
-                    yield return new WaitForSeconds(_rayCastDelay);
-
-                    if (_chargeUpComplete) _chargeUpComplete.PlayAudio();
-
-                    BlasterProjectile.WhenAnyFire(BlasterProjectile.Owner.Player);
-
-                    yield return new WaitForSeconds(_fadeOutTime);
-
-                    _target.gameObject.SetActive(false);
-                    _effect.SetActive(false);
-
-                    yield return new WaitForSeconds(_delayBetweenShots);
+                    hit.OnProjectileHit(BlasterProjectile.Owner.Player, null);
                 }
             }
-        }
 
-        protected override void HandleActiveStateChanged()
-        {
+            _batteryImage.fillAmount -= Time.deltaTime * _fallRate;
         }
     }
 
     public interface IFireable
     {
-        void Fire();
+        BlasterProjectile Fire();
     }
 }

@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using System;
 using UnityEngine;
@@ -31,16 +13,30 @@ namespace Oculus.Interaction.ComprehensiveSample
         public Transform target;
         public Transform space;
 
-        public Vector3Range PositionRange;
-        public Vector3Range EulerAngleRange; //TODO better angle handling
+        public Vector3Range PositionRange = Vector3Range.Infinity;
+        public Vector3Range EulerAngleRange = Vector3Range.Infinity; //TODO better angle handling
+
+        public Vector3Range Velocity = Vector3Range.Infinity;
+
+        public FloatRange Speed = FloatRange.Infinity;
+        public FloatRange Acceleration = FloatRange.Infinity;
+
+        private Vector3 _velocity;
+        private float _acceleration;
+
+        private Vector3 _lastPosition;
 
         public bool Active
         {
             get
             {
                 var pose = GetPose();
-                return PositionRange.Contains(pose.position) &&
-                    EulerAngleRange.Contains(pose.rotation.eulerAngles);
+                return
+                    PositionRange.Contains(pose.position) &&
+                    EulerAngleRange.Contains(pose.rotation.eulerAngles) &&
+                    Velocity.Contains(_velocity) &&
+                    Acceleration.Contains(_acceleration) &&
+                    Speed.Contains(_velocity.magnitude);
             }
         }
 
@@ -56,13 +52,32 @@ namespace Oculus.Interaction.ComprehensiveSample
             space = space ? space : transform.parent;
         }
 
+        private void Update()
+        {
+            if (!target) return;
+
+            var position = space ? space.InverseTransformPoint(target.position) : target.position;
+            var deltaPosition = position - _lastPosition;
+            _lastPosition = position;
+
+            if (PauseHandler.IsTimeStopped) return;
+
+            var velocity = deltaPosition / Time.deltaTime;
+            var deltaVelocity = velocity - _velocity;
+            _velocity = velocity;
+            _acceleration = Vector3.Dot(deltaVelocity, _velocity.normalized) / Time.deltaTime;
+        }
+
         public override string ToString()
         {
             var pose = GetPose();
             var nl = Environment.NewLine;
             return $"Active: {Active}{nl}" +
                 $"Position: {pose.position} {PositionRange.Contains(pose.position)}{nl}" +
-                $"Euler: {pose.rotation.eulerAngles} {EulerAngleRange.Contains(pose.rotation.eulerAngles)}";
+                $"Euler: {pose.rotation.eulerAngles} {EulerAngleRange.Contains(pose.rotation.eulerAngles)}{nl}" +
+                $"Velocity: {_velocity} {Velocity.Contains(_velocity)}{nl}" +
+                $"Speed: {_velocity.magnitude} {Speed.Contains(_velocity.magnitude)}{nl}" +
+                $"Accel: {_acceleration} {Acceleration.Contains(_acceleration)}{nl}";
         }
 
         Pose GetPose()

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -124,7 +125,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: 0.14010811, z: 0}
     endPoint: {x: 0, y: 0.13634598, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 4078293138579080289}
 --- !u!1 &2935593066361486902
@@ -172,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -251,7 +254,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: 0.039869785, z: 0}
     endPoint: {x: 0, y: 0.034904182, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 6120663936138134965}
 --- !u!1 &3802865085655562427
@@ -299,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baed3e011583e1844a6e85b1cd0657f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -314,11 +319,11 @@ MonoBehaviour:
     _pinkyRequirement: 0
     _unselectMode: 0
   _palmGrabRules:
-    _thumbRequirement: 0
+    _thumbRequirement: 1
     _indexRequirement: 2
     _middleRequirement: 2
     _ringRequirement: 1
-    _pinkyRequirement: 0
+    _pinkyRequirement: 1
     _unselectMode: 0
   _movementProvider: {fileID: 2260541676697556269}
   _handAligment: 1
@@ -336,6 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07525681efbca7a4e9643ab3a592ada7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -428,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -507,7 +514,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: -0.13314569, z: 0}
     endPoint: {x: 0, y: -0.14053261, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 6502836083611262685}
 --- !u!1 &6084547282201258448
@@ -555,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -634,7 +643,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: 0.14010811, z: 0}
     endPoint: {x: 0, y: 0.13634598, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 8350625972480392586}
 --- !u!1 &7420942693315402835
@@ -682,6 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -761,7 +772,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: -0.026887417, z: 0}
     endPoint: {x: 0, y: -0.032119036, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 2014476328812134127}
 --- !u!1 &7953079230866088737
@@ -809,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -888,7 +901,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: -0.032160997, z: 0}
     endPoint: {x: 0, y: -0.043057084, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 578289004429467564}
 --- !u!1 &8081113412416519451
@@ -936,6 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -1015,7 +1030,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: 0.042151928, z: 0}
     endPoint: {x: 0, y: 0.036151767, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 8713837411548765942}
 --- !u!1 &8412541479336306031
@@ -1063,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interactorFilters: []
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 7092412031391062464}
@@ -1142,7 +1159,8 @@ MonoBehaviour:
   _data:
     startPoint: {x: 0, y: -0.13314569, z: 0}
     endPoint: {x: 0, y: -0.14053261, z: 0}
-    angle: 360
+    arcOffset: 0
+    arcLength: 360
   _relativeTo: {fileID: 2946970889869671757}
   _gripPoint: {fileID: 6418801135562035}
 --- !u!1001 &2472530708932873794
@@ -1216,54 +1234,6 @@ PrefabInstance:
       propertyPath: _handGrabPoses.Array.data[0]
       value: 
       objectReference: {fileID: 8412304926032587388}
-    - target: {fileID: 3467977290946323267, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _palmGrabRules._pinkyRequirement
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467977290946323267, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _palmGrabRules._thumbRequirement
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[2]
-      value: 
-      objectReference: {fileID: 1448824732099824050}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[3]
-      value: 
-      objectReference: {fileID: 601929232602191667}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[4]
-      value: 
-      objectReference: {fileID: 7362254343323603306}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[5]
-      value: 
-      objectReference: {fileID: 5070682148011972816}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[6]
-      value: 
-      objectReference: {fileID: 1577133885412586669}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[7]
-      value: 
-      objectReference: {fileID: 4955635461370165075}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[8]
-      value: 
-      objectReference: {fileID: 4080574248178838092}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[9]
-      value: 
-      objectReference: {fileID: 1398376442936175140}
-    - target: {fileID: 5495142413157092368, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
-      propertyPath: _interactables.Array.data[10]
-      value: 
-      objectReference: {fileID: 1724790178038783752}
     - target: {fileID: 6069885274381238656, guid: 7acf0f41ff144ed4aacbafea5d165868, type: 3}
       propertyPath: _travellingData._travelSpeed
       value: 10
@@ -1376,6 +1346,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f70e3c0f91318ea40a82a9bfb8d1786a, type: 3}
       propertyPath: m_Name
       value: PowerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058728243790460984, guid: f70e3c0f91318ea40a82a9bfb8d1786a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70e3c0f91318ea40a82a9bfb8d1786a, type: 3}
