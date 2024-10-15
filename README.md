@@ -10,9 +10,7 @@ You can find the full version of the First Hand app on the Meta Quest Store:
 https://www.oculus.com/experiences/quest/5030224183773255/
 
 ## Licenses
-The *Oculus Integration* package is released under the *[Oculus SDK License Agreement](https://developer.oculus.com/licenses/oculussdk)*.
-The MIT licence applies to the files and assets in the Assets/Project folder.
-Otherwise, if an individual file does not indicate which license it is subject to, then the Oculus License applies.
+The majority of *First Hand* is licensed under [MIT LICENSE](./LICENSE), however files from ThirdParty[Assets/ThirdParty], are licensed under their respective licensing terms.
 
 ## Getting started
 
