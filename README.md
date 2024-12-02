@@ -7,7 +7,7 @@ First Hand is an example of a full game experience using *[Interaction SDK](http
 # Meta Quest Store
 You can find the full version of the First Hand app on the Meta Quest Store:
 
-https://www.oculus.com/experiences/quest/5030224183773255/
+https://www.meta.com/experiences/first-hand/5030224183773255/
 
 ## Licenses
 The majority of *First Hand* is licensed under [MIT LICENSE](./LICENSE), however files from ThirdParty[Assets/ThirdParty], are licensed under their respective licensing terms.
