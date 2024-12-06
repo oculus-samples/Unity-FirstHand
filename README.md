@@ -10,7 +10,7 @@ You can find the full version of the First Hand app on the Meta Quest Store:
 https://www.meta.com/experiences/first-hand/5030224183773255/
 
 ## Licenses
-The majority of *First Hand* is licensed under [MIT LICENSE](./LICENSE), however files from ThirdParty[Assets/ThirdParty], are licensed under their respective licensing terms.
+The majority of *First Hand* is licensed under [MIT LICENSE](./LICENSE.txt), however files from ThirdParty[Assets/ThirdParty], are licensed under their respective licensing terms.
 
 ## Getting started
 
@@ -33,7 +33,7 @@ To run the sample, open the project folder in *Unity 2022.3.22f1* or newer and l
 
 ### Clock Tower
 
-The clock tower scene demonstrates a variety of Hand Tracking interactions using ISDK. To run the scene in the edtor load the [DevClocktower](Assets/Project/Scenes/Level/DevClocktower.unity) scene and [ClockTower](Assets/Project/Scenes/Art/ClockTower.unity) scene. The scene contains several interactable objects.
+The clock tower scene demonstrates a variety of Hand Tracking interactions using ISDK. To run the scene in the editor, load the [DevClocktower](Assets/Project/Scenes/Level/DevClocktower.unity) scene and [ClockTower](Assets/Project/Scenes/Art/ClockTower.unity) scene. The scene contains several interactable objects.
 
 *Lift Control* - Demonstrates "Hand Grab" and "Poke" interactions.
 
@@ -51,7 +51,7 @@ For more information on these interactions please reference the *[Interaction SD
 
 ### Street
 
-The street scene demonstrates ISDK's Teleport Locomotion features. To run the scene in the edtor load the [DevStreet](Assets/Project/Scenes/Level/DevStreet.unity), [Street](Assets/Project/Scenes/Art/Street.unity) and [Street](Assets/Project/Scenes/Art/Street.unity) scenes.
+The street scene demonstrates ISDK's Teleport Locomotion features. To run the scene in the editor, load the [DevStreet](Assets/Project/Scenes/Level/DevStreet.unity) and [Street](Assets/Project/Scenes/Art/Street.unity) scenes.
 
 *Hand gesture based locomotion* - Allows the user to locomote about the scene using hand gestures for teleportation
 
@@ -66,7 +66,7 @@ To set up the wit.ai project:
 2. Define these Intents: "Pick_Up", "Move"
 3. Use Understanding to assign the Object Entity to the Pick_Up and Move intents, using phrases like "fly to the left side", "fly to the right side" and "pick up the box"
 
-To run the scene in the edtor load the [DevMixedReality](Assets/Project/Scenes/Level/DevMixedReality.unity) scene and the [MRPortals](Assets/Project/Scenes/Art/MRPortals.unity) scene. Once Voice SDK is set up the scene will respond to voice commands.
+To run the scene in the editor, load the [DevMixedReality](Assets/Project/Scenes/Level/DevMixedReality.unity) scene and the [MRPortals](Assets/Project/Scenes/Art/MRPortals.unity) scene. Once Voice SDK is set up the scene will respond to voice commands.
 
 *Passthrough* - Seeing the device passthrough feed composited with the virtual content
 
@@ -76,7 +76,7 @@ To run the scene in the edtor load the [DevMixedReality](Assets/Project/Scenes/L
 
 ### Haptics
 
-The haptics scene demonstrates the features of the Haptics SDK. To run the scene in the edtor load the [DevHaptics](Assets/Project/Scenes/Level/DevHaptics.unity) scene and the [MountainPeak](Assets/Project/Scenes/Art/MountainPeak.unity) scene.
+The haptics scene demonstrates the features of the Haptics SDK. To run the scene in the editor, load the [DevHaptics](Assets/Project/Scenes/Level/DevHaptics.unity) scene and the [MountainPeak](Assets/Project/Scenes/Art/MountainPeak.unity) scene.
 
 *Kinesis Modules* - Demonstrate ISDK's Distance Grab feature
 
